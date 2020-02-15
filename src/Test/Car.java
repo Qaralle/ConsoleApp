@@ -18,4 +18,7 @@ public class Car {
         return age;
     }
 
+    public Class<? extends Driver> getClassofMAN(){
+        return man.getClass();
+    }
 }
