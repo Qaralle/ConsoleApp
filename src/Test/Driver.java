@@ -6,4 +6,8 @@ public class Driver {
     public Driver(String name_) {
         this.name=name_;
     }
+
+    public String getName(){
+        return name;
+    }
 }
