@@ -1,4 +1,4 @@
-package Class;
+package ColClass;
 
 public class Coordinates {
     private Float x; //Значение поля должно быть больше -652, Поле не может быть null

@@ -1,4 +1,4 @@
-package Class;
+package ColClass;
 
 public enum Color {
     GREEN,

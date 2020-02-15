@@ -1,4 +1,4 @@
-package Class;
+package ColClass;
 
 public class Location {
     private Float x; //Поле не может быть null
