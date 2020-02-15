@@ -8,5 +8,6 @@ import java.util.LinkedList;
 public class CollectionController {
     Collection<Person> persons = new LinkedList<>();
 
+
 }
 
