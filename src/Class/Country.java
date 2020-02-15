@@ -1,3 +1,5 @@
+package Class;
+
 public enum Country {
     GERMANY,
     CHINA,

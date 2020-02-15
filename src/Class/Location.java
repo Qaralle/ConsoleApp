@@ -1,3 +1,5 @@
+package Class;
+
 public class Location {
     private Float x; //Поле не может быть null
     private double y;
