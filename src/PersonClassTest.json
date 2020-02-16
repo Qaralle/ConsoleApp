@@ -1,0 +1,30 @@
+[{
+  "id": 1850080270,
+  "name": "Andrew",
+  "coordinates": {
+    "x": 35.45,
+    "y": 78.56
+  },
+  "creationDate": {
+    "date": {
+      "year": 2020,
+      "month": 2,
+      "day": 16
+    },
+    "time": {
+      "hour": 13,
+      "minute": 48,
+      "second": 0,
+      "nano": 346000000
+    }
+  },
+  "height": 174.5,
+  "eyeColor": "GREEN",
+  "hairColor": "GREEN",
+  "nationality": "CHINA",
+  "location": {
+    "x": 22.5,
+    "y": 65.3,
+    "name": "Uhan\u0027"
+  }
+}]
