@@ -36,7 +36,7 @@ public class CollectionTask {
     }
     public void GetCollection(){
         Car[] carsArray = citizens.toArray(new Car[3]);
-        System.out.println(carsArray[0].getName());
+        System.out.println(carsArray[0].man.getName());
     }
 }
 
