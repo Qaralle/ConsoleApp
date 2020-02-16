@@ -8,6 +8,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Type;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -45,6 +46,16 @@ public class CollectionTask {
     public void GetCollection(){
         Person[] carsArray = citizens.toArray(new Person[3]);
         System.out.println(carsArray[1].getName());
+    }
+
+    public void printer() {
+        for (Person s : citizens) {
+            System.out.println(s.getName());
+        }
+    }
+
+    public void CollectionSort(){
+        Collections.sort(citizens,new CompareCenter());
     }
 }
 

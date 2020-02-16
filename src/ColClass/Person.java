@@ -40,7 +40,28 @@ public class Person {
 
     }
 
+    public long getId(){
+        return id;
+    }
     public String getName(){
         return name;
+    }
+    public Coordinates getCoordinates() {
+        return coordinates;
+    }
+    public Double getHeight(){
+        return height;
+    }
+    public Color getEyeColor(){
+        return eyeColor;
+    }
+    public Color getHairColor(){
+        return hairColor;
+    }
+    public Country getNationality(){
+        return nationality;
+    }
+    public  Location getLocation(){
+        return location;
     }
 }
