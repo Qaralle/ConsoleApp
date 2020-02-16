@@ -10,8 +10,7 @@ public class Main {
         CollectionTask ll = new CollectionTask();
         ll.load();
         ll.printer();
-        ll.CollectionSort();
-        ll.printer();
+
 
 
     }

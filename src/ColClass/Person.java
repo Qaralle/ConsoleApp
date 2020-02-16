@@ -2,7 +2,7 @@ package ColClass;
 
 import java.time.LocalDateTime;
 
-public class Person {
+public class Person{
     private static final long LIMIT = 10000000000L;
     private static long last = 0;
 
@@ -17,7 +17,7 @@ public class Person {
     private Country nationality; //Поле может быть null
     private Location location; //Поле может быть null
 
-    public static long getID() {
+    private static long getID() {
 
         long id = System.currentTimeMillis() % LIMIT;
         if ( id <= last ) {
@@ -26,17 +26,11 @@ public class Person {
         return last = id;
     }
 
+    public Person()  {
 
-    public Person(String name_, Coordinates coordinates_, Double height_, Color eyeColor_, Color hairColor_, Country nationality_, Location location_){
-        this.id= getID();
-        this.name=name_;
-        this.coordinates=coordinates_;
-        this.creationDate= LocalDateTime.now ();
-        this.height=height_;
-        this.eyeColor=eyeColor_;
-        this.hairColor=hairColor_;
-        this.nationality=nationality_;
-        this.location=location_;
+        this.id = getID();
+        this.creationDate = LocalDateTime.now();
+
 
     }
     public LocalDateTime getData(){
@@ -66,4 +60,5 @@ public class Person {
     public  Location getLocation(){
         return location;
     }
+
 }

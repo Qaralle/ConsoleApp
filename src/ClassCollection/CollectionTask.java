@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.lang.reflect.Type;
 import java.util.Collections;
 import java.util.LinkedList;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class CollectionTask {
@@ -34,7 +35,15 @@ public class CollectionTask {
             LinkedList<Person> addedShorty = serializer.fromJson(data.toString(), collectionType);
 
 
+
             for (Person s : addedShorty) {
+                Objects.requireNonNull(s.getName(), "bar must not be null");
+                Objects.requireNonNull(s.getCoordinates(), "bar must not be null");
+                Objects.requireNonNull(s.getHeight(), "bar must not be null");
+                Objects.requireNonNull(s.getEyeColor(), "bar must not be null");
+                Objects.requireNonNull(s.getHairColor(), "bar must not be null");
+                Objects.requireNonNull(s.getNationality(), "bar must not be null");
+                Objects.requireNonNull(s.getLocation(), "bar must not be null");
                 if (!citizens.contains(s)) citizens.add(s);
             }
             System.out.println("Коллекций успешно загружена");
@@ -45,12 +54,12 @@ public class CollectionTask {
     }
     public void GetCollection(){
         Person[] carsArray = citizens.toArray(new Person[3]);
-        System.out.println(carsArray[1].getName());
+        System.out.println(carsArray[0].getId());
     }
 
     public void printer() {
         for (Person s : citizens) {
-            System.out.println(s.getName());
+            System.out.println("Имя: "+s.getName()+" айди: "+s.getId()+" дата: "+s.getData()+" Цвет волос: "+s.getHairColor());
         }
     }
 
