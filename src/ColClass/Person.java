@@ -39,7 +39,9 @@ public class Person {
         this.location=location_;
 
     }
-
+    public LocalDateTime getData(){
+        return creationDate;
+    }
     public long getId(){
         return id;
     }

@@ -22,6 +22,7 @@ public class CompareCenter implements Comparator<Person> {
         compRes=compRes+(o1.getHairColor().compareTo(o2.getHairColor()));
         compRes=compRes+(o1.getNationality().compareTo(o2.getNationality()));
         compRes=compRes+(o1.getLocation().compareTo(o2.getLocation()));
+        compRes=compRes+(o1.getData().compareTo(o2.getData()));
         return compRes;
     }
 
