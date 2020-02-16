@@ -18,5 +18,6 @@ public class Main {
 
         CollectionTask ll = new CollectionTask();
         ll.load();
+        ll.GetCollection();
     }
 }

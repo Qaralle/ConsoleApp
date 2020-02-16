@@ -6,6 +6,7 @@ public class Person {
     private static final long LIMIT = 10000000000L;
     private static long last = 0;
 
+
     private long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
@@ -37,5 +38,9 @@ public class Person {
         this.nationality=nationality_;
         this.location=location_;
 
+    }
+
+    public String getName(){
+        return name;
     }
 }

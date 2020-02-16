@@ -1,7 +1,6 @@
 package ClassCollection;
 
 import ColClass.Person;
-import Test.Car;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
@@ -41,10 +40,11 @@ public class CollectionTask {
         } catch (JsonSyntaxException e){
             System.out.println("Ошибка блять синтаксиса нахуй !Сука учи теорию ");
         }
+
     }
     public void GetCollection(){
-        Car[] carsArray = citizens.toArray(new Car[3]);
-        System.out.println(carsArray[0].man.getName());
+        Person[] carsArray = citizens.toArray(new Person[3]);
+        System.out.println(carsArray[1].getName());
     }
 }
 
