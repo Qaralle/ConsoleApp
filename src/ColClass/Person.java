@@ -17,7 +17,7 @@ public class Person{
     private Country nationality; //Поле может быть null
     private Location location; //Поле может быть null
 
-    private static long getID() {
+    private static long setID() {
 
         long id = System.currentTimeMillis() % LIMIT;
         if ( id <= last ) {
@@ -28,7 +28,7 @@ public class Person{
 
     public Person()  {
 
-        this.id = getID();
+        this.id = setID();
         this.creationDate = LocalDateTime.now();
 
 
@@ -60,5 +60,30 @@ public class Person{
     public  Location getLocation(){
         return location;
     }
+
+
+    public void setName(String name_) {
+        this.name = name_;
+    }
+    public void setCoordinates(Coordinates o1) {
+        this.coordinates=o1;
+    }
+    public void setHeight(Double height_){
+        this.height=height_;
+    }
+    public void setEyeColor(Color c1){
+        this.eyeColor=c1;
+    }
+    public void setHairColor(Color c2){
+        this.hairColor=c2;
+    }
+    public void setNationality(Country o1){
+        this.nationality=o1;
+    }
+    public  void setLocation( Location o1){
+        this.location=o1;
+    }
+
+
 
 }

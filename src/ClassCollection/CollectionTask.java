@@ -17,8 +17,10 @@ public class CollectionTask {
     private LinkedList<Person> citizens;
     private File jsonCollection;
     private Gson serializer;
+    private NullPolice Police;
 
     {
+        Police = new NullPolice();
         serializer = new Gson();
         citizens = new LinkedList<>();
     }
@@ -37,18 +39,29 @@ public class CollectionTask {
 
 
             for (Person s : addedShorty) {
-                Objects.requireNonNull(s.getName(), "bar must not be null");
-                Objects.requireNonNull(s.getCoordinates(), "bar must not be null");
-                Objects.requireNonNull(s.getHeight(), "bar must not be null");
-                Objects.requireNonNull(s.getEyeColor(), "bar must not be null");
-                Objects.requireNonNull(s.getHairColor(), "bar must not be null");
-                Objects.requireNonNull(s.getNationality(), "bar must not be null");
-                Objects.requireNonNull(s.getLocation(), "bar must not be null");
+                Objects.requireNonNull(s.getName());
+                Objects.requireNonNull(s.getCoordinates());
+                Objects.requireNonNull(s.getHeight());
+                Objects.requireNonNull(s.getEyeColor());
+                Objects.requireNonNull(s.getHairColor());
+                Objects.requireNonNull(s.getNationality());
+                Objects.requireNonNull(s.getLocation());
                 if (!citizens.contains(s)) citizens.add(s);
+
             }
             System.out.println("Коллекций успешно загружена");
-        } catch (JsonSyntaxException e){
+        } catch (JsonSyntaxException e ){
             System.out.println("Ошибка блять синтаксиса нахуй !Сука учи теорию ");
+        } catch (NullPointerException e){
+            System.out.println("У одного из объектов null поле будет перезаписано автоматически");
+            LinkedList<Person> addedShorty = serializer.fromJson(data.toString(), collectionType);
+            for (Person s : addedShorty) {
+                Police.NullReplace(s);
+                if (!citizens.contains(s)) citizens.add(s);
+
+
+            }
+            System.out.println("Коллекций успешно загружена");
         }
 
     }

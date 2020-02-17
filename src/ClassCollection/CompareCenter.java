@@ -1,7 +1,6 @@
 package ClassCollection;
 
 import ColClass.Person;
-
 import java.util.Comparator;
 
 public class CompareCenter implements Comparator<Person> {
