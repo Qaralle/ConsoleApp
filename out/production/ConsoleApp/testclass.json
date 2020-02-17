@@ -1,0 +1,15 @@
+[{
+  "name": "VALERA",
+  "age": 12,
+  "man": {
+    "name": "VALENTIN"
+  }
+},
+  {
+    "name": "VALERA1",
+    "age": 112,
+    "man": {
+      "name": "VALENTIN1"
+    }
+  }
+]

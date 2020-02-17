@@ -1,0 +1,66 @@
+     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+     public static final String FILE_PATH = "src/testclass.json";
+
+
+
+
+       // try { //тут прпоисходит что-то
+        //    Scanner scanner = new Scanner(new File("src/testclass.json"));
+         //   StringBuffer data = new StringBuffer();
+          //  while (scanner.hasNext())
+          //      data.append(scanner.nextLine()).append("\n");
+          //  String json=data.toString();
+
+          //  Logger log=new Logger();
+           // Car car1 = GSON.fromJson(json, Car.class);
+
+           // log.IntegerRecord(car1.getAge());
+           // log.SimpleRecord(car1.getName());
+           // log.SimpleRecord(car1.man.getName());
+
+           // System.out.println((car1.man).getClass());
+           // System.out.println(car1.getClassofMAN());
+       // } catch (FileNotFoundException e){
+           // System.out.println("File Not Found");
+
+      //  }
+
+
+
+              CollectionTask ll = new CollectionTask();
+              ll.load();
+              ll.GetCollection();
+
+
+
+              ,
+                {
+                "id": 1850080270,
+                "name": "Andrew",
+                "coordinates": {
+                  "x": 35.45,
+                  "y": 78.56
+                },
+                "creationDate": {
+                  "date": {
+                    "year": 2020,
+                    "month": 2,
+                    "day": 16
+                  },
+                  "time": {
+                    "hour": 13,
+                    "minute": 48,
+                    "second": 0,
+                    "nano": 346000000
+                  }
+                },
+                "height": 174.5,
+                "eyeColor": "GREEN",
+                "hairColor": "GREEN",
+                "nationality": "CHINA",
+                "location": {
+                  "x": 22.5,
+                  "y": 65.3,
+                  "name": "Uhan\u0027"
+                }
+              }
