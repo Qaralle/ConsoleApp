@@ -15,7 +15,7 @@ public class Person{
     private Color eyeColor; //Поле может быть null
     private Color hairColor; //Поле не может быть null
     private Country nationality; //Поле может быть null
-    private Location location; //Поле может быть null
+    public Location location; //Поле может быть null
 
     private static long setID() {
 

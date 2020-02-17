@@ -34,11 +34,10 @@ public class CollectionTask {
         }
         Type collectionType = new TypeToken<LinkedList<Person> >() {}.getType();
         try {
-            LinkedList<Person> addedShorty = serializer.fromJson(data.toString(), collectionType);
+            LinkedList<Person> addedPerson = serializer.fromJson(data.toString(), collectionType);
 
 
-
-            for (Person s : addedShorty) {
+            for (Person s : addedPerson) {
                 Objects.requireNonNull(s.getName());
                 Objects.requireNonNull(s.getCoordinates());
                 Objects.requireNonNull(s.getHeight());
@@ -51,7 +50,7 @@ public class CollectionTask {
             }
             System.out.println("Коллекций успешно загружена");
         } catch (JsonSyntaxException e ){
-            System.out.println("Ошибка блять синтаксиса нахуй !Сука учи теорию ");
+            System.out.println("Ошибка блять синтаксиса нахуй !Сука учи теорию! Код писал макс");
         } catch (NullPointerException e){
             System.out.println("У одного из объектов null поле будет перезаписано автоматически");
             LinkedList<Person> addedShorty = serializer.fromJson(data.toString(), collectionType);
@@ -72,7 +71,7 @@ public class CollectionTask {
 
     public void printer() {
         for (Person s : citizens) {
-            System.out.println("Имя: "+s.getName()+" айди: "+s.getId()+" дата: "+s.getData()+" Цвет волос: "+s.getHairColor());
+            System.out.println("Имя: "+s.getName()+" айди: "+s.getId()+" дата: "+s.getData()+" Цвет волос: "+s.getHairColor()+" локация ; "+s.location.getClass());
         }
     }
 
