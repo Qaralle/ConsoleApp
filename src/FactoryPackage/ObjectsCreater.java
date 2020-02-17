@@ -5,4 +5,5 @@ public abstract class ObjectsCreater{
         PersonsBars bar = createObject();
     }
     public abstract PersonsBars createObject();
+
 }
