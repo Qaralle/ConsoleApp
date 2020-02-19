@@ -75,6 +75,10 @@ public class CollectionTask {
         }
     }
 
+    public void add(Person p1){
+        citizens.add(p1);
+    }
+
     public void CollectionSort(){
         Collections.sort(citizens,new CompareCenter());
     }

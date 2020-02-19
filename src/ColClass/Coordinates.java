@@ -1,6 +1,8 @@
 package ColClass;
 
-public class Coordinates implements Comparable<Coordinates>  {
+import CollectionInterface.FactoryPackage.PersonsBars;
+
+public class Coordinates implements Comparable<Coordinates>, PersonsBars {
     private Float x; //Значение поля должно быть больше -652, Поле не может быть null
     private Double y; //Поле не может быть null
     public Coordinates(Float _x,Double _y){

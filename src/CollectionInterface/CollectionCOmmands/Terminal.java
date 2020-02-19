@@ -1,17 +1,13 @@
 package CollectionInterface.CollectionCOmmands;
 
-import java.util.Scanner;
+        import java.util.Scanner;
 
 public abstract class Terminal implements invoker {
-    protected Command Add;
+    protected CommandALT add;
     protected Scanner scan;
 
-    public abstract void GetLine();
+    public abstract void interactiveMod();
 
-    @Override
-    public void AddElement() {
-        Add.execute();
-    }
 
 
 }

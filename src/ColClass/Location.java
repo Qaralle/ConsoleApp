@@ -1,6 +1,8 @@
 package ColClass;
 
-public class Location implements Comparable<Location>{
+import CollectionInterface.FactoryPackage.PersonsBars;
+
+public class Location implements Comparable<Location>, PersonsBars {
     private Float x; //Поле не может быть null
     private double y;
     private String name; //Длина строки не должна быть больше 222, Поле не может быть null
