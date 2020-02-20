@@ -71,7 +71,7 @@ public class CollectionTask {
 
     public void printer() {
         for (Person s : citizens) {
-            System.out.println("Имя: "+s.getName()+" айди: "+s.getId()+" дата: "+s.getData()+" Цвет волос: "+s.getHairColor()+" локация ; "+s.location.getClass());
+            System.out.println("Имя: "+s.getName()+" айди: "+s.getId()+" дата: "+s.getData()+" Цвет волос: "+s.getHairColor()+" локация ; "+s.location.getName());
         }
     }
 
