@@ -89,5 +89,10 @@ public class Add implements CommandALT<Object>{
         }
     }
 
+    @Override
+    public void execute(receiver res, long id) {
+
+    }
+
 
 }
