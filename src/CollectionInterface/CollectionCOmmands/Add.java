@@ -7,8 +7,8 @@ import ColClass.Country;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Add implements CommandALT<Object>{
-    private Scanner scan;
+public class Add extends CommandWithPars{
+    /*private Scanner scan;
 
 
     private String name;
@@ -29,11 +29,11 @@ public class Add implements CommandALT<Object>{
     {
         scan=new Scanner(System.in);
 
-    }
+    }*/
 
     @Override
     public void execute(receiver res) {
-        System.out.println("Введите параметры(имя персонажа и рост было указано при вызове команды)");
+        /*System.out.println("Введите параметры(имя персонажа и рост было указано при вызове команды)");
         System.out.println("Дальше введи Цвет волос и глаз через пробел. Возможные цвета: "+ Arrays.toString(Color.values()));
         if (scan.hasNextLine()) {
             buffer = (scan.nextLine().trim().split(" ", 2));
@@ -72,13 +72,14 @@ public class Add implements CommandALT<Object>{
         if (scan.hasNextDouble()) {
             y1=scan.nextDouble();
             catchN = scan.nextLine();
-        }
-
+        }*/
+        transporter.setFields(res);
+        this.setFieldsFromTransporter();
         res.Add(name,height,eyeColor,hairColor,nationality,x,y,x1,y1,name1);
 
     }
 
-    @Override
+    /*@Override
     public void SetParams(Object[] bar1) {
         if (bar1[0] instanceof String) {
             this.name = String.valueOf(bar1[0]);
@@ -87,12 +88,6 @@ public class Add implements CommandALT<Object>{
             this.name = String.valueOf(bar1[1]);
             this.height = Double.parseDouble(String.valueOf(bar1[0]));
         }
-    }
-
-    @Override
-    public void execute(receiver res, long id) {
-
-    }
-
+    }*/
 
 }

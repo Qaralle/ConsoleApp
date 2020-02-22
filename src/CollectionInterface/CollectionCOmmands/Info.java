@@ -7,9 +7,4 @@ public class Info implements Command{
     public void execute(receiver res) {
         res.info();
     }
-
-    @Override
-    public void execute(receiver res, long id) {
-
-    }
 }

@@ -5,9 +5,4 @@ public class Clear implements Command {
     public void execute(receiver res) {
         res.clear();
     }
-
-    @Override
-    public void execute(receiver res, long id) {
-
-    }
 }

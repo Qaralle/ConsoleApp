@@ -3,15 +3,21 @@ package CollectionInterface.CollectionCOmmands;
         import java.util.Scanner;
 
 public abstract class Terminal implements invoker {
-    protected CommandALT add;
+    protected Transporter transporter;
+    protected CommandWithPars add;
     protected Scanner scan;
     protected Command show;
     protected Command info;
-    protected CommandALT update;
+    protected CommandWithPars update;
     protected Command clear;
-    protected Command remove_by_id;
+    protected CommandWithPars remove_by_id;
+
+    /*{
+        transporter = new Transporter();
+    }*/
 
     public abstract void interactiveMod();
+    //public Transporter getTransporter(){return transporter;}
 
 
 

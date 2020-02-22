@@ -7,8 +7,11 @@ import ColClass.Country;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Update implements CommandALT<Object>{
-    private Scanner scan;
+public class Update extends CommandWithPars{
+    //private Scanner scan;
+
+    /*private long id;
+    private Transporter transporter;
 
     private String name;
     private Double height; //Поле не может быть null, Значение поля должно быть больше 0
@@ -28,13 +31,11 @@ public class Update implements CommandALT<Object>{
     {
         scan=new Scanner(System.in);
 
-    }
+    }*/
 
     @Override
-    public void execute(receiver res, long id) {
-
-
-        System.out.println("Введите параметры(имя персонажа и рост было указано при вызове команды)");
+    public void execute(receiver res) {
+ /*       System.out.println("Введите параметры(имя персонажа и рост было указано при вызове команды)");
 
         System.out.println("Дальше введи Цвет волос и глаз через пробел. Возможные цвета: "+ Arrays.toString(Color.values()));
         if (scan.hasNextLine()) {
@@ -74,27 +75,24 @@ public class Update implements CommandALT<Object>{
         if (scan.hasNextDouble()) {
             y1=scan.nextDouble();
             catchN = scan.nextLine();
-        }
-
-        res.update(id, name,height,eyeColor,hairColor,nationality,x,y,x1,y1,name1);
-
-    }
-
-    @Override
-    public void execute(receiver res) {
+        }*/
+        transporter.setFields(res);
+        this.setFieldsFromTransporter();
+        res.update(id, name, height, eyeColor, hairColor, nationality, x, y, x1, y1, name1);
 
     }
 
-    @Override
+    /*@Override
     public void SetParams(Object[] bar1) {
-        if (bar1[0] instanceof String) {
-            this.name = String.valueOf(bar1[0]);
-            this.height = Double.parseDouble((String) bar1[1]);
-        }else {
+        if (bar1[1] instanceof String) {
             this.name = String.valueOf(bar1[1]);
-            this.height = Double.parseDouble(String.valueOf(bar1[0]));
+            this.height = Double.parseDouble((String) bar1[2]);
+        }else {
+            this.name = String.valueOf(bar1[2]);
+            this.height = Double.parseDouble(String.valueOf(bar1[1]));
         }
-    }
+        this.id=Long.parseLong(String.valueOf(bar1[0]));
+    }*/
 
 
 }

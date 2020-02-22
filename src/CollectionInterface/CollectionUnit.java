@@ -10,7 +10,7 @@ import CollectionInterface.FactoryPackage.ObjectClassMaker;
 import java.util.LinkedList;
 import java.util.stream.Stream;
 
-public class CollectionUnit implements receiver {
+public class    CollectionUnit implements receiver {
 
     private CollectionTask ct;
     private CoordinatesMaker cm;
@@ -43,13 +43,15 @@ public class CollectionUnit implements receiver {
         loc.SetName(name1_);
 
         per=om.create();
-        per.setName(name_);
+        /*per.setName(name_);
         per.setCoordinates(coo);
         per.setHeight(height_);
         per.setEyeColor(eyeColor_);
         per.setHairColor(hairColor_);
         per.setNationality(nationality_);
-        per.setLocation(loc);
+        per.setLocation(loc);*/
+
+        per.setEverything(name_, coo, height_, eyeColor_, hairColor_, nationality_, loc);
 
         ct.add(per);
         System.out.println("Элемент добавлен");
@@ -60,7 +62,7 @@ public class CollectionUnit implements receiver {
     @Override
     public void show() {
         for (Person s : ct.GetCollection()) {
-            System.out.println("Имя: "+s.getName()+" айди: "+s.getId()+" дата: "+s.getData()+" Цвет волос: "+s.getHairColor()+" локация ; "+s.location.getName());
+            System.out.println("Имя: "+s.getName()+" айди: "+s.getId()+" дата: "+s.getData()+" Цвет волос: "+s.getHairColor()+" локация: "+s.location.getName());
         }
     }
 
@@ -83,19 +85,7 @@ public class CollectionUnit implements receiver {
         loc.SetName(nameL_);
 
         Stream<Person> personStream = ct.GetCollection().stream();
-        personStream.filter(person -> person.getId() == id).forEach(person -> person.setName(nameP_));
-        Stream<Person> personStream1 = ct.GetCollection().stream();
-        personStream1.filter(person -> person.getId() == id).forEach(person -> person.setCoordinates(coo));
-        Stream<Person> personStream2 = ct.GetCollection().stream();
-        personStream2.filter(person -> person.getId() == id).forEach(person -> person.setHeight(height_));
-        Stream<Person> personStream3 = ct.GetCollection().stream();
-        personStream3.filter(person -> person.getId() == id).forEach(person -> person.setEyeColor(eyeColor_));
-        Stream<Person> personStream4 = ct.GetCollection().stream();
-        personStream4.filter(person -> person.getId() == id).forEach(person -> person.setHairColor(hairColor_));
-        Stream<Person> personStream5 = ct.GetCollection().stream();
-        personStream5.filter(person -> person.getId() == id).forEach(person -> person.setNationality(nationality_));
-        Stream<Person> personStream6 = ct.GetCollection().stream();
-        personStream6.filter(person -> person.getId() == id).forEach(person -> person.setLocation(loc));
+        personStream.filter(person -> person.getId() == id).forEach(person -> person.setEverything(nameP_, coo, height_, eyeColor_, hairColor_, nationality_, loc));
 
         System.out.println("Господи хоть бы сработало");
         this.show();
@@ -110,8 +100,12 @@ public class CollectionUnit implements receiver {
 
     @Override
     public void remove_by_id(long id) {
-        /*Stream<Person> personStream = ct.GetCollection().stream();
-        personStream.filter(person -> person.getId() == id).forEach(person -> ct.GetCollection().remove(person));*/
+        for (int i=0; i<ct.GetCollection().size(); ++i){
+            if(ct.GetCollection().get(i).getId() == id){
+                ct.GetCollection().remove(i);
+                System.out.println("Удален объект с айди = "+id);
+            }
+        }
     }
 
 

@@ -6,8 +6,4 @@ public class Show implements Command {
         res.show();
     }
 
-    @Override
-    public void execute(receiver res, long id) {
-
-    }
 }
