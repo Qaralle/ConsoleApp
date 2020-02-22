@@ -138,7 +138,13 @@ public class CollectionUnit implements receiver {
     }
 
     @Override
-    public void countLessThanLocation(Location loc) {
+    public void countLessThanLocation(String namel) {
+
+        LocationMaker lm = new LocationMaker();
+        loc = lm.create();
+        loc.SetX(1f);
+        loc.SetY(1);
+        loc.SetName(namel);
         Stream<Person> personStream = ct.GetCollection().stream();
         System.out.println(personStream.filter(person -> person.getLocation().compareTo(loc) > 0).count());
     }
@@ -159,9 +165,11 @@ public class CollectionUnit implements receiver {
         FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\user\\Documents\\ConsoleApp\\src\\SaveCollection");
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
+        fileOutputStream.write("[".getBytes());
         for (int i=0; i<ct.GetCollection().size(); ++i) {
             fileOutputStream.write(gson.toJson(ct.GetCollection().get(i)).getBytes());
         }
+        fileOutputStream.write("]".getBytes());
         fileOutputStream.close();
     }
 

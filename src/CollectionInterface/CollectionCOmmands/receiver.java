@@ -16,7 +16,7 @@ public interface receiver {
     void remove_by_id(long id);
     void removeHead();
     void removeAnyByNationality(Country nationality); //разработчики осуждают нацизм в любых его проявлениях
-    void countLessThanLocation(Location loc);
+    void countLessThanLocation(String namel);
     void filterStartsWithName(String name);
     void save() throws IOException;
 }

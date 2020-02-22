@@ -79,17 +79,17 @@ public class ConsoleTerminal extends Terminal {
                 case("Remove_any_by_nationality"):
                     TypayaJava=(userCommand_[1].split(" ", 3));
                     removeAnyByNationality.getTransporter().SetParams(TypayaJava);
-                    removeAnyByNationality.execute(res);
+                    removeAnyByNationality.execute(res); break;
                 case("Count_less_than_location"):
                     TypayaJava=(userCommand_[1].split(" ", 3));
                     countLessThanLocation.getTransporter().SetParams(TypayaJava);
-                    countLessThanLocation.execute(res);
+                    countLessThanLocation.execute(res); break;
                 case("Filter_starts_with_name"):
                     TypayaJava=(userCommand_[1].split(" ", 3));
                     filterStartsWithName.getTransporter().SetParams(TypayaJava);
-                    filterStartsWithName.execute(res);
+                    filterStartsWithName.execute(res); break;
                 case ("Save"):
-                    save.execute(res);
+                    save.execute(res); break;
             }
 
         }

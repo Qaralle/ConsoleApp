@@ -77,7 +77,6 @@ public class Transporter {
 
     public void SetParams(Object[] bar1) {
         if (bar1.length == 2) {
-            //if (bar1[1] instanceof String) {
             name = String.valueOf(bar1[0]);
             height = Double.parseDouble((String) bar1[1]);
         }else if (bar1.length > 2){
@@ -88,23 +87,15 @@ public class Transporter {
             try{
                 id=Long.parseLong(String.valueOf(bar1[0]));
             }catch (NumberFormatException ex){
-                /*name1 = ((String) bar1[0]);
-                LocationMaker lm = new LocationMaker();
-                loc = lm.create();
-                loc.SetX(1f);
-                loc.SetY(1);
-                loc.SetName(name1);*/
+                name1 = ((String) bar1[0]);
 
                 //nationality=Country.valueOf((String) bar1[0]);
 
-                name = (String) bar1[0];
+                //name = (String) bar1[0];
 
             }
         }
-        /*}else {
-            name = String.valueOf(bar1[2]);
-            height = Double.parseDouble(String.valueOf(bar1[1]));
-        }*/
+
     }
 
 
