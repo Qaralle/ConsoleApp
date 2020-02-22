@@ -12,7 +12,6 @@ import com.google.gson.GsonBuilder;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.stream.Stream;
 
 public class CollectionUnit implements receiver {
@@ -140,7 +139,6 @@ public class CollectionUnit implements receiver {
     @Override
     public void countLessThanLocation(String namel) {
 
-        LocationMaker lm = new LocationMaker();
         loc = lm.create();
         loc.SetX(1f);
         loc.SetY(1);

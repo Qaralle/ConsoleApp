@@ -3,13 +3,12 @@ package CollectionInterface.CollectionCOmmands;
 import ColClass.Color;
 import ColClass.Country;
 import ColClass.Location;
-import CollectionInterface.FactoryPackage.CoordinatesMaker;
-import CollectionInterface.FactoryPackage.LocationMaker;
 
 import java.util.Arrays;
+import java.util.Map;
 import java.util.Scanner;
 
-public class Transporter {
+public class Transporter implements SetterParams<Map<String,String>> {
     private Scanner scan;
 
     private long id;
@@ -74,29 +73,18 @@ public class Transporter {
         }
 
     }
+    @Override
+    public void SetParams(Map<String, String> bar1) {
 
-    public void SetParams(Object[] bar1) {
-        if (bar1.length == 2) {
-            name = String.valueOf(bar1[0]);
-            height = Double.parseDouble((String) bar1[1]);
-        }else if (bar1.length > 2){
-            id=Long.parseLong(String.valueOf(bar1[0]));
-            name = String.valueOf(bar1[1]);
-            height = Double.parseDouble((String) bar1[2]);
-        }else{
-            try{
-                id=Long.parseLong(String.valueOf(bar1[0]));
-            }catch (NumberFormatException ex){
-                name1 = ((String) bar1[0]);
-
-                //nationality=Country.valueOf((String) bar1[0]);
-
-                //name = (String) bar1[0];
-
-            }
-        }
+            this.name = bar1.getOrDefault("name","1213123");
+            this.height=Double.parseDouble(bar1.getOrDefault("height","123.12"));
+            this.id=Long.parseLong(bar1.getOrDefault("id","123123123"));
+            this.name1=bar1.getOrDefault("nameL","123123321");
+            this.nationality=Country.valueOf(bar1.getOrDefault("nationality","CHINA"));
 
     }
+
+
 
 
     public long getId() { return id; }
@@ -111,4 +99,6 @@ public class Transporter {
     public Float getX1() { return x1; }
     public String getName1() { return name1; }
     public Location getLoc(){ return loc;}
+
+
 }
