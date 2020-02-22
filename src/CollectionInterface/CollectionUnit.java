@@ -6,11 +6,16 @@ import CollectionInterface.CollectionCOmmands.receiver;
 import CollectionInterface.FactoryPackage.CoordinatesMaker;
 import CollectionInterface.FactoryPackage.LocationMaker;
 import CollectionInterface.FactoryPackage.ObjectClassMaker;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.stream.Stream;
 
-public class    CollectionUnit implements receiver {
+public class CollectionUnit implements receiver {
 
     private CollectionTask ct;
     private CoordinatesMaker cm;
@@ -100,12 +105,64 @@ public class    CollectionUnit implements receiver {
 
     @Override
     public void remove_by_id(long id) {
-        for (int i=0; i<ct.GetCollection().size(); ++i){
-            if(ct.GetCollection().get(i).getId() == id){
-                ct.GetCollection().remove(i);
-                System.out.println("Удален объект с айди = "+id);
+        Iterator<Person> it = ct.GetCollection().iterator();
+        while (it.hasNext()){
+            Person p = it.next();
+            if(p.getId() == id){
+                it.remove();
+                System.out.println("Удален объект с айди = "+id); break;
             }
         }
+    }
+
+    @Override
+    public void removeHead() {
+        System.out.println("Имя: "+ct.GetCollection().get(0).getName()+
+                            " айди: "+ct.GetCollection().get(0).getId()+
+                            " дата: "+ct.GetCollection().get(0).getData()+
+                            " Цвет волос: "+ct.GetCollection().get(0).getHairColor()+
+                            " локация: "+ct.GetCollection().get(0).location.getName());
+        ct.GetCollection().remove(0);
+    }
+
+    @Override
+    public void removeAnyByNationality(Country nationality) {
+        Iterator<Person> it = ct.GetCollection().iterator();
+        while (it.hasNext()){
+            Person p = it.next();
+            if(p.getNationality() == nationality){
+                it.remove();
+                System.out.println("Удален объект по национальности = "+nationality); break;
+            }
+        }
+    }
+
+    @Override
+    public void countLessThanLocation(Location loc) {
+        Stream<Person> personStream = ct.GetCollection().stream();
+        System.out.println(personStream.filter(person -> person.getLocation().compareTo(loc) > 0).count());
+    }
+
+    @Override
+    public void filterStartsWithName(String name) {
+        Iterator<Person> it = ct.GetCollection().iterator();
+        while (it.hasNext()){
+            Person p = it.next();
+            if(p.getName().startsWith(name)){
+                System.out.println(p.getName());
+            }
+        }
+    }
+
+    @Override
+    public void save() throws IOException {
+        FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\user\\Documents\\ConsoleApp\\src\\SaveCollection");
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+        for (int i=0; i<ct.GetCollection().size(); ++i) {
+            fileOutputStream.write(gson.toJson(ct.GetCollection().get(i)).getBytes());
+        }
+        fileOutputStream.close();
     }
 
 

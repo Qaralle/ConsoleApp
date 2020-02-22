@@ -2,6 +2,9 @@ package CollectionInterface.CollectionCOmmands;
 
 import ColClass.Color;
 import ColClass.Country;
+import ColClass.Location;
+import CollectionInterface.FactoryPackage.CoordinatesMaker;
+import CollectionInterface.FactoryPackage.LocationMaker;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -20,6 +23,7 @@ public class Transporter {
     private Float x1; //Поле не может быть null
     private double y1;
     private String name1; //Длина строки не должна быть больше 222, Поле не может быть null
+    private Location loc;
 
 
     private String[] buffer;
@@ -81,7 +85,21 @@ public class Transporter {
             name = String.valueOf(bar1[1]);
             height = Double.parseDouble((String) bar1[2]);
         }else{
-            id=Long.parseLong(String.valueOf(bar1[0]));
+            try{
+                id=Long.parseLong(String.valueOf(bar1[0]));
+            }catch (NumberFormatException ex){
+                /*name1 = ((String) bar1[0]);
+                LocationMaker lm = new LocationMaker();
+                loc = lm.create();
+                loc.SetX(1f);
+                loc.SetY(1);
+                loc.SetName(name1);*/
+
+                //nationality=Country.valueOf((String) bar1[0]);
+
+                name = (String) bar1[0];
+
+            }
         }
         /*}else {
             name = String.valueOf(bar1[2]);
@@ -101,4 +119,5 @@ public class Transporter {
     public Float getX() { return x; }
     public Float getX1() { return x1; }
     public String getName1() { return name1; }
+    public Location getLoc(){ return loc;}
 }

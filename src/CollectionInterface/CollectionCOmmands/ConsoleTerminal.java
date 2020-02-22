@@ -25,7 +25,11 @@ public class ConsoleTerminal extends Terminal {
         update=new Update();
         clear=new Clear();
         remove_by_id=new RemoveById();
-
+        removeHead=new RemoveHead();
+        removeAnyByNationality=new RemoveAnyByNationality();
+        countLessThanLocation=new CountLessThanLocation();
+        filterStartsWithName=new FilterStartsWithName();
+        save=new Save();
     }
 
     private String ObjectsName;
@@ -70,7 +74,22 @@ public class ConsoleTerminal extends Terminal {
                     TypayaJava=(userCommand_[1].split(" ", 3));
                     remove_by_id.getTransporter().SetParams(TypayaJava);
                     remove_by_id.execute(res); break;
-
+                case("Remove_head"):
+                    removeHead.execute(res); break;
+                case("Remove_any_by_nationality"):
+                    TypayaJava=(userCommand_[1].split(" ", 3));
+                    removeAnyByNationality.getTransporter().SetParams(TypayaJava);
+                    removeAnyByNationality.execute(res);
+                case("Count_less_than_location"):
+                    TypayaJava=(userCommand_[1].split(" ", 3));
+                    countLessThanLocation.getTransporter().SetParams(TypayaJava);
+                    countLessThanLocation.execute(res);
+                case("Filter_starts_with_name"):
+                    TypayaJava=(userCommand_[1].split(" ", 3));
+                    filterStartsWithName.getTransporter().SetParams(TypayaJava);
+                    filterStartsWithName.execute(res);
+                case ("Save"):
+                    save.execute(res);
             }
 
         }
