@@ -8,21 +8,23 @@ import com.google.gson.reflect.TypeToken;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Type;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 
 public class CollectionTask {
     private LinkedList<Person> citizens;
     private File jsonCollection;
     private Gson serializer;
     private NullPolice Police;
+    private String dateInit;
 
     {
         Police = new NullPolice();
         serializer = new Gson();
         citizens = new LinkedList<>();
+        Calendar calendar = Calendar.getInstance();
+        dateInit = calendar.get(Calendar.DAY_OF_MONTH) +".";
+        dateInit += (calendar.get(Calendar.MONTH) + 1) +".";
+        dateInit += Integer.toString(calendar.get(Calendar.YEAR));
     }
 
     public void load() throws FileNotFoundException, JsonSyntaxException {
@@ -64,15 +66,10 @@ public class CollectionTask {
         }
 
     }
-    public void GetCollection(){
-        Person[] carsArray = citizens.toArray(new Person[3]);
-        System.out.println(carsArray[0].getId());
-    }
-
-    public void printer() {
-        for (Person s : citizens) {
-            System.out.println("Имя: "+s.getName()+" айди: "+s.getId()+" дата: "+s.getData()+" Цвет волос: "+s.getHairColor()+" локация ; "+s.location.getName());
-        }
+    public LinkedList<Person> GetCollection(){
+        //Person[] carsArray = citizens.toArray(new Person[3]);
+        //System.out.println(carsArray[0].getId());
+        return citizens;
     }
 
     public void add(Person p1){
@@ -82,5 +79,7 @@ public class CollectionTask {
     public void CollectionSort(){
         Collections.sort(citizens,new CompareCenter());
     }
+
+    public String getDateInit(){ return dateInit;}
 }
 

@@ -1,5 +1,5 @@
 package CollectionInterface.CollectionCOmmands;
 
 public interface Command {
-     void execute();
+     void execute(receiver res);
 }

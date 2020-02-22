@@ -1,6 +1,7 @@
 package ColClass;
 
 import java.time.LocalDateTime;
+import java.util.stream.Stream;
 
 public class Person{
     private static final long LIMIT = 10000000000L;
@@ -82,6 +83,16 @@ public class Person{
     }
     public  void setLocation( Location o1){
         this.location=o1;
+    }
+
+    public void setEverything(String name, Coordinates coo, Double height, Color eyeColor, Color hairColor, Country nationality, Location loc){
+        this.setName(name);
+        this.setCoordinates(coo);
+        this.setHeight(height);
+        this.setEyeColor(eyeColor);
+        this.setHairColor(hairColor);
+        this.setNationality(nationality);
+        this.setLocation(loc);
     }
 
 
