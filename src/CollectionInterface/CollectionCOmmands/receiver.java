@@ -1,10 +1,9 @@
 package CollectionInterface.CollectionCOmmands;
 
-import ClassCollection.CollectionTask;
 import ColClass.Color;
 import ColClass.Country;
-import ColClass.Location;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public interface receiver {
@@ -19,4 +18,5 @@ public interface receiver {
     void countLessThanLocation(String namel);
     void filterStartsWithName(String name);
     void save() throws IOException;
+    void executeScript(String file_name) throws FileNotFoundException;
 }

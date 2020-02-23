@@ -1,11 +1,7 @@
 package CollectionInterface.CollectionCOmmands;
 
 
-import ColClass.Color;
-import ColClass.Country;
-
-import java.util.Arrays;
-import java.util.Scanner;
+import java.io.FileNotFoundException;
 
 public class Add extends CommandWithPars{
     /*private Scanner scan;
@@ -32,7 +28,7 @@ public class Add extends CommandWithPars{
     }*/
 
     @Override
-    public void execute(receiver res) {
+    public void execute(receiver res) throws FileNotFoundException {
         /*System.out.println("Введите параметры(имя персонажа и рост было указано при вызове команды)");
         System.out.println("Дальше введи Цвет волос и глаз через пробел. Возможные цвета: "+ Arrays.toString(Color.values()));
         if (scan.hasNextLine()) {
@@ -89,5 +85,8 @@ public class Add extends CommandWithPars{
             this.height = Double.parseDouble(String.valueOf(bar1[0]));
         }
     }*/
+    public Add(Transporter tr){
+        super(tr);
+    }
 
 }

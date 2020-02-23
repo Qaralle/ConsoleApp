@@ -2,6 +2,7 @@ package CollectionInterface;
 
 import ClassCollection.CollectionTask;
 import ColClass.*;
+import CollectionInterface.CollectionCOmmands.FileTerminal;
 import CollectionInterface.CollectionCOmmands.receiver;
 import CollectionInterface.FactoryPackage.CoordinatesMaker;
 import CollectionInterface.FactoryPackage.LocationMaker;
@@ -9,9 +10,12 @@ import CollectionInterface.FactoryPackage.ObjectClassMaker;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.Scanner;
 import java.util.stream.Stream;
 
 public class CollectionUnit implements receiver {
@@ -55,11 +59,11 @@ public class CollectionUnit implements receiver {
         per.setNationality(nationality_);
         per.setLocation(loc);*/
 
+
         per.setEverything(name_, coo, height_, eyeColor_, hairColor_, nationality_, loc);
 
         ct.add(per);
         System.out.println("Элемент добавлен");
-        this.show();
 
     }
 
@@ -160,15 +164,26 @@ public class CollectionUnit implements receiver {
 
     @Override
     public void save() throws IOException {
-        FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\user\\Documents\\ConsoleApp\\src\\SaveCollection");
+        FileOutputStream fileOutputStream = new FileOutputStream("SaveCollection.json");
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
         fileOutputStream.write("[".getBytes());
         for (int i=0; i<ct.GetCollection().size(); ++i) {
             fileOutputStream.write(gson.toJson(ct.GetCollection().get(i)).getBytes());
+            if(ct.GetCollection().size()-i!=1) {
+                fileOutputStream.write(",".getBytes());
+            }
         }
         fileOutputStream.write("]".getBytes());
         fileOutputStream.close();
+    }
+
+    @Override
+    public void executeScript(String file_name) throws FileNotFoundException {
+        Scanner scan =new Scanner(new File(file_name));
+        FileTerminal ft = new FileTerminal(file_name,scan,this);
+
+
     }
 
 
