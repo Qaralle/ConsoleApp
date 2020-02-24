@@ -3,21 +3,57 @@ import ColClass.*;
 
 public class NullPolice {
     public static void NullReplace(Person p){
-        if (p.getName()==null) p.setName("noname"+ p.getId());
-        if (p.getCoordinates()==null) p.setCoordinates(new Coordinates(0f, 0d));
-        if (p.getHeight()==null) p.setHeight(123.0);
-        if (p.getHairColor()==null) p.setHairColor(Color.GREEN);
-        if (p.getEyeColor()==null) p.setEyeColor(Color.GREEN);
-        if (p.getNationality()==null) p.setNationality(Country.CHINA);
-        if (p.getLocation()==null) p.setLocation(new Location(0f, 0d, "Udomlya"));
+        if (p.getName()==null){
+            System.out.println("У одного из объектов null поле будет перезаписано автоматически");
+            p.setName("noname"+ p.getId());
+        }
+        if (p.getCoordinates()==null){
+            System.out.println("У одного из объектов null поле будет перезаписано автоматически");
+            p.setCoordinates(new Coordinates(0f, 0d));
+        }
+        if (p.getHeight()==null){
+            System.out.println("У одного из объектов null поле будет перезаписано автоматически");
+            p.setHeight(123.0);
+        }
+        if (p.getHairColor()==null){
+            System.out.println("У одного из объектов null поле будет перезаписано автоматически");
+            p.setHairColor(Color.GREEN);
+        }
+        if (p.getEyeColor()==null){
+            System.out.println("У одного из объектов null поле будет перезаписано автоматически");
+            p.setEyeColor(Color.GREEN);
+        }
+        if (p.getNationality()==null){
+            System.out.println("У одного из объектов null поле будет перезаписано автоматически");
+            p.setNationality(Country.CHINA);
+        }
+        if (p.getLocation()==null){
+            System.out.println("У одного из объектов null поле будет перезаписано автоматически");
+            p.setLocation(new Location(0f, 0d, "Udomlya"));
+        }
     }
     public static void NullLocationReplace(Location loc){
-        if (loc.getName()==null) loc.SetName("Udomlya");
-        if (loc.getX()==null) loc.SetX(0f);
-        if (Double.valueOf(loc.getY())==null) loc.SetY(0d);
+        if (loc.getName()==null){
+            System.out.println("У одного из объектов null поле будет перезаписано автоматически");
+            loc.SetName("Udomlya");
+        }
+        if (loc.getX()==null){
+            System.out.println("У одного из объектов null поле будет перезаписано автоматически");
+            loc.SetX(0f);
+        }
+        if (Double.valueOf(loc.getY())==null){
+            System.out.println("У одного из объектов null поле будет перезаписано автоматически");
+            loc.SetY(0d);
+        }
     }
     public static void NullCoordinatesReplace(Coordinates coo){
-        if (coo.getX()==null) coo.SetX(0f);
-        if (coo.getY()==null) coo.SetY(0d);
+        if (coo.getX()==null){
+            System.out.println("У одного из объектов null поле будет перезаписано автоматически");
+            coo.SetX(0f);
+        }
+        if (coo.getY()==null){
+            System.out.println("У одного из объектов null поле будет перезаписано автоматически");
+            coo.SetY(0d);
+        }
     }
 }

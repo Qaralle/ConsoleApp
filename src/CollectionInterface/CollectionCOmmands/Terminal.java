@@ -229,7 +229,7 @@ public abstract class Terminal implements invoker {
                         help.execute(res);
                         break;
                     default:
-                        System.err.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'hel1p'");break;
+                        System.err.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'");break;
 
 
                 }
@@ -244,7 +244,7 @@ public abstract class Terminal implements invoker {
                 System.err.println("Файл не найден");
                 break;
             } catch (IllegalArgumentException ex) {
-                System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям1111.");
+                System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям.");
                 break;
             }
         }
