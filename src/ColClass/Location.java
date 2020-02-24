@@ -17,6 +17,9 @@ public class Location implements Comparable<Location> {
     public String getName(){
         return name;
     }
+    public Float getX() { return x; }
+    public double getY() { return y; }
+
     @Override
     public int compareTo(Location o) {
         return name.compareTo(o.getName());

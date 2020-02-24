@@ -1,5 +1,8 @@
 package ColClass;
 
+import ClassCollection.FieldPolice;
+import ClassCollection.NullPolice;
+
 import java.time.LocalDateTime;
 import java.util.stream.Stream;
 
@@ -93,6 +96,8 @@ public class Person{
         this.setHairColor(hairColor);
         this.setNationality(nationality);
         this.setLocation(loc);
+        NullPolice.NullReplace(this);
+        FieldPolice.FieldReplace(this);
     }
 
 
