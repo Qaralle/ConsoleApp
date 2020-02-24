@@ -27,6 +27,8 @@ public abstract class Terminal implements invoker {
     protected String userCommand;
     protected String[] userCommand_;
     protected receiver res;
+    private String lastCommnad;
+    private int i;
 
     protected Map<String, String> KakJeUmenyaGoritJopa;
     protected String[] TypayaJava;
@@ -49,12 +51,16 @@ public abstract class Terminal implements invoker {
 
     @Override
     public void interactiveMod() throws FileNotFoundException {
+        i=0;
         while (scan.hasNextLine()) {
             try {
 
                 KakJeUmenyaGoritJopa.clear();
                 userCommand = scan.nextLine();
                 userCommand_ = userCommand.trim().split(" ", 2);
+                if (i==0){
+                    lastCommnad=userCommand_[0];
+                }
                 switch (userCommand_[0]) {
                     case ("add"):
                         //System.out.println("Опа фраерок добавить что-то решил");
@@ -66,9 +72,10 @@ public abstract class Terminal implements invoker {
                             KakJeUmenyaGoritJopa.put("height", TypayaJava[1]);
                             add.getTransporter().SetParams(KakJeUmenyaGoritJopa);
                             add.execute(res);
-                        }else{
+                        } else {
                             System.err.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'");
-                        } break;
+                        }
+                        break;
                     /*}catch (ArrayIndexOutOfBoundsException ex){
                         System.err.println("Некорректный синтаксис команды. Используйте 'help'");
                         break;
@@ -99,7 +106,7 @@ public abstract class Terminal implements invoker {
                             KakJeUmenyaGoritJopa.put("height", TypayaJava[2]);
                             update.getTransporter().SetParams(KakJeUmenyaGoritJopa);
                             update.execute(res);
-                        }else {
+                        } else {
                             System.err.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'");
                         }
                         break;
@@ -211,22 +218,34 @@ public abstract class Terminal implements invoker {
                             KakJeUmenyaGoritJopa.put("height", TypayaJava[1]);
                             addIfMin.getTransporter().SetParams(KakJeUmenyaGoritJopa);
                             addIfMin.execute(res);
-                        }else{
+                        } else {
                             System.err.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'");
                         }
                         break;
+                    /*}catch (Exception ex){
+                        System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям."); break;
+                    }*/
                     case ("help"):
                         help.execute(res);
                         break;
                     default:
-                        System.err.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'"); break;
+                        System.err.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'hel1p'");break;
+
+
                 }
+                lastCommnad=userCommand_[0];
+                i=i+1;
+
+
             } catch (ArrayIndexOutOfBoundsException ex) {
                 System.err.println("Некорректный синтаксис команды. Используйте 'help'");
+                break;
             } catch (FileNotFoundException ex) {
                 System.err.println("Файл не найден");
-            } catch (Exception ex) {
-                System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям.");
+                break;
+            } catch (IllegalArgumentException ex) {
+                System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям1111.");
+                break;
             }
         }
     }

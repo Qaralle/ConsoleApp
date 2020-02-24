@@ -10,28 +10,27 @@ public class FileTerminal extends Terminal  {
 
     public FileTerminal(String file_name_,Scanner scan,receiver rec_ ) throws FileNotFoundException {
         super(rec_,scan);
+
         this.file_name=file_name_;
-        add=new Add(new FileTransporter(file_name));
+        this.scan=scan;
+        add=new Add(new FileTransporter(scan));
         show=new Show();
         info=new Info();
-        update=new Update(new FileTransporter(file_name));
+        update=new Update(new FileTransporter(scan));
         clear=new Clear();
-        remove_by_id=new RemoveById(new FileTransporter(file_name));
+        remove_by_id=new RemoveById(new FileTransporter(scan));
         removeHead=new RemoveHead();
-        removeAnyByNationality=new RemoveAnyByNationality(new FileTransporter(file_name));
-        countLessThanLocation=new CountLessThanLocation(new FileTransporter(file_name));
-        filterStartsWithName=new FilterStartsWithName(new FileTransporter(file_name));
+        removeAnyByNationality=new RemoveAnyByNationality(new FileTransporter(scan));
+        countLessThanLocation=new CountLessThanLocation(new FileTransporter(scan));
+        filterStartsWithName=new FilterStartsWithName(new FileTransporter(scan));
         save=new Save();
         KakJeUmenyaGoritJopa = new HashMap<>();
-        executeScript = new ExecuteScript(new FileTransporter(file_name));
+        executeScript = new ExecuteScript(new FileTransporter(scan));
         this.interactiveMod();
         exit=new Exit();
         history=new History();
         addIfMin = new AddIfMin(new ConsoleTranspoeter());
         help=new Help();
-    }
-    {
-        userCommand = "";
     }
 
 }

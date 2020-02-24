@@ -4,7 +4,6 @@ import CollectionInterface.CollectionCOmmands.Terminal;
 import CollectionInterface.CollectionCOmmands.receiver;
 import CollectionInterface.CollectionUnit;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Main {
@@ -17,7 +16,8 @@ public class Main {
         try {
             CT.load(args[0]);
         }catch (Exception ex){
-            CT.load("src/PersonClassTest.json");
+            System.out.println(args[0]);
+            CT.load("src\\PersonClassTest.json");
         }
         receiver CU = new CollectionUnit(CT);
 

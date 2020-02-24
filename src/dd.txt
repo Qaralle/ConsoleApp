@@ -6,7 +6,7 @@ CHINA
 LOL
 31,1
 33232,1
-add {Valera 123.1}
+Add {Vale1ntin 123.1}
 GREEN BLACK
 CHINA
 12,1
@@ -14,3 +14,12 @@ CHINA
 LOL
 31,1
 33232,1
+add {Vale1ntin 123.1}
+GREEN BLACK
+CHINA
+12,1
+23,1
+LOL
+31,1
+33232,1
+show
