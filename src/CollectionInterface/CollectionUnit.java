@@ -2,6 +2,8 @@ package CollectionInterface;
 
 import ClassCollection.CollectionTask;
 import ClassCollection.CompareCenter;
+import ClassCollection.FieldPolice;
+import ClassCollection.NullPolice;
 import ColClass.*;
 import CollectionInterface.CollectionCOmmands.FileTerminal;
 import CollectionInterface.CollectionCOmmands.receiver;
@@ -46,16 +48,22 @@ public class CollectionUnit implements receiver {
         coo=cm.create();
         coo.SetX(x_);
         coo.SetY(y_);
+        NullPolice.NullCoordinatesReplace(coo);
+        FieldPolice.FieldCoordinatesReplace(coo);
 
         loc=lm.create();
         loc.SetX(x1_);
         loc.SetY(y1_);
         loc.SetName(name1_);
+        NullPolice.NullLocationReplace(loc);
+        FieldPolice.FieldLocationReplace(loc);
 
         per=om.create();
 
         per.setEverything(name_, coo, height_, eyeColor_, hairColor_, nationality_, loc);
 
+        NullPolice.NullReplace(per);
+        FieldPolice.FieldReplace(per);
         ct.add(per);
         System.out.println("Элемент добавлен");
 
@@ -80,11 +88,15 @@ public class CollectionUnit implements receiver {
         coo=cm.create();
         coo.SetX(x_);
         coo.SetY(y_);
+        NullPolice.NullCoordinatesReplace(coo);
+        FieldPolice.FieldCoordinatesReplace(coo);
 
         loc=lm.create();
         loc.SetX(x1_);
         loc.SetY(y1_);
         loc.SetName(nameL_);
+        NullPolice.NullLocationReplace(loc);
+        FieldPolice.FieldLocationReplace(loc);
 
         Stream<Person> personStream = ct.GetCollection().stream();
         personStream.filter(person -> person.getId() == id).forEach(person -> person.setEverything(nameP_, coo, height_, eyeColor_, hairColor_, nationality_, loc));
@@ -141,6 +153,9 @@ public class CollectionUnit implements receiver {
         loc.SetX(1f);
         loc.SetY(1);
         loc.SetName(namel);
+        NullPolice.NullLocationReplace(loc);
+        FieldPolice.FieldLocationReplace(loc);
+
         Stream<Person> personStream = ct.GetCollection().stream();
         System.out.println(personStream.filter(person -> person.getLocation().compareTo(loc) > 0).count());
     }
@@ -198,11 +213,15 @@ public class CollectionUnit implements receiver {
         coo=cm.create();
         coo.SetX(x_);
         coo.SetY(y_);
+        NullPolice.NullCoordinatesReplace(coo);
+        FieldPolice.FieldCoordinatesReplace(coo);
 
         loc=lm.create();
         loc.SetX(x1_);
         loc.SetY(y1_);
         loc.SetName(name1_);
+        NullPolice.NullLocationReplace(loc);
+        FieldPolice.FieldLocationReplace(loc);
 
         per=om.create();
 
@@ -214,6 +233,8 @@ public class CollectionUnit implements receiver {
 
         if((ct.GetCollection().size() == 0) || (compareCenter.compare(per, ct.GetCollection().getFirst()) < 0)){
             ct.GetCollection().add(per);
+            NullPolice.NullReplace(per);
+            FieldPolice.FieldReplace(per);
         }
     }
 

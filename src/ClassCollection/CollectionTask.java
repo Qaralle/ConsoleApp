@@ -7,6 +7,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 import java.util.*;
 
@@ -14,12 +15,13 @@ public class CollectionTask {
     private LinkedList<Person> citizens;
     private File jsonCollection;
     private Gson serializer;
-    private NullPolice Police;
+    //private NullPolice nullPolice;
+    //private FieldPolice fieldPolice;
     private String dateInit;
     private String[] history;
 
     {
-        Police = new NullPolice();
+        //nullPolice = new NullPolice();
         serializer = new Gson();
         citizens = new LinkedList<>();
 
@@ -60,7 +62,8 @@ public class CollectionTask {
             System.out.println("У одного из объектов null поле будет перезаписано автоматически");
             LinkedList<Person> addedShorty = serializer.fromJson(data.toString(), collectionType);
             for (Person s : addedShorty) {
-                Police.NullReplace(s);
+                NullPolice.NullReplace(s);
+                FieldPolice.FieldReplace(s);
                 if (!citizens.contains(s)) citizens.add(s);
 
 
