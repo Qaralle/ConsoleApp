@@ -1,13 +1,12 @@
 package CollectionInterface.CollectionCOmmands;
 
 
-import ColClass.Color;
-import ColClass.Country;
-
-import java.util.Arrays;
-import java.util.Scanner;
+import java.io.FileNotFoundException;
 
 public class Update extends CommandWithPars{
+    public Update(Transporter tr) {
+        super(tr);
+    }
     //private Scanner scan;
 
     /*private long id;
@@ -34,7 +33,7 @@ public class Update extends CommandWithPars{
     }*/
 
     @Override
-    public void execute(receiver res) {
+    public void execute(receiver res) throws FileNotFoundException {
  /*       System.out.println("Введите параметры(имя персонажа и рост было указано при вызове команды)");
 
         System.out.println("Дальше введи Цвет волос и глаз через пробел. Возможные цвета: "+ Arrays.toString(Color.values()));

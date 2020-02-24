@@ -1,0 +1,106 @@
+Index: src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import ClassCollection.CollectionTask;\nimport CollectionInterface.CollectionCOmmands.ConsoleTerminal;\nimport CollectionInterface.CollectionCOmmands.Terminal;\nimport CollectionInterface.CollectionCOmmands.receiver;\nimport CollectionInterface.CollectionUnit;\n\nimport java.io.IOException;\n\npublic class Main {\n\n\n    public static void main(String[] args) throws IOException {\n\n\n        CollectionTask CT = new CollectionTask();\n        CT.load();\n        receiver CU = new CollectionUnit(CT);\n\n        Terminal l1 = new ConsoleTerminal(CU);\n        l1.interactiveMod();\n\n\n\n\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Main.java	(revision bf4bca05ad342db17ec6a2234f1a287faec461cc)
++++ src/Main.java	(date 1582402521734)
+@@ -14,6 +14,7 @@
+ 
+         CollectionTask CT = new CollectionTask();
+         CT.load();
++
+         receiver CU = new CollectionUnit(CT);
+ 
+         Terminal l1 = new ConsoleTerminal(CU);
+@@ -21,6 +22,5 @@
+ 
+ 
+ 
+-
+     }
+ }
+Index: src/CollectionInterface/CollectionCOmmands/Terminal.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package CollectionInterface.CollectionCOmmands;\n\n        import java.util.Scanner;\n\npublic abstract class Terminal implements invoker {\n    protected CommandALT add;\n    protected Scanner scan;\n\n    public abstract void interactiveMod();\n\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/CollectionInterface/CollectionCOmmands/Terminal.java	(revision bf4bca05ad342db17ec6a2234f1a287faec461cc)
++++ src/CollectionInterface/CollectionCOmmands/Terminal.java	(date 1582402521733)
+@@ -4,6 +4,7 @@
+ 
+ public abstract class Terminal implements invoker {
+     protected CommandALT add;
++
+     protected Scanner scan;
+ 
+     public abstract void interactiveMod();
+Index: src/CollectionInterface/CollectionCOmmands/Add.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package CollectionInterface.CollectionCOmmands;\n\n\nimport ColClass.Color;\nimport ColClass.Country;\n\nimport java.util.Arrays;\nimport java.util.Scanner;\n\npublic class Add implements CommandALT<Object>{\n    private Scanner scan;\n\n\n    private String name;\n    private Double height; //Поле не может быть null, Значение поля должно быть больше 0\n    private Color eyeColor; //Поле может быть null\n    private Color hairColor; //Поле не может быть null\n    private Country nationality; //Поле может быть null\n    private Float x; //Значение поля должно быть больше -652, Поле не может быть null\n    private Double y; //Поле не может быть null\n    private Float x1; //Поле не может быть null\n    private double y1;\n    private String name1; //Длина строки не должна быть больше 222, Поле не может быть null\n\n\n    private String[] buffer;\n    private String catchN;\n\n    {\n        scan=new Scanner(System.in);\n\n    }\n\n    @Override\n    public void execute(receiver res) {\n        System.out.println(\"Введите параметры(имя персонажа и рост было указано при вызове команды)\");\n        System.out.println(\"Дальше введи Цвет волос и глаз через пробел. Возможные цвета: \"+ Arrays.toString(Color.values()));\n        if (scan.hasNextLine()) {\n            buffer = (scan.nextLine().trim().split(\" \", 2));\n            hairColor=Color.valueOf(buffer[0]);\n            eyeColor=Color.valueOf(buffer[1]);\n        }\n\n        System.out.println(\"Введи национальность : \"+Arrays.toString(Country.values()));\n        nationality=Country.valueOf(scan.nextLine());\n\n\n        System.out.println(\"Введи кооридинаты X для точного описания объекта точки \");\n        if (scan.hasNextFloat()) {\n            x=scan.nextFloat();\n            catchN = scan.nextLine();\n        }\n\n        System.out.println(\"Введи кооридинаты Y для точного описания объекта точки \");\n        if (scan.hasNextDouble()) {\n            y=scan.nextDouble();\n            catchN = scan.nextLine();\n        }\n\n        System.out.println(\"Перейдем к Локации для ее создания нужно назовать ее :\");\n        if (scan.hasNextLine()){\n            name1=scan.nextLine();\n        }\n\n        System.out.println(\"Введи кооридинаты X для точного описания объекта Локации \");\n        if (scan.hasNextFloat()) {\n            x1=scan.nextFloat();\n            catchN = scan.nextLine();\n        }\n\n        System.out.println(\"Введи кооридинаты Y для точного описания объекта Локаци \");\n        if (scan.hasNextDouble()) {\n            y1=scan.nextDouble();\n            catchN = scan.nextLine();\n        }\n\n        res.Add(name,height,eyeColor,hairColor,nationality,x,y,x1,y1,name1);\n\n    }\n\n    @Override\n    public void SetParams(Object[] bar1) {\n        if (bar1[0] instanceof String) {\n            this.name = String.valueOf(bar1[0]);\n            this.height = Double.parseDouble((String) bar1[1]);\n        }else {\n            this.name = String.valueOf(bar1[1]);\n            this.height = Double.parseDouble(String.valueOf(bar1[0]));\n        }\n    }\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/CollectionInterface/CollectionCOmmands/Add.java	(revision bf4bca05ad342db17ec6a2234f1a287faec461cc)
++++ src/CollectionInterface/CollectionCOmmands/Add.java	(date 1582402521727)
+@@ -23,12 +23,12 @@
+     private String name1; //Длина строки не должна быть больше 222, Поле не может быть null
+ 
+ 
++
+     private String[] buffer;
+     private String catchN;
+ 
+     {
+         scan=new Scanner(System.in);
+-
+     }
+ 
+     @Override
+@@ -72,6 +72,8 @@
+         if (scan.hasNextDouble()) {
+             y1=scan.nextDouble();
+             catchN = scan.nextLine();
++        } else {
++            System.err.println("СOCИ");
+         }
+ 
+         res.Add(name,height,eyeColor,hairColor,nationality,x,y,x1,y1,name1);
+Index: src/CollectionInterface/CollectionCOmmands/ConsoleTerminal.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package CollectionInterface.CollectionCOmmands;\n\nimport java.util.Scanner;\n\npublic class ConsoleTerminal extends Terminal {\n\n    private receiver res;\n    private String userCommand;\n    private String[] userCommand_;\n    public String name_;\n\n    private Object[] TypayaJava;\n\n    public ConsoleTerminal(receiver res_){\n        this.res=res_;\n    }\n\n    {\n        userCommand = \"\";\n        scan=new Scanner(System.in);\n        add=new Add();\n\n\n    }\n\n    private String ObjectsName;\n\n    public void GetLine() {\n        ObjectsName=scan.nextLine();\n    }\n\n    public void GetObjectsName(){\n        System.out.println(ObjectsName);\n    }\n\n    @Override\n    public void interactiveMod() {\n        while (!userCommand.equals(\"exit\")) {\n            userCommand = scan.nextLine();\n            userCommand_=userCommand.trim().split(\" \",2);\n            switch (userCommand_[0]){\n                case(\"Add\"):\n                    System.out.println(\"Опа фраерок добавить что-то решил\");\n                    System.out.println(userCommand_[1]);\n                    TypayaJava=(userCommand_[1].substring(1,userCommand_[1].length()-1).split(\" \", 2));\n                    add.SetParams(TypayaJava);\n                    add.execute(res);\n\n            }\n\n        }\n    }\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/CollectionInterface/CollectionCOmmands/ConsoleTerminal.java	(revision bf4bca05ad342db17ec6a2234f1a287faec461cc)
++++ src/CollectionInterface/CollectionCOmmands/ConsoleTerminal.java	(date 1582402521730)
+@@ -41,7 +41,6 @@
+             switch (userCommand_[0]){
+                 case("Add"):
+                     System.out.println("Опа фраерок добавить что-то решил");
+-                    System.out.println(userCommand_[1]);
+                     TypayaJava=(userCommand_[1].substring(1,userCommand_[1].length()-1).split(" ", 2));
+                     add.SetParams(TypayaJava);
+                     add.execute(res);
+Index: src/CollectionInterface/CollectionCOmmands/Command.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package CollectionInterface.CollectionCOmmands;\n\npublic interface Command {\n     void execute();\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/CollectionInterface/CollectionCOmmands/Command.java	(revision bf4bca05ad342db17ec6a2234f1a287faec461cc)
++++ src/CollectionInterface/CollectionCOmmands/Command.java	(date 1582402521728)
+@@ -1,5 +1,5 @@
+ package CollectionInterface.CollectionCOmmands;
+ 
+ public interface Command {
+-     void execute();
++     void execute(receiver res);
+ }

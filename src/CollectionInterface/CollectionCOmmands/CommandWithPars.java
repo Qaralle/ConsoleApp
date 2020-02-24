@@ -3,7 +3,7 @@ package CollectionInterface.CollectionCOmmands;
 import ColClass.Color;
 import ColClass.Country;
 
-import java.security.PrivateKey;
+import java.util.Scanner;
 
 public abstract class CommandWithPars implements Command {
 
@@ -20,12 +20,17 @@ public abstract class CommandWithPars implements Command {
     protected Float x1; //Поле не может быть null
     protected double y1;
     protected String name1; //Длина строки не должна быть больше 222, Поле не может быть null
+    protected Scanner scan;
 
-    {
-        transporter = new Transporter();
+    public CommandWithPars(Transporter tr) {
+        this.transporter=tr;
     }
 
     public Transporter getTransporter() { return transporter; }
+
+    public void SetscanForFile(){
+
+    }
 
     public void setFieldsFromTransporter(){
         this.id = transporter.getId();
