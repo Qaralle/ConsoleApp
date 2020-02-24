@@ -52,18 +52,27 @@ public class CollectionTask {
                 Objects.requireNonNull(s.getHairColor());
                 Objects.requireNonNull(s.getNationality());
                 Objects.requireNonNull(s.getLocation());
-                if (!citizens.contains(s)) citizens.add(s);
+                if (!citizens.contains(s)){
+                    FieldPolice.FieldReplace(s);
+                    FieldPolice.FieldLocationReplace(s.getLocation());
+                    FieldPolice.FieldCoordinatesReplace(s.getCoordinates());
+                    citizens.add(s);
+                }
 
             }
             System.out.println("Коллекций успешно загружена");
         } catch (JsonSyntaxException e ){
             System.out.println("Ошибка блять синтаксиса нахуй !Сука учи теорию! Код писал макс");
         } catch (NullPointerException e){
-            System.out.println("У одного из объектов null поле будет перезаписано автоматически");
+            //System.out.println("У одного из объектов null поле будет перезаписано автоматически");
             LinkedList<Person> addedShorty = serializer.fromJson(data.toString(), collectionType);
             for (Person s : addedShorty) {
                 NullPolice.NullReplace(s);
+                NullPolice.NullLocationReplace(s.getLocation());
+                NullPolice.NullCoordinatesReplace(s.getCoordinates());
                 FieldPolice.FieldReplace(s);
+                FieldPolice.FieldLocationReplace(s.getLocation());
+                FieldPolice.FieldCoordinatesReplace(s.getCoordinates());
                 if (!citizens.contains(s)) citizens.add(s);
 
 
