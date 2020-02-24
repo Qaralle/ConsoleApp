@@ -19,6 +19,10 @@ public abstract class Terminal implements invoker {
     protected CommandWithPars filterStartsWithName;
     protected Command save;
     protected CommandWithPars executeScript;
+    protected Command exit;
+    protected Command history;
+    protected CommandWithPars addIfMin;
+    protected Command help;
 
     protected String userCommand;
     protected String[] userCommand_;
@@ -51,79 +55,89 @@ public abstract class Terminal implements invoker {
             userCommand = scan.nextLine();
             userCommand_=userCommand.trim().split(" ", 2);
             switch (userCommand_[0]){
-                case("Add"):
+                case("add"):
                     System.out.println("Опа фраерок добавить что-то решил");
                     TypayaJava=(userCommand_[1].substring(1,userCommand_[1].length()-1).trim().split(" ", 2));
                     KakJeUmenyaGoritJopa.put("name",TypayaJava[0]);
                     KakJeUmenyaGoritJopa.put("height",TypayaJava[1]);
                     add.getTransporter().SetParams(KakJeUmenyaGoritJopa);
                     //add.SetParams(TypayaJava);
-
                     add.execute(res); break;
-
-                case("Show"):
+                case("show"):
                     show.execute(res); break;
-
-                case("Info"):
+                case("info"):
                     info.execute(res); break;
-
-                case("Update"):
+                case("update"):
                     System.out.println("Нахуй ты что-то меняешь? ");
 
                     TypayaJava=(userCommand_[1].trim().split(" ", 3));
                     KakJeUmenyaGoritJopa.put("id",TypayaJava[0]);
-                    TypayaJava[1]=((String)TypayaJava[1]).substring(1,((String)TypayaJava[1]).length()-1);
+                    TypayaJava[1]= TypayaJava[1].substring(1, TypayaJava[1].length()-1);
                     KakJeUmenyaGoritJopa.put("name",TypayaJava[1]);
-                    TypayaJava[2]=((String)TypayaJava[2]).substring(1,((String)TypayaJava[2]).length()-1);
+                    TypayaJava[2]= TypayaJava[2].substring(1, TypayaJava[2].length()-1);
                     KakJeUmenyaGoritJopa.put("height",TypayaJava[2]);
                     update.getTransporter().SetParams(KakJeUmenyaGoritJopa);
-                    //Transporter.SetParams(TypayaJava);
                     update.execute(res); break;
 
-                case("Clear"):
+                case("clear"):
                     clear.execute(res); break;
 
-                case("Remove_by_id"):
+                case("remove_by_id"):
                     TypayaJava=(userCommand_[1].trim().split(" ", 3));
                     KakJeUmenyaGoritJopa.put("id",TypayaJava[0]);
                     remove_by_id.getTransporter().SetParams(KakJeUmenyaGoritJopa);
                     remove_by_id.execute(res); break;
 
-                case("Remove_head"):
+                case("remove_head"):
                     removeHead.execute(res); break;
 
-                case("Remove_any_by_nationality"):
+                case("remove_any_by_nationality"):
                     TypayaJava=(userCommand_[1].trim().split(" ", 3));
                     KakJeUmenyaGoritJopa.put("nationality",TypayaJava[0]);
                     removeAnyByNationality.getTransporter().SetParams(KakJeUmenyaGoritJopa);
                     removeAnyByNationality.execute(res); break;
 
-                case("Count_less_than_location"):
+                case("count_less_than_location"):
                     TypayaJava=(userCommand_[1].trim().split(" ", 3));
                     KakJeUmenyaGoritJopa.put("nameL",TypayaJava[0]);
                     countLessThanLocation.getTransporter().SetParams(KakJeUmenyaGoritJopa);
                     countLessThanLocation.execute(res); break;
 
-                case("Filter_starts_with_name"):
+                case("filter_starts_with_name"):
                     TypayaJava=(userCommand_[1].trim().split(" ", 3));
                     KakJeUmenyaGoritJopa.put("name",TypayaJava[0]);
                     filterStartsWithName.getTransporter().SetParams(KakJeUmenyaGoritJopa);
                     filterStartsWithName.execute(res); break;
 
-                case ("Save"):
+                case ("save"):
+                    res.addCommandToHistory("Save");
                     save.execute(res); break;
-                case ("Execute_script"):
+                case ("execute_script"):
                     TypayaJava=(userCommand_[1].trim().split(" ", 3));
                     KakJeUmenyaGoritJopa.put("file_name",TypayaJava[0]);
                     executeScript.getTransporter().SetParams(KakJeUmenyaGoritJopa);
                     executeScript.execute(res);break;
+                case ("exit"):
+                    exit.execute(res);
+                case ("history"):
+                    history.execute(res); break;
+                case ("add_if_min"):
+                    System.out.println("Опа фраерок добавить что-то решил");
+                    TypayaJava=(userCommand_[1].substring(1,userCommand_[1].length()-1).trim().split(" ", 2));
+                    KakJeUmenyaGoritJopa.put("name",TypayaJava[0]);
+                    KakJeUmenyaGoritJopa.put("height",TypayaJava[1]);
+                    addIfMin.getTransporter().SetParams(KakJeUmenyaGoritJopa);
+                    addIfMin.execute(res); break;
+                case ("help"):
+                    help.execute(res); break;
+                default:
+                    System.out.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'");
             }
 
         }
     }
     //public abstract void interactiveMod();
     //public Transporter getTransporter(){return transporter;}
-
 
 
 }

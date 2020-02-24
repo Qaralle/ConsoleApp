@@ -10,6 +10,7 @@ public class RemoveById extends CommandWithPars{
     public void execute(receiver res) {
         this.setFieldsFromTransporter();
         res.remove_by_id(id);
+        res.addCommandToHistory("remove_by_id");
     }
 
    /* @Override

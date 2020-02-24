@@ -9,5 +9,6 @@ public class RemoveAnyByNationality extends CommandWithPars {
     public void execute(receiver res) {
         this.setFieldsFromTransporter();
         res.removeAnyByNationality(nationality);
+        res.addCommandToHistory("remove_any_by_nationality");
     }
 }

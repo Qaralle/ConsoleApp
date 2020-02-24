@@ -1,20 +1,17 @@
 package CollectionInterface.CollectionCOmmands;
 
-
 import java.io.FileNotFoundException;
 
-public class Update extends CommandWithPars{
-    public Update(Transporter tr) {
+public class AddIfMin extends CommandWithPars {
+    public AddIfMin(Transporter tr) {
         super(tr);
     }
-
 
     @Override
     public void execute(receiver res) throws FileNotFoundException {
         transporter.setFields(res);
         this.setFieldsFromTransporter();
-        res.update(id, name, height, eyeColor, hairColor, nationality, x, y, x1, y1, name1);
-        res.addCommandToHistory("update");
+        res.addIfMin(name,height,eyeColor,hairColor,nationality,x,y,x1,y1,name1);
+        res.addCommandToHistory("add_if_min");
     }
-
 }

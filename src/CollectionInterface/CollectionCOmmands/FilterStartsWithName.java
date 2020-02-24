@@ -9,5 +9,6 @@ public class FilterStartsWithName extends CommandWithPars {
     public void execute(receiver res) {
         this.setFieldsFromTransporter();
         res.filterStartsWithName(name);
+        res.addCommandToHistory("filter_starts_with_name");
     }
 }

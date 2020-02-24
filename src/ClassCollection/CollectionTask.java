@@ -16,15 +16,18 @@ public class CollectionTask {
     private Gson serializer;
     private NullPolice Police;
     private String dateInit;
+    private String[] history;
 
     {
         Police = new NullPolice();
         serializer = new Gson();
         citizens = new LinkedList<>();
+
         Calendar calendar = Calendar.getInstance();
         dateInit = calendar.get(Calendar.DAY_OF_MONTH) +".";
         dateInit += (calendar.get(Calendar.MONTH) + 1) +".";
         dateInit += Integer.toString(calendar.get(Calendar.YEAR));
+        history = new String[8];
     }
 
     public void load() throws FileNotFoundException, JsonSyntaxException {
@@ -81,5 +84,7 @@ public class CollectionTask {
     }
 
     public String getDateInit(){ return dateInit;}
+
+    public String[] getHistory(){return history;}
 }
 

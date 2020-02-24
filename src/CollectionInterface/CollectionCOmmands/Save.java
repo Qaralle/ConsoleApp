@@ -7,6 +7,7 @@ public class Save implements Command {
     public void execute(receiver res) {
         try {
             res.save();
+            res.addCommandToHistory("save");
         } catch (IOException e) {
             e.printStackTrace();
         }

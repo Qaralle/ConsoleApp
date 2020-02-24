@@ -27,7 +27,10 @@ public class ConsoleTerminal extends Terminal {
         save=new Save();
         KakJeUmenyaGoritJopa = new HashMap<>();
         executeScript = new ExecuteScript(new ConsoleTranspoeter());
-
+        exit=new Exit();
+        history=new History();
+        addIfMin = new AddIfMin(new ConsoleTranspoeter());
+        help=new Help();
     }
 
     private String ObjectsName;
