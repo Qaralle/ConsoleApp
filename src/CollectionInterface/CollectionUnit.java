@@ -72,7 +72,7 @@ public class CollectionUnit implements receiver {
     @Override
     public void show() {
         for (Person s : ct.GetCollection()) {
-            System.out.println("Имя: "+s.getName()+" айди: "+s.getId()+" дата: "+s.getData()+" Цвет волос: "+s.getHairColor()+" локация: "+s.location.getName());
+            System.out.println("Имя: "+s.getName()+" айди: "+s.getId()+" дата: "+s.getData()+" Цвет волос: "+s.getHairColor()+" локация: "+s.location.getName()+" Х "+ s.coordinates.getX());
         }
     }
 
