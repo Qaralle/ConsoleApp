@@ -169,6 +169,7 @@ public class CollectionUnit implements receiver {
             }
         }
         fileOutputStream.write("]".getBytes());
+        System.out.println("Коллекция сохранена в файл");
         fileOutputStream.close();
     }
 

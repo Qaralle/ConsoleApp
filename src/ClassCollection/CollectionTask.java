@@ -30,8 +30,8 @@ public class CollectionTask {
         history = new String[8];
     }
 
-    public void load() throws FileNotFoundException, JsonSyntaxException {
-        Scanner scanner = new Scanner(new File("src/PersonClassTest.json"));
+    public void load(String pathname) throws FileNotFoundException, JsonSyntaxException {
+        Scanner scanner = new Scanner(new File(pathname));
         System.out.println("Идёт загрузка коллекции");
         StringBuffer data = new StringBuffer();
         while (scanner.hasNext()) {

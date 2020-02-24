@@ -50,90 +50,187 @@ public abstract class Terminal implements invoker {
     @Override
     public void interactiveMod() throws FileNotFoundException {
         while (scan.hasNextLine()) {
+            try {
 
-            KakJeUmenyaGoritJopa.clear();
-            userCommand = scan.nextLine();
-            userCommand_=userCommand.trim().split(" ", 2);
-            switch (userCommand_[0]){
-                case("add"):
-                    System.out.println("Опа фраерок добавить что-то решил");
-                    TypayaJava=(userCommand_[1].substring(1,userCommand_[1].length()-1).trim().split(" ", 2));
-                    KakJeUmenyaGoritJopa.put("name",TypayaJava[0]);
-                    KakJeUmenyaGoritJopa.put("height",TypayaJava[1]);
-                    add.getTransporter().SetParams(KakJeUmenyaGoritJopa);
-                    //add.SetParams(TypayaJava);
-                    add.execute(res); break;
-                case("show"):
-                    show.execute(res); break;
-                case("info"):
-                    info.execute(res); break;
-                case("update"):
-                    System.out.println("Нахуй ты что-то меняешь? ");
+                KakJeUmenyaGoritJopa.clear();
+                userCommand = scan.nextLine();
+                userCommand_ = userCommand.trim().split(" ", 2);
+                switch (userCommand_[0]) {
+                    case ("add"):
+                        //System.out.println("Опа фраерок добавить что-то решил");
+                        //try{
+                        userCommand_[1] = userCommand_[1].trim();
+                        if ((userCommand_[1].startsWith("{")) && (userCommand_[1].endsWith("}"))) {
+                            TypayaJava = (userCommand_[1].substring(1, userCommand_[1].length() - 1).trim().split(" ", 2));
+                            KakJeUmenyaGoritJopa.put("name", TypayaJava[0]);
+                            KakJeUmenyaGoritJopa.put("height", TypayaJava[1]);
+                            add.getTransporter().SetParams(KakJeUmenyaGoritJopa);
+                            add.execute(res);
+                        }else{
+                            System.err.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'");
+                        } break;
+                    /*}catch (ArrayIndexOutOfBoundsException ex){
+                        System.err.println("Некорректный синтаксис команды. Используйте 'help'");
+                        break;
+                    }
+                    try {*/
 
-                    TypayaJava=(userCommand_[1].trim().split(" ", 3));
-                    KakJeUmenyaGoritJopa.put("id",TypayaJava[0]);
-                    TypayaJava[1]= TypayaJava[1].substring(1, TypayaJava[1].length()-1);
-                    KakJeUmenyaGoritJopa.put("name",TypayaJava[1]);
-                    TypayaJava[2]= TypayaJava[2].substring(1, TypayaJava[2].length()-1);
-                    KakJeUmenyaGoritJopa.put("height",TypayaJava[2]);
-                    update.getTransporter().SetParams(KakJeUmenyaGoritJopa);
-                    update.execute(res); break;
+                    /*}catch (Exception ex){
+                        System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям."); break;
+                    }*/
+                    case ("show"):
+                        show.execute(res);
+                        break;
 
-                case("clear"):
-                    clear.execute(res); break;
+                    case ("info"):
+                        info.execute(res);
+                        break;
 
-                case("remove_by_id"):
-                    TypayaJava=(userCommand_[1].trim().split(" ", 3));
-                    KakJeUmenyaGoritJopa.put("id",TypayaJava[0]);
-                    remove_by_id.getTransporter().SetParams(KakJeUmenyaGoritJopa);
-                    remove_by_id.execute(res); break;
+                    case ("update"):
+                        //System.out.println("Нахуй ты что-то меняешь? ");
 
-                case("remove_head"):
-                    removeHead.execute(res); break;
+                        // try {
+                        if ((userCommand_[1].startsWith("{")) && (userCommand_[1].endsWith("}"))) {
+                            TypayaJava = (userCommand_[1].trim().split(" ", 3));
+                            KakJeUmenyaGoritJopa.put("id", TypayaJava[0]);
+                            TypayaJava[1] = TypayaJava[1].substring(1, TypayaJava[1].length() - 1);
+                            KakJeUmenyaGoritJopa.put("name", TypayaJava[1]);
+                            TypayaJava[2] = TypayaJava[2].substring(1, TypayaJava[2].length() - 1);
+                            KakJeUmenyaGoritJopa.put("height", TypayaJava[2]);
+                            update.getTransporter().SetParams(KakJeUmenyaGoritJopa);
+                            update.execute(res);
+                        }else {
+                            System.err.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'");
+                        }
+                        break;
+                    /*}catch (Exception ex){
+                        System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям."); break;
+                    }*/
 
-                case("remove_any_by_nationality"):
-                    TypayaJava=(userCommand_[1].trim().split(" ", 3));
-                    KakJeUmenyaGoritJopa.put("nationality",TypayaJava[0]);
-                    removeAnyByNationality.getTransporter().SetParams(KakJeUmenyaGoritJopa);
-                    removeAnyByNationality.execute(res); break;
+                    case ("clear"):
+                        clear.execute(res);
+                        break;
 
-                case("count_less_than_location"):
-                    TypayaJava=(userCommand_[1].trim().split(" ", 3));
-                    KakJeUmenyaGoritJopa.put("nameL",TypayaJava[0]);
-                    countLessThanLocation.getTransporter().SetParams(KakJeUmenyaGoritJopa);
-                    countLessThanLocation.execute(res); break;
+                    case ("remove_by_id"):
+                        //try {
+                        TypayaJava = (userCommand_[1].trim().split(" ", 3));
+                        KakJeUmenyaGoritJopa.put("id", TypayaJava[0]);
+                        remove_by_id.getTransporter().SetParams(KakJeUmenyaGoritJopa);
+                    /*}catch (ArrayIndexOutOfBoundsException ex){
+                        System.err.println("Некорректный синтаксис команды. Используйте 'help'");
+                        break;
+                    }
+                    try {*/
+                        remove_by_id.execute(res);
+                        break;
+                    /*}catch (Exception ex){
+                        System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям."); break;
+                    }*/
 
-                case("filter_starts_with_name"):
-                    TypayaJava=(userCommand_[1].trim().split(" ", 3));
-                    KakJeUmenyaGoritJopa.put("name",TypayaJava[0]);
-                    filterStartsWithName.getTransporter().SetParams(KakJeUmenyaGoritJopa);
-                    filterStartsWithName.execute(res); break;
+                    case ("remove_head"):
+                        removeHead.execute(res);
+                        break;
 
-                case ("save"):
-                    res.addCommandToHistory("Save");
-                    save.execute(res); break;
-                case ("execute_script"):
-                    TypayaJava=(userCommand_[1].trim().split(" ", 3));
-                    KakJeUmenyaGoritJopa.put("file_name",TypayaJava[0]);
-                    executeScript.getTransporter().SetParams(KakJeUmenyaGoritJopa);
-                    executeScript.execute(res);break;
-                case ("exit"):
-                    exit.execute(res);
-                case ("history"):
-                    history.execute(res); break;
-                case ("add_if_min"):
-                    System.out.println("Опа фраерок добавить что-то решил");
-                    TypayaJava=(userCommand_[1].substring(1,userCommand_[1].length()-1).trim().split(" ", 2));
-                    KakJeUmenyaGoritJopa.put("name",TypayaJava[0]);
-                    KakJeUmenyaGoritJopa.put("height",TypayaJava[1]);
-                    addIfMin.getTransporter().SetParams(KakJeUmenyaGoritJopa);
-                    addIfMin.execute(res); break;
-                case ("help"):
-                    help.execute(res); break;
-                default:
-                    System.out.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'");
+                    case ("remove_any_by_nationality"):
+                        //try {
+                        TypayaJava = (userCommand_[1].trim().split(" ", 3));
+                        KakJeUmenyaGoritJopa.put("nationality", TypayaJava[0]);
+                        removeAnyByNationality.getTransporter().SetParams(KakJeUmenyaGoritJopa);
+                    /*}catch (ArrayIndexOutOfBoundsException ex){
+                        System.err.println("Некорректный синтаксис команды. Используйте 'help'");
+                        break;
+                    }
+                    try {*/
+                        remove_by_id.execute(res);
+                        break;
+                    /*}catch (Exception ex){
+                        System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям."); break;
+                    }*/
+
+                    case ("count_less_than_location"):
+                        //try {
+                        TypayaJava = (userCommand_[1].trim().split(" ", 3));
+                        KakJeUmenyaGoritJopa.put("nameL", TypayaJava[0]);
+                        countLessThanLocation.getTransporter().SetParams(KakJeUmenyaGoritJopa);
+                    /*}catch (ArrayIndexOutOfBoundsException ex){
+                        System.err.println("Некорректный синтаксис команды. Используйте 'help'");
+                        break;
+                    }
+                    try {*/
+                        countLessThanLocation.execute(res);
+                        break;
+                    /*}catch (Exception ex){
+                        System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям."); break;
+                    }*/
+
+                    case ("filter_starts_with_name"):
+                        //try {
+                        TypayaJava = (userCommand_[1].trim().split(" ", 3));
+                        KakJeUmenyaGoritJopa.put("name", TypayaJava[0]);
+                        filterStartsWithName.getTransporter().SetParams(KakJeUmenyaGoritJopa);
+                    /*}catch (ArrayIndexOutOfBoundsException ex){
+                        System.err.println("Некорректный синтаксис команды. Используйте 'help'");
+                        break;
+                    }
+                    try {*/
+                        filterStartsWithName.execute(res);
+                        break;
+                   /* }catch (Exception ex){
+                        System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям."); break;
+                    }*/
+
+                    case ("save"):
+                        save.execute(res);
+                        break;
+                    case ("execute_script"):
+                        //try {
+                        TypayaJava = (userCommand_[1].trim().split(" ", 3));
+                        KakJeUmenyaGoritJopa.put("file_name", TypayaJava[0]);
+                        executeScript.getTransporter().SetParams(KakJeUmenyaGoritJopa);
+                    /*}catch (ArrayIndexOutOfBoundsException ex){
+                        System.err.println("Некорректный синтаксис команды. Используйте 'help'");
+                        break;
+                    }
+                    try {*/
+                        executeScript.execute(res);
+                        break;
+                    /*}catch (FileNotFoundException ex){
+                        System.err.println("Файл не найден"); break;
+                    }*/
+
+                    case ("exit"):
+                        exit.execute(res);
+                    case ("history"):
+                        history.execute(res);
+                        break;
+                    case ("add_if_min"):
+                        //try {
+                        if ((userCommand_[1].startsWith("{")) && (userCommand_[1].endsWith("}"))) {
+                            TypayaJava = (userCommand_[1].substring(1, userCommand_[1].length() - 1).trim().split(" ", 2));
+                            KakJeUmenyaGoritJopa.put("name", TypayaJava[0]);
+                            KakJeUmenyaGoritJopa.put("height", TypayaJava[1]);
+                            addIfMin.getTransporter().SetParams(KakJeUmenyaGoritJopa);
+                            addIfMin.execute(res);
+                        }else{
+                            System.err.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'");
+                        }
+                        break;
+                    /*}catch (Exception ex){
+                        System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям."); break;
+                    }*/
+                    case ("help"):
+                        help.execute(res);
+                        break;
+                    default:
+                        System.err.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'");
+                }
+            } catch (ArrayIndexOutOfBoundsException ex) {
+                System.err.println("Некорректный синтаксис команды. Используйте 'help'");
+            } catch (FileNotFoundException ex) {
+                System.err.println("Файл не найден");
+            } catch (Exception ex) {
+                System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям.");
             }
-
         }
     }
     //public abstract void interactiveMod();

@@ -4,6 +4,7 @@ import CollectionInterface.CollectionCOmmands.Terminal;
 import CollectionInterface.CollectionCOmmands.receiver;
 import CollectionInterface.CollectionUnit;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Main {
@@ -13,7 +14,11 @@ public class Main {
 
 
         CollectionTask CT = new CollectionTask();
-        CT.load();
+        try {
+            CT.load(args[0]);
+        }catch (Exception ex){
+            CT.load("src/PersonClassTest.json");
+        }
         receiver CU = new CollectionUnit(CT);
 
         Terminal l1 = new ConsoleTerminal(CU);
