@@ -25,7 +25,10 @@ public class FileTerminal extends Terminal  {
         KakJeUmenyaGoritJopa = new HashMap<>();
         executeScript = new ExecuteScript(new FileTransporter(file_name));
         this.interactiveMod();
-
+        exit=new Exit();
+        history=new History();
+        addIfMin = new AddIfMin(new ConsoleTranspoeter());
+        help=new Help();
     }
     {
         userCommand = "";

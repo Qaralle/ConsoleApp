@@ -215,14 +215,11 @@ public abstract class Terminal implements invoker {
                             System.err.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'");
                         }
                         break;
-                    /*}catch (Exception ex){
-                        System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям."); break;
-                    }*/
                     case ("help"):
                         help.execute(res);
                         break;
                     default:
-                        System.err.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'");
+                        System.err.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'"); break;
                 }
             } catch (ArrayIndexOutOfBoundsException ex) {
                 System.err.println("Некорректный синтаксис команды. Используйте 'help'");
