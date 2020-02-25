@@ -1,11 +1,12 @@
 package ColClass;
 
+import ClassCollection.CompareCenter;
 import ClassCollection.FieldPolice;
 import ClassCollection.NullPolice;
 
 import java.time.LocalDateTime;
 
-public class Person{
+public class Person implements Comparable<Person>{
     private static final long LIMIT = 10000000000L;
     private static long last = 0;
 
@@ -101,5 +102,8 @@ public class Person{
     }
 
 
-
+    @Override
+    public int compareTo(Person o) {
+        return new CompareCenter().compare(this,o);
+    }
 }

@@ -240,8 +240,8 @@ public class CollectionUnit implements receiver {
             ct.CollectionSort();
         }
 
-        if((ct.GetCollection().size() == 0) || (compareCenter.compare(per, ct.GetCollection().getFirst()) < 0)){
-            ct.GetCollection().add(per);
+        if((ct.GetCollection().size() == 0) || (per.compareTo(ct.GetCollection().get(0))< 0)){
+            ct.add(per);
             np.PersonReplace(per);
             fp.PersonReplace(per);
         }

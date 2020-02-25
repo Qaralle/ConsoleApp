@@ -18,7 +18,7 @@ import java.util.*;
 
 
 public class CollectionTask {
-    private LinkedList<Person> citizens;
+    private List<Person> collection;
     private File jsonCollection;
     private Gson serializer;
     private FieldPolice fp;
@@ -31,7 +31,7 @@ public class CollectionTask {
     {
         //nullPolice = new NullPolice();
         serializer = new Gson();
-        citizens = new LinkedList<>();
+        collection = new LinkedList<>();
         fp=new FieldPolice();
         np=new NullPolice();
 
@@ -62,11 +62,11 @@ public class CollectionTask {
                 Objects.requireNonNull(s.getHairColor());
                 Objects.requireNonNull(s.getNationality());
                 Objects.requireNonNull(s.getLocation());
-                if (!citizens.contains(s)){
+                if (!collection.contains(s)){
                     fp.PersonReplace(s);
                     fp.LocationReplace(s.getLocation());
                     fp.CoordinatesReplace(s.getCoordinates());
-                    citizens.add(s);
+                    collection.add(s);
                 }
 
             }
@@ -83,7 +83,7 @@ public class CollectionTask {
                 fp.PersonReplace(s);
                 fp.LocationReplace(s.getLocation());
                 fp.CoordinatesReplace(s.getCoordinates());
-                if (!citizens.contains(s)) citizens.add(s);
+                if (!collection.contains(s)) collection.add(s);
 
 
             }
@@ -91,18 +91,18 @@ public class CollectionTask {
         }
 
     }
-    public LinkedList<Person> GetCollection(){
+    public List<Person> GetCollection(){
         //Person[] carsArray = citizens.toArray(new Person[3]);
         //System.out.println(carsArray[0].getId());
-        return citizens;
+        return collection;
     }
 
     public void add(Person p1){
-        citizens.add(p1);
+        collection.add(p1);
     }
 
     public void CollectionSort(){
-        Collections.sort(citizens,new CompareCenter());
+        Collections.sort(collection,new CompareCenter());
     }
 
     public String getDateInit(){ return dateInit;}
