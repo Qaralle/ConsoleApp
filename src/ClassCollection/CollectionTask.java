@@ -72,7 +72,7 @@ public class CollectionTask {
             }
             System.out.println("Коллекций успешно загружена");
         } catch (JsonSyntaxException e ){
-            System.out.println("Ошибка блять синтаксиса нахуй !Сука учи теорию! Код писал макс");
+            System.out.println("Ошибка синтаксиса файл json!");
         } catch (NullPointerException e){
             //System.out.println("У одного из объектов null поле будет перезаписано автоматически");
             LinkedList<Person> addedShorty = serializer.fromJson(data.toString(), collectionType);
