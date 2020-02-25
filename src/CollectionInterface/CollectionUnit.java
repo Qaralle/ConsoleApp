@@ -74,14 +74,14 @@ public class CollectionUnit implements receiver {
         np.PersonReplace(per);
         fp.PersonReplace(per);
         ct.add(per);
-        System.out.println("Элемент добавлен");
+        System.out.println("Element added");
 
     }
 
     @Override
     public void show() {
         for (Person s : ct.GetCollection()) {
-            System.out.println("Имя: "+s.getName()+" айди: "+s.getId()+" дата: "+s.getData()+" Цвет волос: "+s.getHairColor()+" локация: "+s.location.getName()+" Х "+ s.coordinates.getX());
+            System.out.println("name: "+s.getName()+" id: "+s.getId()+" date: "+s.getData()+" hair color: "+s.getHairColor()+" locaation: "+s.location.getName()+" Х "+ s.coordinates.getX());
         }
     }
 
@@ -135,11 +135,11 @@ public class CollectionUnit implements receiver {
 
     @Override
     public void removeHead() {
-        System.out.println("Имя: "+ct.GetCollection().get(0).getName()+
-                            " айди: "+ct.GetCollection().get(0).getId()+
-                            " дата: "+ct.GetCollection().get(0).getData()+
-                            " Цвет волос: "+ct.GetCollection().get(0).getHairColor()+
-                            " локация: "+ct.GetCollection().get(0).location.getName());
+        System.out.println("Name: "+ct.GetCollection().get(0).getName()+
+                            " id: "+ct.GetCollection().get(0).getId()+
+                            " date: "+ct.GetCollection().get(0).getData()+
+                            " hair color: "+ct.GetCollection().get(0).getHairColor()+
+                            " location: "+ct.GetCollection().get(0).location.getName());
         ct.GetCollection().remove(0);
     }
 

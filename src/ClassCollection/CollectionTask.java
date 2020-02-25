@@ -44,7 +44,7 @@ public class CollectionTask {
 
     public void load(String pathname) throws FileNotFoundException, JsonSyntaxException {
         Scanner scanner = new Scanner(new File(pathname));
-        System.out.println("Идёт загрузка коллекции");
+        System.out.println("Collection loading");
         StringBuffer data = new StringBuffer();
         while (scanner.hasNext()) {
             data.append(scanner.nextLine()).append("\n");

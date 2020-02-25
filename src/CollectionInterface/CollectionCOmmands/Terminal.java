@@ -73,15 +73,7 @@ public abstract class Terminal implements invoker {
                             System.err.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'");
                         }
                         break;
-                    /*}catch (ArrayIndexOutOfBoundsException ex){
-                        System.err.println("Некорректный синтаксис команды. Используйте 'help'");
-                        break;
-                    }
-                    try {*/
 
-                    /*}catch (Exception ex){
-                        System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям."); break;
-                    }*/
                     case ("show"):
                         show.execute(res);
                         break;
@@ -120,16 +112,10 @@ public abstract class Terminal implements invoker {
                         TypayaJava = (userCommand_[1].trim().split(" ", 3));
                         KakJeUmenyaGoritJopa.put("id", TypayaJava[0]);
                         remove_by_id.getTransporter().SetParams(KakJeUmenyaGoritJopa);
-                    /*}catch (ArrayIndexOutOfBoundsException ex){
-                        System.err.println("Некорректный синтаксис команды. Используйте 'help'");
-                        break;
-                    }
-                    try {*/
+
                         remove_by_id.execute(res);
                         break;
-                    /*}catch (Exception ex){
-                        System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям."); break;
-                    }*/
+
 
                     case ("remove_head"):
                         removeHead.execute(res);
@@ -140,48 +126,30 @@ public abstract class Terminal implements invoker {
                         TypayaJava = (userCommand_[1].trim().split(" ", 3));
                         KakJeUmenyaGoritJopa.put("nationality", TypayaJava[0]);
                         removeAnyByNationality.getTransporter().SetParams(KakJeUmenyaGoritJopa);
-                    /*}catch (ArrayIndexOutOfBoundsException ex){
-                        System.err.println("Некорректный синтаксис команды. Используйте 'help'");
-                        break;
-                    }
-                    try {*/
+
                         remove_by_id.execute(res);
                         break;
-                    /*}catch (Exception ex){
-                        System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям."); break;
-                    }*/
+
 
                     case ("count_less_than_location"):
                         //try {
                         TypayaJava = (userCommand_[1].trim().split(" ", 3));
                         KakJeUmenyaGoritJopa.put("nameL", TypayaJava[0]);
                         countLessThanLocation.getTransporter().SetParams(KakJeUmenyaGoritJopa);
-                    /*}catch (ArrayIndexOutOfBoundsException ex){
-                        System.err.println("Некорректный синтаксис команды. Используйте 'help'");
-                        break;
-                    }
-                    try {*/
+
                         countLessThanLocation.execute(res);
                         break;
-                    /*}catch (Exception ex){
-                        System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям."); break;
-                    }*/
+
 
                     case ("filter_starts_with_name"):
                         //try {
                         TypayaJava = (userCommand_[1].trim().split(" ", 3));
                         KakJeUmenyaGoritJopa.put("name", TypayaJava[0]);
                         filterStartsWithName.getTransporter().SetParams(KakJeUmenyaGoritJopa);
-                    /*}catch (ArrayIndexOutOfBoundsException ex){
-                        System.err.println("Некорректный синтаксис команды. Используйте 'help'");
-                        break;
-                    }
-                    try {*/
+
                         filterStartsWithName.execute(res);
                         break;
-                   /* }catch (Exception ex){
-                        System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям."); break;
-                    }*/
+
 
                     case ("save"):
                         save.execute(res);
@@ -191,16 +159,8 @@ public abstract class Terminal implements invoker {
                         TypayaJava = (userCommand_[1].trim().split(" ", 3));
                         KakJeUmenyaGoritJopa.put("file_name", TypayaJava[0]);
                         executeScript.getTransporter().SetParams(KakJeUmenyaGoritJopa);
-                    /*}catch (ArrayIndexOutOfBoundsException ex){
-                        System.err.println("Некорректный синтаксис команды. Используйте 'help'");
-                        break;
-                    }
-                    try {*/
                         executeScript.execute(res);
                         break;
-                    /*}catch (FileNotFoundException ex){
-                        System.err.println("Файл не найден"); break;
-                    }*/
 
                     case ("exit"):
                         exit.execute(res);
@@ -219,9 +179,6 @@ public abstract class Terminal implements invoker {
                             System.err.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'");
                         }
                         break;
-                    /*}catch (Exception ex){
-                        System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям."); break;
-                    }*/
                     case ("help"):
                         help.execute(res);
                         break;
@@ -235,7 +192,7 @@ public abstract class Terminal implements invoker {
 
 
             } catch (ArrayIndexOutOfBoundsException ex) {
-                System.err.println("Некорректный синтаксис команды. Используйте 'help'");
+                System.err.println("Wrong syntax. Please use 'help'");
 
             } catch (FileNotFoundException ex) {
                 System.err.println("Файл не найден");
