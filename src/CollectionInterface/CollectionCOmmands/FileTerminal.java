@@ -29,7 +29,7 @@ public class FileTerminal extends Terminal  {
         executeScript = new ExecuteScript(new FileTransporter(scan));
         exit=new Exit();
         history=new History();
-        addIfMin = new AddIfMin(new ConsoleTranspoeter());
+        addIfMin = new AddIfMin(new FileTransporter(scan));
         help=new Help();
         try {
             this.interactiveMod();

@@ -199,8 +199,8 @@ public class CollectionUnit implements receiver {
 
     @Override
     public void executeScript(String file_name) throws FileNotFoundException {
-        Scanner scan =new Scanner(new File(file_name));
-        FileTerminal ft = new FileTerminal(file_name,scan,this);
+
+        FileTerminal ft = new FileTerminal(file_name,new Scanner(new File(file_name)),this);
     }
 
     @Override
@@ -240,11 +240,14 @@ public class CollectionUnit implements receiver {
             ct.CollectionSort();
         }
 
-        if((ct.GetCollection().size() == 0) || (per.compareTo(ct.GetCollection().get(0))< 0)){
-            ct.add(per);
-            np.PersonReplace(per);
-            fp.PersonReplace(per);
-        }
+            if((ct.GetCollection().size() == 0) || (per.compareTo(ct.GetCollection().get(0))> 0)){
+                System.out.println(per.compareTo(ct.GetCollection().get(0)));
+                np.PersonReplace(per);
+                fp.PersonReplace(per);
+                ct.add(per);
+                System.out.println("Элемент добавлен!");
+            }
+
     }
 
     @Override

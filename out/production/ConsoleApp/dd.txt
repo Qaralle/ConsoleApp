@@ -1,26 +1,16 @@
-add {Valentin 123.1}
-GREEN BLACK
+add {a1aaaaaaaaaaa 1111.1}
+GREEN GREEN
 CHINA
-A
-23,1
-LOL
-31,1
-33232,1
-Add {Vale1ntin 123.1}
-GREEN BLACK
+10,0
+10,01
+aasdsda
+10,0
+1111,1
+add_if_min {a 1.1}
+GREEN GREEN
 CHINA
-12,1
-23,1
-LOL
-31,1
-33232,1
-add {Vale1ntin 123.1}
-GREEN BLACK
-CHINA
-12,1
-23,1
-LOL
-31,1
-33232,1
-show
-exit
+0,0
+0,0
+a
+0,0
+0,0
