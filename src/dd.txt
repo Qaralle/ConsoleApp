@@ -1,1 +1,26 @@
-execute_script C:\Users\proge\IdeaProjects\ConsoleApp\src\dd.txt
+add {Valentin 123.1}
+GREEN BLACK
+CHINA
+-123412312,1
+23,1
+LOL
+31,1
+33232,1
+Add {Vale1ntin 123.1}
+GREEN BLACK
+CHINA
+12,1
+23,1
+LOL
+31,1
+33232,1
+add {Vale1ntin 123.1}
+GREEN BLACK
+CHINA
+12,1
+23,1
+LOL
+31,1
+33232,1
+show
+exit
