@@ -243,6 +243,8 @@ public abstract class Terminal implements invoker {
             } catch (IllegalArgumentException ex) {
                 System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям.");
 
+            } catch (Ea ea) {
+                System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям.");
             }
         }
     }

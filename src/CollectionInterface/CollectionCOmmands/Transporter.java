@@ -29,7 +29,7 @@ public abstract class Transporter implements SetterParams<Map<String,String>> {
     protected String[] buffer;
     protected String catchN;
 
-    public abstract void setFields(receiver res) throws FileNotFoundException;
+    public abstract void setFields(receiver res) throws FileNotFoundException, Ea;
 
     @Override
     public void SetParams(Map<String, String> bar1) {

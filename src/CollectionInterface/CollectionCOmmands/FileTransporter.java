@@ -15,7 +15,7 @@ public class FileTransporter extends Transporter {
 
         this.scan=scan_;
     }
-    public void setFields(receiver res) throws FileNotFoundException {
+    public void setFields(receiver res) throws FileNotFoundException, Ea {
 
         if (scan.hasNextLine()) {
 
@@ -25,27 +25,27 @@ public class FileTransporter extends Transporter {
         }
         nationality=Country.valueOf(scan.nextLine());
 
-        if (scan.hasNextFloat()) {
-            x=scan.nextFloat();
-            catchN = scan.nextLine();
-        }
-        if (scan.hasNextDouble()) {
-            y=scan.nextDouble();
-            catchN = scan.nextLine();
-        }
-        if (scan.hasNextLine()){
-            name1=scan.nextLine();
-        }
-        if (scan.hasNextFloat()) {
-            x1=scan.nextFloat();
-            catchN = scan.nextLine();
-        }
-        if (scan.hasNextDouble()) {
-            y1 = scan.nextDouble();
-            if (scan.hasNextLine()) {
-                catchN = scan.nextLine();
-            }
-        }
+     try {
+
+         x = scan.nextFloat();
+         catchN = scan.nextLine();
+
+         y = scan.nextDouble();
+         catchN = scan.nextLine();
+
+         name1 = scan.nextLine();
+
+         x1 = scan.nextFloat();
+         catchN = scan.nextLine();
+
+         y1 = scan.nextDouble();
+         if (scan.hasNextLine()) {
+             catchN = scan.nextLine();
+         }
+     }catch (Exception e){
+         throw new Ea();
+     }
+
 
     }
 }

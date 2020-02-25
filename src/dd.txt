@@ -1,7 +1,7 @@
 add {Valentin 123.1}
 GREEN BLACK
 CHINA
--123412312,1
+A
 23,1
 LOL
 31,1

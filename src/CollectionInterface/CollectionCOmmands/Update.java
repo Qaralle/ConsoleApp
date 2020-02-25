@@ -10,7 +10,7 @@ public class Update extends CommandWithPars{
 
 
     @Override
-    public void execute(receiver res) throws FileNotFoundException {
+    public void execute(receiver res) throws FileNotFoundException, Ea {
         transporter.setFields(res);
         this.setFieldsFromTransporter();
         res.update(id, name, height, eyeColor, hairColor, nationality, x, y, x1, y1, name1);
