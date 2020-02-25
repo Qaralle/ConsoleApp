@@ -15,14 +15,19 @@ public class Main {
         CollectionTask CT = new CollectionTask();
         try {
             CT.load(args[0]);
+            receiver CU = new CollectionUnit(CT,args[0]);
+            Terminal l1 = new ConsoleTerminal(CU);
+            l1.interactiveMod();
         }catch (Exception ex){
             //System.out.println(args[0]);
             CT.load("src/PersonClassTest.json");
+            receiver CU = new CollectionUnit(CT,"src/PersonClassTest.json");
+            Terminal l1 = new ConsoleTerminal(CU);
+            l1.interactiveMod();
         }
-        receiver CU = new CollectionUnit(CT);
 
-        Terminal l1 = new ConsoleTerminal(CU);
-        l1.interactiveMod();
+
+
 
 
 

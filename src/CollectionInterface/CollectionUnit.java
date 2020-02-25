@@ -35,7 +35,12 @@ public class CollectionUnit implements receiver {
     private Location loc;
     private Person per;
 
-    public CollectionUnit(CollectionTask CT){ this.ct=CT; }
+    private String file_name;
+
+    public CollectionUnit(CollectionTask CT,String file_name_){
+        this.ct=CT;
+        this.file_name=file_name_;
+    }
 
     {
         compareCenter=new CompareCenter();
