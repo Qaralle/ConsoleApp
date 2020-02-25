@@ -182,7 +182,7 @@ public class CollectionUnit implements receiver {
 
     @Override
     public void save() throws IOException {
-        FileOutputStream fileOutputStream = new FileOutputStream("saveCollection.json");
+        FileOutputStream fileOutputStream = new FileOutputStream(file_name);
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
         fileOutputStream.write("[".getBytes());
