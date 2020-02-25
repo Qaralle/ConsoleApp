@@ -10,8 +10,6 @@ public class Person{
     private static long last = 0;
 
 
-    private FieldPolice fp;
-    private NullPolice np;
     private long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     public Coordinates coordinates; //Поле не может быть null
@@ -21,10 +19,7 @@ public class Person{
     private Color hairColor; //Поле не может быть null
     private Country nationality; //Поле может быть null
     public Location location; //Поле может быть null
-    {
-        fp=new FieldPolice();
-        np=new NullPolice();
-    }
+
 
     private static long setID() {
 
@@ -101,8 +96,8 @@ public class Person{
         this.setHairColor(hairColor);
         this.setNationality(nationality);
         this.setLocation(loc);
-        np.PersonReplace(this);
-        fp.PersonReplace(this);
+        new FieldPolice().PersonReplace(this);
+        new NullPolice().PersonReplace(this);
     }
 
 
