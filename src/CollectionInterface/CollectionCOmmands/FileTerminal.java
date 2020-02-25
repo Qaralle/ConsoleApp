@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Scanner;
 
+
 public class FileTerminal extends Terminal  {
     private Scanner scan;
     private String file_name;
@@ -30,7 +31,12 @@ public class FileTerminal extends Terminal  {
         history=new History();
         addIfMin = new AddIfMin(new ConsoleTranspoeter());
         help=new Help();
-        this.interactiveMod();
+        try {
+            this.interactiveMod();
+        }catch (StackOverflowError e){
+            System.err.println("Скорее всего вы создали рекурсию  \\_(ツ)_/");
+        }
+
 
     }
 

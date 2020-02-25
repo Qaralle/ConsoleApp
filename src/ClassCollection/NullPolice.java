@@ -1,8 +1,9 @@
 package ClassCollection;
 import ColClass.*;
 
-public class NullPolice {
-    public static void NullReplace(Person p){
+public class NullPolice implements Police<Person,Location,Coordinates> {
+    @Override
+    public void PersonReplace(Person p){
         if (p.getName()==null){
             System.out.println("У одного из объектов null поле будет перезаписано автоматически");
             p.setName("noname"+ p.getId());
@@ -32,7 +33,8 @@ public class NullPolice {
             p.setLocation(new Location(0f, 0d, "Udomlya"));
         }
     }
-    public static void NullLocationReplace(Location loc){
+    @Override
+    public void LocationReplace(Location loc){
         if (loc.getName()==null){
             System.out.println("У одного из объектов null поле будет перезаписано автоматически");
             loc.SetName("Udomlya");
@@ -46,7 +48,10 @@ public class NullPolice {
             loc.SetY(0d);
         }
     }
-    public static void NullCoordinatesReplace(Coordinates coo){
+
+
+    @Override
+    public void CoordinatesReplace(Coordinates coo){
         if (coo.getX()==null){
             System.out.println("У одного из объектов null поле будет перезаписано автоматически");
             coo.SetX(0f);

@@ -27,8 +27,7 @@ public abstract class Terminal implements invoker {
     protected String userCommand;
     protected String[] userCommand_;
     protected receiver res;
-    private String lastCommnad;
-    private int i;
+
 
     protected Map<String, String> KakJeUmenyaGoritJopa;
     protected String[] TypayaJava;
@@ -51,16 +50,14 @@ public abstract class Terminal implements invoker {
 
     @Override
     public void interactiveMod() throws FileNotFoundException {
-        i=0;
+
         while (scan.hasNextLine()) {
             try {
 
                 KakJeUmenyaGoritJopa.clear();
                 userCommand = scan.nextLine();
                 userCommand_ = userCommand.trim().split(" ", 2);
-                if (i==0){
-                    lastCommnad=userCommand_[0];
-                }
+
                 switch (userCommand_[0]) {
                     case ("add"):
                         //System.out.println("Опа фраерок добавить что-то решил");
@@ -229,23 +226,23 @@ public abstract class Terminal implements invoker {
                         help.execute(res);
                         break;
                     default:
-                        System.err.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'");break;
+                        if (!userCommand_[0].equals(""))
+                            System.err.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'");
+                        break;
 
 
                 }
-                lastCommnad=userCommand_[0];
-                i=i+1;
 
 
             } catch (ArrayIndexOutOfBoundsException ex) {
                 System.err.println("Некорректный синтаксис команды. Используйте 'help'");
-                break;
+
             } catch (FileNotFoundException ex) {
                 System.err.println("Файл не найден");
-                break;
+
             } catch (IllegalArgumentException ex) {
                 System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям.");
-                break;
+
             }
         }
     }

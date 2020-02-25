@@ -7,14 +7,22 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 import java.util.*;
+
+/**
+ * @author Maxim Antonov and Adrey Lubkin
+ * @version 1231.1231.213546.1(alpha)
+ */
+
+
 
 public class CollectionTask {
     private LinkedList<Person> citizens;
     private File jsonCollection;
     private Gson serializer;
+    private FieldPolice fp;
+    private NullPolice np;
     //private NullPolice nullPolice;
     //private FieldPolice fieldPolice;
     private String dateInit;
@@ -24,6 +32,8 @@ public class CollectionTask {
         //nullPolice = new NullPolice();
         serializer = new Gson();
         citizens = new LinkedList<>();
+        fp=new FieldPolice();
+        np=new NullPolice();
 
         Calendar calendar = Calendar.getInstance();
         dateInit = calendar.get(Calendar.DAY_OF_MONTH) +".";
@@ -53,9 +63,9 @@ public class CollectionTask {
                 Objects.requireNonNull(s.getNationality());
                 Objects.requireNonNull(s.getLocation());
                 if (!citizens.contains(s)){
-                    FieldPolice.FieldReplace(s);
-                    FieldPolice.FieldLocationReplace(s.getLocation());
-                    FieldPolice.FieldCoordinatesReplace(s.getCoordinates());
+                    fp.PersonReplace(s);
+                    fp.LocationReplace(s.getLocation());
+                    fp.CoordinatesReplace(s.getCoordinates());
                     citizens.add(s);
                 }
 
@@ -67,12 +77,12 @@ public class CollectionTask {
             //System.out.println("У одного из объектов null поле будет перезаписано автоматически");
             LinkedList<Person> addedShorty = serializer.fromJson(data.toString(), collectionType);
             for (Person s : addedShorty) {
-                NullPolice.NullReplace(s);
-                NullPolice.NullLocationReplace(s.getLocation());
-                NullPolice.NullCoordinatesReplace(s.getCoordinates());
-                FieldPolice.FieldReplace(s);
-                FieldPolice.FieldLocationReplace(s.getLocation());
-                FieldPolice.FieldCoordinatesReplace(s.getCoordinates());
+                np.PersonReplace(s);
+                np.LocationReplace(s.getLocation());
+                np.CoordinatesReplace(s.getCoordinates());
+                fp.PersonReplace(s);
+                fp.LocationReplace(s.getLocation());
+                fp.CoordinatesReplace(s.getCoordinates());
                 if (!citizens.contains(s)) citizens.add(s);
 
 
