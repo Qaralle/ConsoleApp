@@ -3,9 +3,15 @@ package CollectionInterface.CollectionCOmmands;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * Класс, предоставляющий консоль
+ * @author Maxim Antonov and Andrey Lyubkin
+ */
 public class ConsoleTerminal extends Terminal {
 
-
+    /**
+     * @param res_ Receiver (объект класса CollectionUnit)
+     */
     public ConsoleTerminal(receiver res_){
         super(res_);
     }
@@ -14,7 +20,6 @@ public class ConsoleTerminal extends Terminal {
         userCommand = "";
         scan=new Scanner(System.in);
         add=new Add(new ConsoleTranspoeter());
- //       transporter = add.getTransporter();
         show=new Show();
         info=new Info();
         update=new Update(new ConsoleTranspoeter());
@@ -33,7 +38,7 @@ public class ConsoleTerminal extends Terminal {
         help=new Help();
     }
 
-    private String ObjectsName;
+    /*private String ObjectsName;
 
     public void GetLine() {
         ObjectsName=scan.nextLine();
@@ -41,6 +46,6 @@ public class ConsoleTerminal extends Terminal {
 
     public void GetObjectsName(){
         System.out.println(ObjectsName);
-    }
+    }*/
 
 }

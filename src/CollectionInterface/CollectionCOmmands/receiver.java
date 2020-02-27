@@ -6,6 +6,10 @@ import ColClass.Country;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+/**
+ * Interface, реализуемый классом CollectionUnit, выступает как получатель/реализатор команд от пользователя
+ * @author Maxim Antonov and Andrey Lyubkin
+ */
 public interface receiver {
     void add(String name_, Double height_, Color eyeColor_, Color hairColor_, Country nationality_,Float x_,Double y_,Float x1_,double y1_,String name1_);
     void show();

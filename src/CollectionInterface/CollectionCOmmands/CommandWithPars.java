@@ -5,6 +5,10 @@ import ColClass.Country;
 
 import java.util.Scanner;
 
+/**
+ * Абстрактный класс, наследуемый командами, принимающими какие-либо аргументы
+ * @author Maxim Antonov and Andrey Lyubkin
+ */
 public abstract class CommandWithPars implements Command {
 
     protected Transporter transporter;
@@ -22,6 +26,9 @@ public abstract class CommandWithPars implements Command {
     protected String name1; //Длина строки не должна быть больше 222, Поле не может быть null
     protected Scanner scan;
 
+    /**
+     * @param tr Transporter
+     */
     public CommandWithPars(Transporter tr) {
         this.transporter=tr;
     }
@@ -29,9 +36,11 @@ public abstract class CommandWithPars implements Command {
     public Transporter getTransporter() { return transporter; }
 
     public void SetscanForFile(){
-
     }
 
+    /**
+     * Метод, позволяющий заполнить поля команды значениями, полученными из Transporter
+     */
     public void setFieldsFromTransporter(){
         this.id = transporter.getId();
         this.name = transporter.getName();

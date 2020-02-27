@@ -6,6 +6,10 @@ import ClassCollection.NullPolice;
 
 import java.time.LocalDateTime;
 
+/**
+ * Класс, предоставляющий объект Person для коллекции
+ * @author Maxim Antonov and Andrey Lyubkin
+ */
 public class Person implements Comparable<Person>{
     private static final long LIMIT = 10000000000L;
     private static long last = 0;
@@ -32,11 +36,8 @@ public class Person implements Comparable<Person>{
     }
 
     public Person()  {
-
         this.id = setID();
         this.creationDate = LocalDateTime.now();
-
-
     }
     public LocalDateTime getData(){
         return creationDate;
@@ -89,6 +90,9 @@ public class Person implements Comparable<Person>{
         this.location=o1;
     }
 
+    /**
+     * установка всех необходимых полей
+     */
     public void setEverything(String name, Coordinates coo, Double height, Color eyeColor, Color hairColor, Country nationality, Location loc){
         this.setName(name);
         this.setCoordinates(coo);

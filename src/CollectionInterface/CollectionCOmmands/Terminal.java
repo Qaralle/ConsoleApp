@@ -1,9 +1,13 @@
 package CollectionInterface.CollectionCOmmands;
 
-        import java.io.FileNotFoundException;
+import java.io.FileNotFoundException;
         import java.util.Map;
         import java.util.Scanner;
 
+/**
+ * Абстрактный класс, выполняющий функци инвокера
+ * @author Maxim Antonov and Andrey Lyubkin
+ */
 public abstract class Terminal implements invoker {
     //protected Transporter transporter;
     protected Scanner scan;
@@ -32,22 +36,26 @@ public abstract class Terminal implements invoker {
     protected Map<String, String> KakJeUmenyaGoritJopa;
     protected String[] TypayaJava;
 
+    /**
+     * @param res_ Receiver
+     */
     public Terminal(receiver res_) {
         this.res=res_;
     }
 
-
+    /**
+     * @param rec_ Receiver
+     * @param scanner Scanner
+     */
     public Terminal(receiver rec_, Scanner scanner) {
         this.scan=scanner;
         this.res=rec_;
     }
 
-
-
-    /*{
-        transporter = new Transporter();
-    }*/
-
+    /**
+     * перейти в интерактивный режим
+     * @throws FileNotFoundException файл не найден
+     */
     @Override
     public void interactiveMod() throws FileNotFoundException {
 
@@ -197,16 +205,11 @@ public abstract class Terminal implements invoker {
             } catch (FileNotFoundException ex) {
                 System.err.println("Файл не найден");
 
-            } catch (IllegalArgumentException ex) {
-                System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям.");
-
-            } catch (Ea ea) {
+            } catch (IllegalArgumentException | WrongTypeOfFieldException ex) {
                 System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям.");
             }
         }
+
+
     }
-    //public abstract void interactiveMod();
-    //public Transporter getTransporter(){return transporter;}
-
-
 }

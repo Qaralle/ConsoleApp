@@ -2,7 +2,15 @@ package CollectionInterface.CollectionCOmmands;
 
 import java.io.IOException;
 
+/**
+ * Класс, предоставляющий реализацию команды save (сохранить коллекцию в файл)
+ * @author Maxim Antonov and Andrey Lyubkin
+ */
 public class Save implements Command {
+    /**
+     * выполнить команду
+     * @param res Receiver (объект класса CollectionUnit)
+     */
     @Override
     public void execute(receiver res) {
         try {

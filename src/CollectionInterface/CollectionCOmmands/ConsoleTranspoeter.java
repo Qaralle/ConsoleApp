@@ -6,8 +6,17 @@ import ColClass.Country;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * Tansporter, используемый при работе с консольным вводом
+ * @author Maxim Antonov and Andrey Lyubkin
+ */
 public class ConsoleTranspoeter extends Transporter {
-    public void setFields(receiver res) throws Ea{
+    /**
+     * установка значений составных полей
+     * @param res Receiver
+     * @throws WrongTypeOfFieldException обработка некорректных типов полей
+     */
+    public void setFields(receiver res) throws WrongTypeOfFieldException {
 
 
         System.out.println("Введите параметры(имя персонажа и рост было указано при вызове команды)");
@@ -54,7 +63,7 @@ public class ConsoleTranspoeter extends Transporter {
             catchN = scan.nextLine();
         } catch (Exception e){
 
-            throw new Ea();
+            throw new WrongTypeOfFieldException();
         }
 
     }

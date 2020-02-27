@@ -1,7 +1,15 @@
 package ClassCollection;
 import ColClass.*;
 
+/**
+ * Класс, реализующий проверку полей на заполненность
+ * @author Maxim Antonov and Andrey Lyubkin
+ */
 public class NullPolice implements Police<Person,Location,Coordinates> {
+    /**
+     * проверка полей объекта класса Person
+     * @param p объект класса Person
+     */
     @Override
     public void PersonReplace(Person p){
         if (p.getName()==null){
@@ -33,6 +41,10 @@ public class NullPolice implements Police<Person,Location,Coordinates> {
             p.setLocation(new Location(0f, 0d, "Udomlya"));
         }
     }
+    /**
+     * проверка полей объекта класса Location
+     * @param loc объект класса Location
+     */
     @Override
     public void LocationReplace(Location loc){
         if (loc.getName()==null){
@@ -49,7 +61,10 @@ public class NullPolice implements Police<Person,Location,Coordinates> {
         }
     }
 
-
+    /**
+     * проверка полей объекта класса Coordinates
+     * @param coo объект класса Coordinates
+     */
     @Override
     public void CoordinatesReplace(Coordinates coo){
         if (coo.getX()==null){
@@ -60,5 +75,16 @@ public class NullPolice implements Police<Person,Location,Coordinates> {
             System.out.println("У одного из объектов null поле будет перезаписано автоматически");
             coo.SetY(0d);
         }
+    }
+    /**
+     * проверка всех полей
+     * @param p объект класса Person
+     * @param loc объект класса Location
+     * @param coo объект класса Coordinates
+     */
+    public void ReplaceEverything(Person p, Location loc, Coordinates coo){
+        this.PersonReplace(p);
+        this.LocationReplace(loc);
+        this.CoordinatesReplace(coo);
     }
 }

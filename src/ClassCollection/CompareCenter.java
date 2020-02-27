@@ -3,8 +3,19 @@ package ClassCollection;
 import ColClass.Person;
 import java.util.Comparator;
 
+
+/**
+ * Класс, реализующий компаратор
+ * @author Maxim Antonov and Andrey Lyubkin
+ */
 public class CompareCenter implements Comparator<Person> {
 
+    /**
+     * Метод, реализующий сравнение двух объектов класса Person
+     * @param o1 Person
+     * @param o2 Person
+     * @return результат сравнения
+     */
     @Override
     public int compare(Person o1, Person o2) {
         int compRes=0;

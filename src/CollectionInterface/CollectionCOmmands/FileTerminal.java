@@ -4,11 +4,20 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Scanner;
 
-
+/**
+ * Класс, предоставляющий терминал для работы с файлами
+ * @author Maxim Antonov and Andrey Lyubkin
+ */
 public class FileTerminal extends Terminal  {
     private Scanner scan;
     private String file_name;
 
+    /**
+     * @param file_name_ имя фалйа
+     * @param scan объект класса Scanner
+     * @param rec_ Receiver
+     * @throws FileNotFoundException файл не найден
+     */
     public FileTerminal(String file_name_,Scanner scan,receiver rec_ ) throws FileNotFoundException {
         super(rec_,scan);
 

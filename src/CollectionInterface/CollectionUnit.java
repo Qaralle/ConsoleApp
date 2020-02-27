@@ -17,10 +17,15 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.reflect.ParameterizedType;
 import java.util.Iterator;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
+/**
+ * Класс, реазилующий обработку коллекции
+ * @author Maxim Antonov and Andrey Lyubkin
+ */
 public class CollectionUnit implements receiver {
 
     private CollectionTask ct;
@@ -37,6 +42,10 @@ public class CollectionUnit implements receiver {
 
     private String file_name;
 
+    /**
+     * @param CT Объект класса CollectionTask
+     * @param file_name_ имя файла
+     */
     public CollectionUnit(CollectionTask CT,String file_name_){
         this.ct=CT;
         this.file_name=file_name_;
@@ -51,7 +60,9 @@ public class CollectionUnit implements receiver {
         np=new NullPolice();
     }
 
-
+    /**
+     * реализация команды add
+     */
     @Override
     public void add(String name_, Double height_, Color eyeColor_, Color hairColor_, Country nationality_, Float x_, Double y_, Float x1_, double y1_, String name1_){
         coo=cm.create();
@@ -78,6 +89,9 @@ public class CollectionUnit implements receiver {
 
     }
 
+    /**
+     * реализация команды show
+     */
     @Override
     public void show() {
         for (Person s : ct.GetCollection()) {
@@ -85,13 +99,20 @@ public class CollectionUnit implements receiver {
         }
     }
 
+    /**
+     * реализация команды info
+     */
     @Override
     public void info() {
-        System.out.println("Тип коллекции: "+ct.GetCollection().getClass()+
+        ParameterizedType parameterizedType =(ParameterizedType)ct.GetCollection().getClass().getGenericSuperclass();
+        System.out.println("Тип коллекции: "+parameterizedType+
                             " Дата иницализации: "+ct.getDateInit()+
                             " Количество элементов: "+ct.GetCollection().size());
     }
 
+    /**
+     * реализация команды update
+     */
     @Override
     public void update(long id, String nameP_, Double height_, Color eyeColor_, Color hairColor_, Country nationality_, Float x_, Double y_, Float x1_, double y1_, String nameL_) {
         coo=cm.create();
@@ -114,6 +135,9 @@ public class CollectionUnit implements receiver {
         this.show();
     }
 
+    /**
+     * реализация команды clear
+     */
     @Override
     public void clear() {
         ct.GetCollection().clear();
@@ -121,6 +145,9 @@ public class CollectionUnit implements receiver {
         this.show();
     }
 
+    /**
+     * реализация команды remove_by_id
+     */
     @Override
     public void remove_by_id(long id) {
         Iterator<Person> it = ct.GetCollection().iterator();
@@ -129,20 +156,30 @@ public class CollectionUnit implements receiver {
             if(p.getId() == id){
                 it.remove();
                 System.out.println("Удален объект с айди = "+id); break;
+            }else {
+                System.out.println("Объекта с таким id нет");
             }
         }
     }
 
+    /**
+     * реализация команды remove_head
+     */
     @Override
     public void removeHead() {
-        System.out.println("Name: "+ct.GetCollection().get(0).getName()+
-                            " id: "+ct.GetCollection().get(0).getId()+
-                            " date: "+ct.GetCollection().get(0).getData()+
-                            " hair color: "+ct.GetCollection().get(0).getHairColor()+
-                            " location: "+ct.GetCollection().get(0).location.getName());
-        ct.GetCollection().remove(0);
+        if (ct.GetCollection().size()>0) {
+            System.out.println("Name: " + ct.GetCollection().get(0).getName() +
+                    " id: " + ct.GetCollection().get(0).getId() +
+                    " date: " + ct.GetCollection().get(0).getData() +
+                    " hair color: " + ct.GetCollection().get(0).getHairColor() +
+                    " location: " + ct.GetCollection().get(0).location.getName());
+            ct.GetCollection().remove(0);
+        }
     }
 
+    /**
+     * реализация команды remove_ane_by_nationality
+     */
     @Override
     public void removeAnyByNationality(Country nationality) {
         Iterator<Person> it = ct.GetCollection().iterator();
@@ -151,10 +188,15 @@ public class CollectionUnit implements receiver {
             if(p.getNationality() == nationality){
                 it.remove();
                 System.out.println("Удален объект по национальности = "+nationality); break;
+            }else{
+                System.out.println("Элемента с такой национальностью нет");
             }
         }
     }
 
+    /**
+     * реализация команды count_less_than_location
+     */
     @Override
     public void countLessThanLocation(String namel) {
 
@@ -169,6 +211,9 @@ public class CollectionUnit implements receiver {
         System.out.println(personStream.filter(person -> person.getLocation().compareTo(loc) > 0).count());
     }
 
+    /**
+     * реализация команды filter_starts_with_name
+     */
     @Override
     public void filterStartsWithName(String name) {
         Iterator<Person> it = ct.GetCollection().iterator();
@@ -180,6 +225,10 @@ public class CollectionUnit implements receiver {
         }
     }
 
+    /**
+     * реализация команды save
+     * @throws IOException файл не найден
+     */
     @Override
     public void save() throws IOException {
         FileOutputStream fileOutputStream = new FileOutputStream(file_name);
@@ -197,17 +246,27 @@ public class CollectionUnit implements receiver {
         fileOutputStream.close();
     }
 
+    /**
+     * реализация команды execute_script
+     * @throws FileNotFoundException файл не найден
+     */
     @Override
     public void executeScript(String file_name) throws FileNotFoundException {
 
         FileTerminal ft = new FileTerminal(file_name,new Scanner(new File(file_name)),this);
     }
 
+    /**
+     * реализация команды exit
+     */
     @Override
     public void exit() {
         System.exit(0);
     }
 
+    /**
+     * реализация команды history
+     */
     @Override
     public void history() {
         for (String s: ct.getHistory()) {
@@ -217,6 +276,9 @@ public class CollectionUnit implements receiver {
         }
     }
 
+    /**
+     *реализация команды add_if_min
+     */
     @Override
     public void addIfMin(String name_, Double height_, Color eyeColor_, Color hairColor_, Country nationality_, Float x_, Double y_, Float x1_, double y1_, String name1_) {
         coo=cm.create();
@@ -250,6 +312,9 @@ public class CollectionUnit implements receiver {
 
     }
 
+    /**
+     * реализация команды help
+     */
     @Override
     public void help() {
         System.out.println("Доступные команды: help, info, show, add, update, remove_by_id, clear, save, execute_script," +
@@ -272,6 +337,10 @@ public class CollectionUnit implements receiver {
         System.out.println("filter_starts_with_name: Вывести элементы коллекции, имя которых начинается с заданной подстроки. Синтаксис: filter_starts_with_name string");
     }
 
+    /**
+     * метод, добавляющий команду в историю
+     * @param userCommand команда, введенная пользователем
+     */
     public void addCommandToHistory(String userCommand){
         for (int i=0; i<ct.getHistory().length; ++i){
             if(i!=ct.getHistory().length-1){

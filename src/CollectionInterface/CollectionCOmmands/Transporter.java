@@ -8,6 +8,10 @@ import java.io.FileNotFoundException;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * Абстрактный класс, предоставляющий Transporter дял передачи полей командам
+ * @author Maxim Antonov and Andrey Lyubkin
+ */
 public abstract class Transporter implements SetterParams<Map<String,String>> {
     protected Scanner scan;
 
@@ -29,8 +33,18 @@ public abstract class Transporter implements SetterParams<Map<String,String>> {
     protected String[] buffer;
     protected String catchN;
 
-    public abstract void setFields(receiver res) throws FileNotFoundException, Ea;
+    /**
+     * установка полей для последующей передачи их командам
+     * @param res Receiver
+     * @throws FileNotFoundException файл не найден
+     * @throws WrongTypeOfFieldException обработка некорректных типов полей
+     */
+    public abstract void setFields(receiver res) throws FileNotFoundException, WrongTypeOfFieldException;
 
+    /**
+     * задание примитивных параметров
+     * @param bar1 коллекция типа Map
+     */
     @Override
     public void SetParams(Map<String, String> bar1) {
 
