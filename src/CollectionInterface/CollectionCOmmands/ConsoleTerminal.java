@@ -30,7 +30,7 @@ public class ConsoleTerminal extends Terminal {
         countLessThanLocation=new CountLessThanLocation(new ConsoleTranspoeter());
         filterStartsWithName=new FilterStartsWithName(new ConsoleTranspoeter());
         save=new Save();
-        KakJeUmenyaGoritJopa = new HashMap<>();
+        bufferMap = new HashMap<>();
         executeScript = new ExecuteScript(new ConsoleTranspoeter());
         exit=new Exit();
         history=new History();

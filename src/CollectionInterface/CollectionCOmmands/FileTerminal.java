@@ -34,7 +34,7 @@ public class FileTerminal extends Terminal  {
         countLessThanLocation=new CountLessThanLocation(new FileTransporter(scan));
         filterStartsWithName=new FilterStartsWithName(new FileTransporter(scan));
         save=new Save();
-        KakJeUmenyaGoritJopa = new HashMap<>();
+        bufferMap = new HashMap<>();
         executeScript = new ExecuteScript(new FileTransporter(scan));
         exit=new Exit();
         history=new History();
