@@ -33,8 +33,8 @@ public abstract class Terminal implements invoker {
     protected receiver res;
 
 
-    protected Map<String, String> KakJeUmenyaGoritJopa;
-    protected String[] TypayaJava;
+    protected Map<String, String> bufferMap;
+    protected String[] bufferStringForArgs;
 
     /**
      * @param res_ Receiver
@@ -62,7 +62,7 @@ public abstract class Terminal implements invoker {
         while (scan.hasNextLine()) {
             try {
 
-                KakJeUmenyaGoritJopa.clear();
+                bufferMap.clear();
                 userCommand = scan.nextLine();
                 userCommand_ = userCommand.trim().split(" ", 2);
 
@@ -72,10 +72,10 @@ public abstract class Terminal implements invoker {
                         //try{
                         userCommand_[1] = userCommand_[1].trim();
                         if ((userCommand_[1].startsWith("{")) && (userCommand_[1].endsWith("}"))) {
-                            TypayaJava = (userCommand_[1].substring(1, userCommand_[1].length() - 1).trim().split(" ", 2));
-                            KakJeUmenyaGoritJopa.put("name", TypayaJava[0]);
-                            KakJeUmenyaGoritJopa.put("height", TypayaJava[1]);
-                            add.getTransporter().SetParams(KakJeUmenyaGoritJopa);
+                            bufferStringForArgs = (userCommand_[1].substring(1, userCommand_[1].length() - 1).trim().split(" ", 2));
+                            bufferMap.put("name", bufferStringForArgs[0]);
+                            bufferMap.put("height", bufferStringForArgs[1]);
+                            add.getTransporter().SetParams(bufferMap);
                             add.execute(res);
                         } else {
                             System.err.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'");
@@ -95,13 +95,13 @@ public abstract class Terminal implements invoker {
 
                         // try {
                         if ((userCommand_[1].startsWith("{")) && (userCommand_[1].endsWith("}"))) {
-                            TypayaJava = (userCommand_[1].trim().split(" ", 3));
-                            KakJeUmenyaGoritJopa.put("id", TypayaJava[0]);
-                            TypayaJava[1] = TypayaJava[1].substring(1, TypayaJava[1].length() - 1);
-                            KakJeUmenyaGoritJopa.put("name", TypayaJava[1]);
-                            TypayaJava[2] = TypayaJava[2].substring(1, TypayaJava[2].length() - 1);
-                            KakJeUmenyaGoritJopa.put("height", TypayaJava[2]);
-                            update.getTransporter().SetParams(KakJeUmenyaGoritJopa);
+                            bufferStringForArgs = (userCommand_[1].trim().split(" ", 3));
+                            bufferMap.put("id", bufferStringForArgs[0]);
+                            bufferStringForArgs[1] = bufferStringForArgs[1].substring(1, bufferStringForArgs[1].length() - 1);
+                            bufferMap.put("name", bufferStringForArgs[1]);
+                            bufferStringForArgs[2] = bufferStringForArgs[2].substring(1, bufferStringForArgs[2].length() - 1);
+                            bufferMap.put("height", bufferStringForArgs[2]);
+                            update.getTransporter().SetParams(bufferMap);
                             update.execute(res);
                         } else {
                             System.err.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'");
@@ -117,9 +117,9 @@ public abstract class Terminal implements invoker {
 
                     case ("remove_by_id"):
                         //try {
-                        TypayaJava = (userCommand_[1].trim().split(" ", 3));
-                        KakJeUmenyaGoritJopa.put("id", TypayaJava[0]);
-                        remove_by_id.getTransporter().SetParams(KakJeUmenyaGoritJopa);
+                        bufferStringForArgs = (userCommand_[1].trim().split(" ", 3));
+                        bufferMap.put("id", bufferStringForArgs[0]);
+                        remove_by_id.getTransporter().SetParams(bufferMap);
 
                         remove_by_id.execute(res);
                         break;
@@ -131,9 +131,9 @@ public abstract class Terminal implements invoker {
 
                     case ("remove_any_by_nationality"):
                         //try {
-                        TypayaJava = (userCommand_[1].trim().split(" ", 3));
-                        KakJeUmenyaGoritJopa.put("nationality", TypayaJava[0]);
-                        removeAnyByNationality.getTransporter().SetParams(KakJeUmenyaGoritJopa);
+                        bufferStringForArgs = (userCommand_[1].trim().split(" ", 3));
+                        bufferMap.put("nationality", bufferStringForArgs[0]);
+                        removeAnyByNationality.getTransporter().SetParams(bufferMap);
 
                         remove_by_id.execute(res);
                         break;
@@ -141,9 +141,9 @@ public abstract class Terminal implements invoker {
 
                     case ("count_less_than_location"):
                         //try {
-                        TypayaJava = (userCommand_[1].trim().split(" ", 3));
-                        KakJeUmenyaGoritJopa.put("nameL", TypayaJava[0]);
-                        countLessThanLocation.getTransporter().SetParams(KakJeUmenyaGoritJopa);
+                        bufferStringForArgs = (userCommand_[1].trim().split(" ", 3));
+                        bufferMap.put("nameL", bufferStringForArgs[0]);
+                        countLessThanLocation.getTransporter().SetParams(bufferMap);
 
                         countLessThanLocation.execute(res);
                         break;
@@ -151,9 +151,9 @@ public abstract class Terminal implements invoker {
 
                     case ("filter_starts_with_name"):
                         //try {
-                        TypayaJava = (userCommand_[1].trim().split(" ", 3));
-                        KakJeUmenyaGoritJopa.put("name", TypayaJava[0]);
-                        filterStartsWithName.getTransporter().SetParams(KakJeUmenyaGoritJopa);
+                        bufferStringForArgs = (userCommand_[1].trim().split(" ", 3));
+                        bufferMap.put("name", bufferStringForArgs[0]);
+                        filterStartsWithName.getTransporter().SetParams(bufferMap);
 
                         filterStartsWithName.execute(res);
                         break;
@@ -164,9 +164,9 @@ public abstract class Terminal implements invoker {
                         break;
                     case ("execute_script"):
                         //try {
-                        TypayaJava = (userCommand_[1].trim().split(" ", 3));
-                        KakJeUmenyaGoritJopa.put("file_name", TypayaJava[0]);
-                        executeScript.getTransporter().SetParams(KakJeUmenyaGoritJopa);
+                        bufferStringForArgs = (userCommand_[1].trim().split(" ", 3));
+                        bufferMap.put("file_name", bufferStringForArgs[0]);
+                        executeScript.getTransporter().SetParams(bufferMap);
                         executeScript.execute(res);
                         break;
 
@@ -178,10 +178,10 @@ public abstract class Terminal implements invoker {
                     case ("add_if_min"):
                         //try {
                         if ((userCommand_[1].startsWith("{")) && (userCommand_[1].endsWith("}"))) {
-                            TypayaJava = (userCommand_[1].substring(1, userCommand_[1].length() - 1).trim().split(" ", 2));
-                            KakJeUmenyaGoritJopa.put("name", TypayaJava[0]);
-                            KakJeUmenyaGoritJopa.put("height", TypayaJava[1]);
-                            addIfMin.getTransporter().SetParams(KakJeUmenyaGoritJopa);
+                            bufferStringForArgs = (userCommand_[1].substring(1, userCommand_[1].length() - 1).trim().split(" ", 2));
+                            bufferMap.put("name", bufferStringForArgs[0]);
+                            bufferMap.put("height", bufferStringForArgs[1]);
+                            addIfMin.getTransporter().SetParams(bufferMap);
                             addIfMin.execute(res);
                         } else {
                             System.err.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'");
