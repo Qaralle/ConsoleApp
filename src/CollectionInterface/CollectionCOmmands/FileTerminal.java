@@ -1,7 +1,10 @@
 package CollectionInterface.CollectionCOmmands;
 
+import javax.swing.*;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -11,6 +14,7 @@ import java.util.Scanner;
 public class FileTerminal extends Terminal  {
     private Scanner scan;
     private String file_name;
+    private List<String> files_names=new ArrayList<>();
 
     /**
      * @param file_name_ имя фалйа
@@ -35,6 +39,7 @@ public class FileTerminal extends Terminal  {
         filterStartsWithName=new FilterStartsWithName(new FileTransporter(scan));
         save=new Save();
         bufferMap = new HashMap<>();
+
         executeScript = new ExecuteScript(new FileTransporter(scan));
         exit=new Exit();
         history=new History();
@@ -45,6 +50,13 @@ public class FileTerminal extends Terminal  {
         }catch (StackOverflowError e){
             System.err.println("Скорее всего вы создали рекурсию  \\_(ツ)_/");
         }
+        files_names.add(file_name);
+        for (String s : files_names){
+            if(file_name == s){
+                System.err.print("sdfsdfsdfs");
+            }
+        }
+
 
 
     }
