@@ -19,11 +19,7 @@ public class Main {
             Terminal l1 = new ConsoleTerminal(CU);
             l1.interactiveMod();
         }catch (Exception ex){
-            //System.out.println(args[0]);
-            CT.load("src/PersonClassTest.json");
-            receiver CU = new CollectionUnit(CT,"src/PersonClassTest.json");
-            Terminal l1 = new ConsoleTerminal(CU);
-            l1.interactiveMod();
+            System.err.print("Файл не найден");
         }
 
 

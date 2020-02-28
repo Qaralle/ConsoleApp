@@ -30,10 +30,9 @@ public class FileTransporter extends Transporter {
      */
     public void setFields(receiver res) throws FileNotFoundException, WrongTypeOfFieldException {
         if (scan.hasNextLine()) {
-            buffer = (scan.nextLine().trim().split(" ", 2));
-            hairColor=Color.valueOf(buffer[0]);
-            eyeColor=Color.valueOf(buffer[1]);
+            hairColor=Color.valueOf(scan.nextLine().trim());
         }
+        eyeColor = Color.valueOf(scan.nextLine().trim());
         nationality=Country.valueOf(scan.nextLine());
 
      try {

@@ -54,9 +54,9 @@ public class CollectionTask {
         while (scanner.hasNext()) {
             data.append(scanner.nextLine()).append("\n");
         }
-        Type collectionType = new TypeToken<LinkedList<Person> >() {}.getType();
+        Type collectionType = new TypeToken<PersonList>() {}.getType();
         try {
-            LinkedList<Person> addedPerson = serializer.fromJson(data.toString(), collectionType);
+            PersonList addedPerson = serializer.fromJson(data.toString(), collectionType);
 
 
             for (Person s : addedPerson) {
@@ -76,6 +76,7 @@ public class CollectionTask {
             System.out.println("Коллекций успешно загружена");
         } catch (JsonSyntaxException e ){
             System.out.println("Ошибка синтаксиса файл json!");
+            System.exit(0);
         } catch (NullPointerException e){
             //System.out.println("У одного из объектов null поле будет перезаписано автоматически");
             PersonList addedShorty = serializer.fromJson(data.toString(), collectionType);

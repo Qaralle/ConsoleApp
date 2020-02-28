@@ -303,7 +303,7 @@ public class CollectionUnit implements receiver {
         }
 
             if((ct.GetCollection().size() == 0) || (per.compareTo(ct.GetCollection().get(0))> 0)){
-                System.out.println(per.compareTo(ct.GetCollection().get(0)));
+                //System.out.println(per.compareTo(ct.GetCollection().get(0)));
                 np.PersonReplace(per);
                 fp.PersonReplace(per);
                 ct.add(per);

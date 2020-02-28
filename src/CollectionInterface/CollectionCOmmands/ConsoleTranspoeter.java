@@ -22,15 +22,15 @@ public class ConsoleTranspoeter extends Transporter {
         System.out.println("Введите параметры(имя персонажа и рост было указано при вызове команды)");
 
         scan = new Scanner(System.in);
-        System.out.println("Дальше введи Цвет волос и глаз через пробел. Возможные цвета: " + Arrays.toString(Color.values()));
+        System.out.println("Дальше введи Цвет волос. Возможные цвета: " + Arrays.toString(Color.values()));
         if (scan.hasNextLine()) {
-            buffer = (scan.nextLine().trim().split(" ", 2));
-            hairColor = Color.valueOf(buffer[0]);
-            eyeColor = Color.valueOf(buffer[1]);
+            hairColor = Color.valueOf(scan.nextLine().trim()); }
+
+        System.out.println("Дальше введи Цвет глаз. Возможные цвета: " + Arrays.toString(Color.values()));
+        if(scan.hasNextLine()){
+            eyeColor = Color.valueOf(scan.nextLine().trim());
         }
         try {
-
-
             System.out.println("Введи национальность : " + Arrays.toString(Country.values()));
             nationality = Country.valueOf(scan.nextLine());
 
