@@ -70,18 +70,7 @@ public abstract class Terminal implements invoker {
 
                     switch (userCommand_[0]) {
                         case ("add"):
-                            //System.out.println("Опа фраерок добавить что-то решил");
-                            //try{
-                            userCommand_[1] = userCommand_[1].trim();
-                            if ((userCommand_[1].startsWith("{")) && (userCommand_[1].endsWith("}"))) {
-                                bufferStringForArgs = (userCommand_[1].substring(1, userCommand_[1].length() - 1).trim().split(" ", 2));
-                                bufferMap.put("name", bufferStringForArgs[0]);
-                                bufferMap.put("height", bufferStringForArgs[1]);
-                                add.getTransporter().SetParams(bufferMap);
-                                add.execute(res);
-                            } else {
-                                System.err.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'");
-                            }
+                            add.execute(res);
                             break;
 
                         case ("show"):
@@ -93,25 +82,10 @@ public abstract class Terminal implements invoker {
                             break;
 
                         case ("update"):
-                            //System.out.println("Нахуй ты что-то меняешь? ");
-
-                            // try {
-                            if ((userCommand_[1].startsWith("{")) && (userCommand_[1].endsWith("}"))) {
-                                bufferStringForArgs = (userCommand_[1].trim().split(" ", 3));
-                                bufferMap.put("id", bufferStringForArgs[0]);
-                                bufferStringForArgs[1] = bufferStringForArgs[1].substring(1, bufferStringForArgs[1].length() - 1);
-                                bufferMap.put("name", bufferStringForArgs[1]);
-                                bufferStringForArgs[2] = bufferStringForArgs[2].substring(1, bufferStringForArgs[2].length() - 1);
-                                bufferMap.put("height", bufferStringForArgs[2]);
-                                update.getTransporter().SetParams(bufferMap);
-                                update.execute(res);
-                            } else {
-                                System.err.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'");
-                            }
+                            bufferMap.put("id", userCommand_[1].trim());
+                            update.getTransporter().SetParams(bufferMap);
+                            update.execute(res);
                             break;
-                        /*}catch (Exception ex){
-                            System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям."); break;
-                        }*/
 
                         case ("clear"):
                             clear.execute(res);
@@ -119,8 +93,7 @@ public abstract class Terminal implements invoker {
 
                         case ("remove_by_id"):
                             //try {
-                            bufferStringForArgs = (userCommand_[1].trim().split(" ", 3));
-                            bufferMap.put("id", bufferStringForArgs[0]);
+                            bufferMap.put("id", userCommand_[1].trim());
                             remove_by_id.getTransporter().SetParams(bufferMap);
 
                             remove_by_id.execute(res);
@@ -133,18 +106,16 @@ public abstract class Terminal implements invoker {
 
                         case ("remove_any_by_nationality"):
                             //try {
-                            bufferStringForArgs = (userCommand_[1].trim().split(" ", 3));
-                            bufferMap.put("nationality", bufferStringForArgs[0]);
+                            bufferMap.put("nationality", userCommand_[1].trim());
                             removeAnyByNationality.getTransporter().SetParams(bufferMap);
 
-                            remove_by_id.execute(res);
+                            removeAnyByNationality.execute(res);
                             break;
 
 
                         case ("count_less_than_location"):
                             //try {
-                            bufferStringForArgs = (userCommand_[1].trim().split(" ", 3));
-                            bufferMap.put("nameL", bufferStringForArgs[0]);
+                            bufferMap.put("nameL", userCommand_[1].trim());
                             countLessThanLocation.getTransporter().SetParams(bufferMap);
 
                             countLessThanLocation.execute(res);
@@ -153,8 +124,7 @@ public abstract class Terminal implements invoker {
 
                         case ("filter_starts_with_name"):
                             //try {
-                            bufferStringForArgs = (userCommand_[1].trim().split(" ", 3));
-                            bufferMap.put("name", bufferStringForArgs[0]);
+                            bufferMap.put("name", userCommand_[1].trim());
                             filterStartsWithName.getTransporter().SetParams(bufferMap);
 
                             filterStartsWithName.execute(res);
@@ -166,8 +136,7 @@ public abstract class Terminal implements invoker {
                             break;
                         case ("execute_script"):
                             //try {
-                            bufferStringForArgs = (userCommand_[1].trim().split(" ", 3));
-                            bufferMap.put("file_name", bufferStringForArgs[0]);
+                            bufferMap.put("file_name", userCommand_[1].trim());
                             executeScript.getTransporter().SetParams(bufferMap);
                             executeScript.execute(res);
                             break;
@@ -178,16 +147,7 @@ public abstract class Terminal implements invoker {
                             history.execute(res);
                             break;
                         case ("add_if_min"):
-                            //try {
-                            if ((userCommand_[1].startsWith("{")) && (userCommand_[1].endsWith("}"))) {
-                                bufferStringForArgs = (userCommand_[1].substring(1, userCommand_[1].length() - 1).trim().split(" ", 2));
-                                bufferMap.put("name", bufferStringForArgs[0]);
-                                bufferMap.put("height", bufferStringForArgs[1]);
-                                addIfMin.getTransporter().SetParams(bufferMap);
-                                addIfMin.execute(res);
-                            } else {
-                                System.err.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'");
-                            }
+                            addIfMin.execute(res);
                             break;
                         case ("help"):
                             help.execute(res);

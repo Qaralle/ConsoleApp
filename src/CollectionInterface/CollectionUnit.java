@@ -94,8 +94,12 @@ public class CollectionUnit implements receiver {
      */
     @Override
     public void show() {
-        for (Person s : ct.GetCollection()) {
-            System.out.println("name: "+s.getName()+" id: "+s.getId()+" date: "+s.getData()+" hair color: "+s.getHairColor()+" locaation: "+s.location.getName()+" Х "+ s.coordinates.getX());
+        if (ct.GetCollection().size() > 0) {
+            for (Person s : ct.GetCollection()) {
+                System.out.println("name: " + s.getName() + " id: " + s.getId() + " date: " + s.getData() + " hair color: " + s.getHairColor() + " location: " + s.location.getName() + " Х " + s.coordinates.getX());
+            }
+        }else {
+            System.out.println("Коллекция пуста");
         }
     }
 
@@ -128,11 +132,15 @@ public class CollectionUnit implements receiver {
         np.LocationReplace(loc);
         fp.LocationReplace(loc);
 
-        Stream<Person> personStream = ct.GetCollection().stream();
-        personStream.filter(person -> person.getId() == id).forEach(person -> person.setEverything(nameP_, coo, height_, eyeColor_, hairColor_, nationality_, loc));
-
-        System.out.println("Обновлен элемент с id = "+id);
-        this.show();
+        for (int i=0; i<ct.GetCollection().size(); ++i){
+            if(ct.GetCollection().get(i).getId() == id){
+                ct.GetCollection().get(i).setEverything(nameP_, coo, height_, eyeColor_, hairColor_, nationality_, loc);
+                System.out.println("Обновлен объект с айди = "+id); break;
+            }if(i == ct.GetCollection().size() - 1){
+                System.out.println("Объекта с таким id нет");
+            }
+        }
+        //this.show();
     }
 
     /**
@@ -142,7 +150,7 @@ public class CollectionUnit implements receiver {
     public void clear() {
         ct.GetCollection().clear();
         System.out.println("Коллекция очищена.");
-        this.show();
+        //this.show();
     }
 
     /**
@@ -150,15 +158,16 @@ public class CollectionUnit implements receiver {
      */
     @Override
     public void remove_by_id(long id) {
+        int size = ct.GetCollection().size();
         Iterator<Person> it = ct.GetCollection().iterator();
         while (it.hasNext()){
             Person p = it.next();
             if(p.getId() == id){
                 it.remove();
                 System.out.println("Удален объект с айди = "+id); break;
-            }else {
-                System.out.println("Объекта с таким id нет");
             }
+        }if (size==ct.GetCollection().size()){
+            System.out.println("Объекта с таким id нет");
         }
     }
 
@@ -174,6 +183,8 @@ public class CollectionUnit implements receiver {
                     " hair color: " + ct.GetCollection().get(0).getHairColor() +
                     " location: " + ct.GetCollection().get(0).location.getName());
             ct.GetCollection().remove(0);
+        }else{
+            System.out.println("Коллекция уже пуста");
         }
     }
 
@@ -182,15 +193,16 @@ public class CollectionUnit implements receiver {
      */
     @Override
     public void removeAnyByNationality(Country nationality) {
+        int size = ct.GetCollection().size();
         Iterator<Person> it = ct.GetCollection().iterator();
         while (it.hasNext()){
             Person p = it.next();
             if(p.getNationality() == nationality){
                 it.remove();
                 System.out.println("Удален объект по национальности = "+nationality); break;
-            }else{
-                System.out.println("Элемента с такой национальностью нет");
             }
+        }if (size==ct.GetCollection().size()){
+            System.out.println("Объекта с такой национальностью нет");
         }
     }
 
@@ -252,7 +264,6 @@ public class CollectionUnit implements receiver {
      */
     @Override
     public void executeScript(String file_name) throws FileNotFoundException {
-
         FileTerminal ft = new FileTerminal(file_name,new Scanner(new File(file_name)),this);
     }
 

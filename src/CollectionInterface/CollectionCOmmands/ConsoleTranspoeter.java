@@ -14,10 +14,6 @@ import java.util.Scanner;
  */
 public class ConsoleTranspoeter extends Transporter {
     private Integer i=0;
-    private Boolean FlagType=false;
-    public void setFlagType(boolean b){
-        FlagType=b;
-    }
 
     /**
      * установка значений составных полей
@@ -26,57 +22,74 @@ public class ConsoleTranspoeter extends Transporter {
      */
     public void setFields(receiver res) throws WrongTypeOfFieldException {
 
-
-        System.out.println("Введите параметры(имя персонажа и рост было указано при вызове команды)");
-
         scan = new Scanner(System.in);
 
-        while (!FlagType) {
-            System.out.println("Дальше введи Цвет волос. Возможные цвета: " + Arrays.toString(Color.values()));
+        System.out.println("Введите параметры. Сначала имя:");
+        System.out.print("$");
+        if(scan.hasNextLine()) {
+            name = scan.nextLine();
+            //catchN = scan.nextLine();
+        }
+
+        while (true) {
+            try {
+                System.out.println("Введите рост.");
+                System.out.print("$");
+                if (scan.hasNextDouble()) {
+                    height = scan.nextDouble();
+                    catchN=scan.nextLine();
+                    break;
+                }else {
+                    catchN = scan.next();
+                    System.err.println("Некорректное поле, try again");
+                }
+            } catch (Exception ex) {
+                System.err.println("Некорректное поле, try again");
+            }
+        }
+
+        while (true) {
+            System.out.println("Введите Цвет волос. Возможные цвета: " + Arrays.toString(Color.values()));
             System.out.print("$");
             try {
                 if (scan.hasNextLine()) {
                     hairColor = Color.valueOf(scan.nextLine().trim());
-                    setFlagType(true);
+                    break;
                 }
             }catch (Exception ex){
                 System.err.println("Некорректное поле.");
             }
         }
-        setFlagType(false);
-        while (!FlagType) {
-            System.out.println("Дальше введи Цвет глаз. Возможные цвета: " + Arrays.toString(Color.values()));
+        while (true) {
+            System.out.println("Введите Цвет глаз. Возможные цвета: " + Arrays.toString(Color.values()));
             System.out.print("$");
             try {
                 if (scan.hasNextLine()) {
                     eyeColor = Color.valueOf(scan.nextLine().trim());
-                    setFlagType(true);
+                    break;
                 }
             }catch (Exception ex){
                 System.err.println("Некорректное поле.");
 
             }
         }
-        setFlagType(false);
-        while (!FlagType) {
+        while (true) {
             try {
-                System.out.println("Введи национальность : " + Arrays.toString(Country.values()));
+                System.out.println("Введите национальность : " + Arrays.toString(Country.values()));
                 System.out.print("$");
                 nationality = Country.valueOf(scan.nextLine());
-                setFlagType(true);
+                break;
             } catch (Exception ex) {
                 System.err.println("Некорректное поле.");
             }
         }
-        setFlagType(false);
-
-        while (!FlagType) {
+        while (true) {
             try {
-                    System.out.println("Введи кооридинаты X для точного описания объекта точки ");
+                    System.out.println("Введите кооридинаты X для точного описания объекта точки ");
                 System.out.print("$");
                 if (scan.hasNextFloat()) {
                         x = scan.nextFloat();
-                        setFlagType(true);
+                        break;
                     }else {
                         catchN = scan.next();
                         System.err.println("Некорректное поле, try again");
@@ -87,15 +100,14 @@ public class ConsoleTranspoeter extends Transporter {
                 System.err.println("Некорректное поле, try again");
             }
         }
-        setFlagType(false);
-        while (!FlagType) {
+        while (true) {
             try {
-                System.out.println("Введи кооридинаты Y для точного описания объекта точки ");
+                System.out.println("Введите кооридинаты Y для точного описания объекта точки ");
                 System.out.print("$");
                 if (scan.hasNextDouble()) {
                     y = scan.nextDouble();
                     catchN=scan.nextLine();
-                    setFlagType(true);
+                    break;
                 }else {
                     catchN = scan.next();
                     System.err.println("Некорректное поле, try again");
@@ -105,20 +117,19 @@ public class ConsoleTranspoeter extends Transporter {
             }
         }
 
-        System.out.println("Введи название локации");
+        System.out.println("Введите название локации");
         System.out.print("$");
         if(scan.hasNextLine()) {
                     name1 = scan.nextLine();
                     //catchN = scan.nextLine();
                 }
-        setFlagType(false);
-        while (!FlagType) {
+        while (true) {
             try {
-                System.out.println("Введи кооридинаты X для точного описания точки локации ");
+                System.out.println("Введите кооридинаты X для точного описания точки локации ");
                 System.out.print("$");
                 if (scan.hasNextFloat()) {
                     x1 = scan.nextFloat();
-                    setFlagType(true);
+                    break;
                 }else {
                     catchN = scan.next();
                     System.err.println("Некорректное поле, try again");
@@ -127,14 +138,13 @@ public class ConsoleTranspoeter extends Transporter {
                 System.err.println("Некорректное поле, try again");
             }
         }
-        setFlagType(false);
-        while (!FlagType) {
+        while (true) {
             try {
-                System.out.println("Введи кооридинаты Y для точного описания точки локации ");
+                System.out.println("Введите кооридинаты Y для точного описания точки локации ");
                 System.out.print("$");
                 if (scan.hasNextFloat()) {
                     y1 = scan.nextFloat();
-                    setFlagType(true);
+                    break;
                 }else {
                     catchN = scan.next();
                     System.err.println("Некорректное поле, try again");
