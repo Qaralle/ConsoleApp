@@ -118,7 +118,7 @@ public class CollectionUnit implements receiver {
      * реализация команды update
      */
     @Override
-    public void update(long id, String nameP_, Double height_, Color eyeColor_, Color hairColor_, Country nationality_, Float x_, Double y_, Float x1_, double y1_, String nameL_) {
+    public void update(long id, String nameP_, Double height_, Color eyeColor_, Color hairColor_, Country nationality_, Float x_, Double y_, Float x1_, double y1_, String nameL_, int index) {
         coo=cm.create();
         coo.SetX(x_);
         coo.SetY(y_);
@@ -132,14 +132,9 @@ public class CollectionUnit implements receiver {
         np.LocationReplace(loc);
         fp.LocationReplace(loc);
 
-        for (int i=0; i<ct.GetCollection().size(); ++i){
-            if(ct.GetCollection().get(i).getId() == id){
-                ct.GetCollection().get(i).setEverything(nameP_, coo, height_, eyeColor_, hairColor_, nationality_, loc);
-                System.out.println("Обновлен объект с айди = "+id); break;
-            }if(i == ct.GetCollection().size() - 1){
-                System.out.println("Объекта с таким id нет");
-            }
-        }
+        ct.GetCollection().get(index).setEverything(nameP_, coo, height_, eyeColor_, hairColor_, nationality_, loc);
+        System.out.println("Обновлен объект с id = "+id);
+
         //this.show();
     }
 
@@ -346,6 +341,11 @@ public class CollectionUnit implements receiver {
         System.out.println("remove_any_by_nationality: Удалить один элемент коллекции, с заданной национальностью. Синтаксис: remove_any_by_nationality nationality");
         System.out.println("count_less_than_location: Вывести количество элементов коллекции, значения поля location которых меньше заданного. Синтаксис: count_less_than_location location");
         System.out.println("filter_starts_with_name: Вывести элементы коллекции, имя которых начинается с заданной подстроки. Синтаксис: filter_starts_with_name string");
+    }
+
+    @Override
+    public CollectionTask getCT() {
+        return ct;
     }
 
     /**

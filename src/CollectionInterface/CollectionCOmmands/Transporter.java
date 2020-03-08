@@ -15,6 +15,7 @@ import java.util.Scanner;
 public abstract class Transporter implements SetterParams<Map<String,String>> {
     protected Scanner scan;
 
+    protected int index;
     protected long id;
     protected String name;
     protected Double height; //Поле не может быть null, Значение поля должно быть больше 0
@@ -49,7 +50,7 @@ public abstract class Transporter implements SetterParams<Map<String,String>> {
     public void SetParams(Map<String, String> bar1) {
 
             this.name = bar1.getOrDefault("name","1213123");
-            this.height=Double.parseDouble(bar1.getOrDefault("height","123.12"));
+            this.index=Integer.parseInt(bar1.getOrDefault("index","123.12"));
             this.id=Long.parseLong(bar1.getOrDefault("id","123123123"));
             this.name1=bar1.getOrDefault("nameL","123123321");
             this.nationality=Country.valueOf(bar1.getOrDefault("nationality","CHINA"));
@@ -72,6 +73,5 @@ public abstract class Transporter implements SetterParams<Map<String,String>> {
     public String getName1() { return name1; }
     public Location getLoc(){ return loc;}
     public String getFile_name() { return file_name; }
-
-
+    public int getIndex() { return index; }
 }

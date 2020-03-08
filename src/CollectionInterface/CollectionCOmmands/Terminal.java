@@ -1,5 +1,7 @@
 package CollectionInterface.CollectionCOmmands;
 
+import ColClass.Location;
+
 import java.io.FileNotFoundException;
         import java.util.Map;
         import java.util.Scanner;
@@ -83,8 +85,16 @@ public abstract class Terminal implements invoker {
 
                         case ("update"):
                             bufferMap.put("id", userCommand_[1].trim());
-                            update.getTransporter().SetParams(bufferMap);
-                            update.execute(res);
+                            for (int i=0;i<res.getCT().GetCollection().size();++i){
+                                if(Long.parseLong(bufferMap.get("id")) == res.getCT().GetCollection().get(i).getId()) {
+                                    bufferMap.put("index", String.valueOf(i));
+                                    update.getTransporter().SetParams(bufferMap);
+                                    update.execute(res);
+                                    break;
+                                }if (i == res.getCT().GetCollection().size() - 1){
+                                    System.out.println("Объекта с таким id нет");
+                                }
+                            }
                             break;
 
                         case ("clear"):
@@ -95,7 +105,6 @@ public abstract class Terminal implements invoker {
                             //try {
                             bufferMap.put("id", userCommand_[1].trim());
                             remove_by_id.getTransporter().SetParams(bufferMap);
-
                             remove_by_id.execute(res);
                             break;
 
