@@ -1,13 +1,11 @@
 package CollectionInterface.CollectionCOmmands;
 
+import ColClass.Person;
 import CollectionInterface.CollectionUnit;
 
 import javax.swing.*;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Класс, предоставляющий терминал для работы с файлами
@@ -16,8 +14,9 @@ import java.util.Scanner;
 public class FileTerminal extends Terminal  {
     private Scanner scan;
     private String file_name;
-    private List<String> files_names=new ArrayList<>();
-    private boolean i=false;
+    private static List<String> files_names=new ArrayList<>();
+    private Iterator<String> it = files_names.iterator();
+    private static boolean i=false;
 
 
     /**
@@ -45,13 +44,38 @@ public class FileTerminal extends Terminal  {
         bufferMap = new HashMap<>();
 
         executeScript = new ExecuteScript(new FileTransporter(scan));
+
         exit=new Exit();
         history=new History();
         addIfMin = new AddIfMin(new FileTransporter(scan));
         help=new Help();
 
 
-        this.interactiveMod("");
+        if (files_names.size()>0) {
+
+            for (int j=0; j<files_names.size();j++) {
+
+                if (file_name.equals(files_names.get(j))) {
+                    System.out.println("sdfsdfsdfs");
+                    i = false;
+                    while (it.hasNext()){
+                        String st= it.next();
+                            it.remove();
+                            break;
+                        }
+
+                } else i=true;
+
+            }
+        }else i=true;
+
+        files_names.add(file_name);
+
+        if (i==true) {
+            this.interactiveMod("");
+            files_names.clear();
+        }
+
 
     }
 

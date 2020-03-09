@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
  * @author Maxim Antonov and Andrey Lyubkin
  */
 public class ExecuteScript extends CommandWithPars{
+
     /**
      * @param tr FileTransporter
      */
@@ -21,7 +22,10 @@ public class ExecuteScript extends CommandWithPars{
      */
     @Override
     public void execute(receiver res) throws FileNotFoundException {
+
         res.addCommandToHistory("execute_script");
         res.executeScript(transporter.getFile_name());
+
     }
+
 }

@@ -29,9 +29,7 @@ import java.util.stream.Stream;
  * @author Maxim Antonov and Andrey Lyubkin
  */
 public class CollectionUnit implements receiver {
-    private List<String> files_names=new ArrayList<>();
-    private boolean i=false;
-    private boolean t=false;
+
 
     private CollectionTask ct;
     private CompareCenter compareCenter;
@@ -54,6 +52,7 @@ public class CollectionUnit implements receiver {
     public CollectionUnit(CollectionTask CT,String file_name_){
         this.ct=CT;
         this.file_name=file_name_;
+
     }
 
     {
@@ -264,26 +263,10 @@ public class CollectionUnit implements receiver {
      */
     @Override
     public void executeScript(String file_name) throws FileNotFoundException {
-        files_names.add(file_name);
-        i=true;
-        for (String s : files_names){
 
-            if((file_name == s)&(files_names.size()>1)){
-                System.out.println("sdfsdfsdfs");
-                i=false;
-            } else if (t==false){
-                i=true;
-            }
-        }
+        FileTerminal ft = new FileTerminal(file_name, new Scanner(new File(file_name)), this);
 
-        if (i==true) {
-            FileTerminal ft = new FileTerminal(file_name, new Scanner(new File(file_name)), this);
 
-            if (files_names.size()>1){
-                files_names.clear();
-                t=true;
-            }
-        }
 
 
     }
@@ -387,4 +370,6 @@ public class CollectionUnit implements receiver {
             }
         }
     }
+
+
 }

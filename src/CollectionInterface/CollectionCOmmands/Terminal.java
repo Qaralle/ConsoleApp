@@ -3,7 +3,9 @@ package CollectionInterface.CollectionCOmmands;
 import ColClass.Location;
 
 import java.io.FileNotFoundException;
-        import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
         import java.util.Scanner;
 
 /**
@@ -12,6 +14,8 @@ import java.io.FileNotFoundException;
  */
 public abstract class Terminal implements invoker {
     //protected Transporter transporter;
+
+
     protected Scanner scan;
     protected CommandWithPars add;
     protected Command show;
@@ -24,7 +28,7 @@ public abstract class Terminal implements invoker {
     protected CommandWithPars countLessThanLocation;
     protected CommandWithPars filterStartsWithName;
     protected Command save;
-    protected CommandWithPars executeScript;
+    protected ExecuteScript executeScript;
     protected Command exit;
     protected Command history;
     protected CommandWithPars addIfMin;
@@ -42,6 +46,8 @@ public abstract class Terminal implements invoker {
      * @param res_ Receiver
      */
     public Terminal(receiver res_) {
+
+
         this.res=res_;
     }
 
@@ -52,6 +58,7 @@ public abstract class Terminal implements invoker {
     public Terminal(receiver rec_, Scanner scanner) {
         this.scan=scanner;
         this.res=rec_;
+
     }
 
     /**
@@ -145,10 +152,9 @@ public abstract class Terminal implements invoker {
                             save.execute(res);
                             break;
                         case ("execute_script"):
-                            //try {
-                            bufferMap.put("file_name", userCommand_[1].trim());
-                            executeScript.getTransporter().SetParams(bufferMap);
-                            executeScript.execute(res);
+                                bufferMap.put("file_name", userCommand_[1].trim());
+                                executeScript.getTransporter().SetParams(bufferMap);
+                                executeScript.execute(res);
                             break;
 
                         case ("exit"):

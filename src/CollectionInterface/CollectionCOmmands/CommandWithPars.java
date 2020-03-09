@@ -2,6 +2,7 @@ package CollectionInterface.CollectionCOmmands;
 
 import ColClass.Color;
 import ColClass.Country;
+import CollectionInterface.CollectionUnit;
 
 import java.util.Scanner;
 
@@ -12,6 +13,7 @@ import java.util.Scanner;
 public abstract class CommandWithPars implements Command {
 
     protected Transporter transporter;
+
 
     protected long id;
     protected String name;
@@ -31,6 +33,9 @@ public abstract class CommandWithPars implements Command {
      */
     public CommandWithPars(Transporter tr) {
         this.transporter=tr;
+    }
+
+    public CommandWithPars(receiver res) {
     }
 
     public Transporter getTransporter() { return transporter; }
@@ -54,4 +59,6 @@ public abstract class CommandWithPars implements Command {
         this.y1 = transporter.getY1();
         this.name1 = transporter.getName1();
     }
+
+
 }

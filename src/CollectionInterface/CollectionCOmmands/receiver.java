@@ -6,6 +6,7 @@ import ColClass.Country;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Interface, реализуемый классом CollectionUnit, выступает как получатель/реализатор команд от пользователя
@@ -31,4 +32,5 @@ public interface receiver {
 
     CollectionTask getCT();
     void addCommandToHistory(String userCommand);
+
 }

@@ -14,6 +14,7 @@ public class ConsoleTerminal extends Terminal {
      */
     public ConsoleTerminal(receiver res_){
         super(res_);
+
     }
 
     {
@@ -36,6 +37,8 @@ public class ConsoleTerminal extends Terminal {
         history=new History();
         addIfMin = new AddIfMin(new ConsoleTranspoeter());
         help=new Help();
+
+
     }
 
     /*private String ObjectsName;
