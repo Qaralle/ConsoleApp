@@ -7,5 +7,5 @@ import java.io.FileNotFoundException;
  * @author Maxim Antonov and Andrey Lyubkin
  */
 public interface invoker {
-    void interactiveMod() throws FileNotFoundException;
+    void interactiveMod(String del) throws FileNotFoundException;
 }

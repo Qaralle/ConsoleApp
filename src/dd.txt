@@ -1,18 +1,2 @@
-add {a1aaaaaaaaaaa 1111.1}
-GREEN
-GREEN
-CHINA
-10,0
-10,01
-aasdsda
-10,0
-1111,1
-add_if_min {a 1.1}
-GREEN
-GREEN
-CHINA
-0,0
-0,0
-a
-0,0
-0,0
+info
+execute_script C:\Users\proge\IdeaProjects\ConsoleApp2\src\dd.txt

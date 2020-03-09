@@ -18,7 +18,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
@@ -27,6 +29,9 @@ import java.util.stream.Stream;
  * @author Maxim Antonov and Andrey Lyubkin
  */
 public class CollectionUnit implements receiver {
+    private List<String> files_names=new ArrayList<>();
+    private boolean i=false;
+    private boolean t=false;
 
     private CollectionTask ct;
     private CompareCenter compareCenter;
@@ -259,7 +264,28 @@ public class CollectionUnit implements receiver {
      */
     @Override
     public void executeScript(String file_name) throws FileNotFoundException {
-        FileTerminal ft = new FileTerminal(file_name,new Scanner(new File(file_name)),this);
+        files_names.add(file_name);
+        i=true;
+        for (String s : files_names){
+
+            if((file_name == s)&(files_names.size()>1)){
+                System.out.println("sdfsdfsdfs");
+                i=false;
+            } else if (t==false){
+                i=true;
+            }
+        }
+
+        if (i==true) {
+            FileTerminal ft = new FileTerminal(file_name, new Scanner(new File(file_name)), this);
+
+            if (files_names.size()>1){
+                files_names.clear();
+                t=true;
+            }
+        }
+
+
     }
 
     /**

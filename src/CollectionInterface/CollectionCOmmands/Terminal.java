@@ -59,9 +59,10 @@ public abstract class Terminal implements invoker {
      * @throws FileNotFoundException файл не найден
      */
     @Override
-    public void interactiveMod() throws FileNotFoundException {
+    public void interactiveMod(String del) throws FileNotFoundException {
+
         while (true) {
-            System.out.print("$");
+            System.out.print(del);
             if (scan.hasNextLine()) {
 
                 try {
@@ -163,7 +164,7 @@ public abstract class Terminal implements invoker {
                             break;
                         default:
                             if (!userCommand_[0].equals("")) {
-                                System.err.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'");
+                                System.out.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'");
                             }
                             break;
 
@@ -172,14 +173,15 @@ public abstract class Terminal implements invoker {
 
 
                 } catch (ArrayIndexOutOfBoundsException ex) {
-                    System.err.println("Wrong syntax. Please use 'help'");
+                    System.out.println("Wrong syntax. Please use 'help'");
 
                 } catch (FileNotFoundException ex) {
-                    System.err.println("Файл не найден");
+                    System.out.println("Файл не найден");
 
-                } catch (IllegalArgumentException | WrongTypeOfFieldException ex) {
-                    System.err.println("Некорректное заполнение полей. Попробуйте ещё раз, следуя инструкциям.");
+                } catch (WrongTypeOfFieldException e) {
+                    e.printStackTrace();
                 }
+
             }else break;
         }
 

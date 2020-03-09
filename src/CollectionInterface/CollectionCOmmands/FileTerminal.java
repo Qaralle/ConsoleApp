@@ -1,5 +1,7 @@
 package CollectionInterface.CollectionCOmmands;
 
+import CollectionInterface.CollectionUnit;
+
 import javax.swing.*;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -15,6 +17,8 @@ public class FileTerminal extends Terminal  {
     private Scanner scan;
     private String file_name;
     private List<String> files_names=new ArrayList<>();
+    private boolean i=false;
+
 
     /**
      * @param file_name_ имя фалйа
@@ -45,20 +49,12 @@ public class FileTerminal extends Terminal  {
         history=new History();
         addIfMin = new AddIfMin(new FileTransporter(scan));
         help=new Help();
-        try {
-            this.interactiveMod();
-        }catch (StackOverflowError e){
-            System.err.println("Скорее всего вы создали рекурсию  \\_(ツ)_/");
-        }
-        files_names.add(file_name);
-        for (String s : files_names){
-            if(file_name == s){
-                System.err.print("sdfsdfsdfs");
-            }
-        }
 
 
+        this.interactiveMod("");
 
     }
+
+
 
 }
