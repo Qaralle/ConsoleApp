@@ -1,2 +1,12 @@
-info
-execute_script C:\Users\proge\IdeaProjects\ConsoleApp2\src\d1.txt
+add
+SADASDASD
+1,1
+GREEN
+GREEN
+CHINA
+1,1
+1,1
+SDFSDF
+1,1
+1,1
+show

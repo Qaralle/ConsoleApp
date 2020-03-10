@@ -29,19 +29,27 @@ public class FileTransporter extends Transporter {
      * @throws WrongTypeOfFieldException обработка некорректных типов полей
      */
     public void setFields(receiver res) throws FileNotFoundException, WrongTypeOfFieldException {
-        if (scan.hasNextLine()) {
-            hairColor=Color.valueOf(scan.nextLine().trim());
+        if(scan.hasNextLine()) {
+            name = scan.nextLine();
+            //catchN = scan.nextLine();
         }
-        eyeColor = Color.valueOf(scan.nextLine().trim());
-        nationality=Country.valueOf(scan.nextLine());
 
      try {
+
+         height = scan.nextDouble();
+         catchN = scan.nextLine();
+
+         hairColor = Color.valueOf(scan.nextLine().trim());
+
+         eyeColor = Color.valueOf(scan.nextLine().trim());
+
+         nationality = Country.valueOf(scan.nextLine());
 
          x = scan.nextFloat();
          catchN = scan.nextLine();
 
          y = scan.nextDouble();
-         catchN = scan.nextLine();
+         catchN=scan.nextLine();
 
          name1 = scan.nextLine();
 

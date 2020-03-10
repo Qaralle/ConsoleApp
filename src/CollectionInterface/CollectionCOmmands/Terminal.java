@@ -80,7 +80,11 @@ public abstract class Terminal implements invoker {
 
                     switch (userCommand_[0]) {
                         case ("add"):
-                            add.execute(res);
+                            if (userCommand_.length==1) {
+                                add.execute(res);
+                            }else {
+                                System.out.println("saDASDASDADASD");
+                            }
                             break;
 
                         case ("show"):
