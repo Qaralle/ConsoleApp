@@ -91,7 +91,14 @@ public class Person implements Comparable<Person>{
     }
 
     /**
-     * установка всех необходимых полей
+     * Установка всех полей
+     * @param name Имя Объекта, String
+     * @param coo Координаты объекта, Coordinates
+     * @param height Высота объекта, Double
+     * @param eyeColor Цвет глаз, Color
+     * @param hairColor Цвет волос, Color
+     * @param nationality Национальность, Country
+     * @param loc Локация, Location
      */
     public void setEverything(String name, Coordinates coo, Double height, Color eyeColor, Color hairColor, Country nationality, Location loc){
         this.setName(name);

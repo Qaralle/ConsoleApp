@@ -77,6 +77,7 @@ public abstract class Terminal implements invoker {
                     bufferMap.clear();
                     userCommand = scan.nextLine();
                     userCommand_ = userCommand.trim().split(" ", 2);
+                    userCommand_[0] = userCommand_[0].toLowerCase();
 
                     switch (userCommand_[0]) {
                         case ("add"):

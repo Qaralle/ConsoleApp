@@ -52,7 +52,7 @@ public class ConsoleTranspoeter extends Transporter {
             System.out.print("$");
             try {
                 if (scan.hasNextLine()) {
-                    hairColor = Color.valueOf(scan.nextLine().trim());
+                    hairColor = Color.valueOf(scan.nextLine().trim().toUpperCase());
                     break;
                 }
             }catch (Exception ex){
@@ -64,7 +64,7 @@ public class ConsoleTranspoeter extends Transporter {
             System.out.print("$");
             try {
                 if (scan.hasNextLine()) {
-                    eyeColor = Color.valueOf(scan.nextLine().trim());
+                    eyeColor = Color.valueOf(scan.nextLine().trim().toUpperCase());
                     break;
                 }
             }catch (Exception ex){
@@ -76,7 +76,7 @@ public class ConsoleTranspoeter extends Transporter {
             try {
                 System.out.println("Введите национальность : " + Arrays.toString(Country.values()));
                 System.out.print("$");
-                nationality = Country.valueOf(scan.nextLine());
+                nationality = Country.valueOf(scan.nextLine().toUpperCase());
                 break;
             } catch (Exception ex) {
                 System.err.println("Некорректное поле.");
