@@ -83,95 +83,159 @@ public abstract class Terminal implements invoker {
                             if (userCommand_.length==1) {
                                 add.execute(res);
                             }else {
-                                System.out.println("saDASDASDADASD");
+                                System.out.println("Неверный синтаксис команды. Используйте help.");
                             }
                             break;
 
                         case ("show"):
-                            show.execute(res);
+                            if (userCommand_.length==1) {
+                                show.execute(res);
+                            }else {
+                                System.out.println("Неверный синтаксис команды. Используйте help.");
+                            }
                             break;
 
                         case ("info"):
-                            info.execute(res);
+                            if (userCommand_.length==1) {
+                                info.execute(res);
+                            }else {
+                                System.out.println("Неверный синтаксис команды. Используйте help.");
+                            }
                             break;
 
                         case ("update"):
+                            if (userCommand_.length == 2) {
                             bufferMap.put("id", userCommand_[1].trim());
-                            for (int i=0;i<res.getCT().GetCollection().size();++i){
-                                if(Long.parseLong(bufferMap.get("id")) == res.getCT().GetCollection().get(i).getId()) {
-                                    bufferMap.put("index", String.valueOf(i));
-                                    update.getTransporter().SetParams(bufferMap);
-                                    update.execute(res);
-                                    break;
-                                }if (i == res.getCT().GetCollection().size() - 1){
-                                    System.out.println("Объекта с таким id нет");
+                                for (int i = 0; i < res.getCT().GetCollection().size(); ++i) {
+                                    if (Long.parseLong(bufferMap.get("id")) == res.getCT().GetCollection().get(i).getId()) {
+                                        bufferMap.put("index", String.valueOf(i));
+                                        update.getTransporter().SetParams(bufferMap);
+                                        update.execute(res);
+                                        break;
+                                    }
+                                    if (i == res.getCT().GetCollection().size() - 1) {
+                                        System.out.println("Объекта с таким id нет");
+                                    }
                                 }
+                            }else {
+                                System.out.println("Неверный синтаксис команды. Используйте help.");
                             }
                             break;
 
                         case ("clear"):
-                            clear.execute(res);
+                            if (userCommand_.length==1) {
+                                clear.execute(res);
+                            }else {
+                                System.out.println("Неверный синтаксис команды. Используйте help.");
+                            }
                             break;
 
+
                         case ("remove_by_id"):
-                            //try {
-                            bufferMap.put("id", userCommand_[1].trim());
-                            remove_by_id.getTransporter().SetParams(bufferMap);
-                            remove_by_id.execute(res);
+                            if(userCommand_.length == 2) {
+                                bufferMap.put("file_name", userCommand_[1].trim());
+                                remove_by_id.getTransporter().SetParams(bufferMap);
+                                remove_by_id.execute(res);
+                            }else {
+                                System.out.println("Неверный синтаксис команды. Используйте help.");
+                            }
                             break;
 
 
                         case ("remove_head"):
-                            removeHead.execute(res);
+                            if (userCommand_.length==1) {
+                                removeHead.execute(res);
+                            }else {
+                                System.out.println("Неверный синтаксис команды. Используйте help.");
+                            }
                             break;
 
-                        case ("remove_any_by_nationality"):
-                            //try {
-                            bufferMap.put("nationality", userCommand_[1].trim());
-                            removeAnyByNationality.getTransporter().SetParams(bufferMap);
 
-                            removeAnyByNationality.execute(res);
+                        case ("remove_any_by_nationality"):
+                            if(userCommand_.length == 2) {
+                                bufferMap.put("file_name", userCommand_[1].trim());
+                                removeAnyByNationality.getTransporter().SetParams(bufferMap);
+                                removeAnyByNationality.execute(res);
+                            }else {
+                                System.out.println("Неверный синтаксис команды. Используйте help.");
+                            }
                             break;
 
 
                         case ("count_less_than_location"):
-                            //try {
-                            bufferMap.put("nameL", userCommand_[1].trim());
-                            countLessThanLocation.getTransporter().SetParams(bufferMap);
-
-                            countLessThanLocation.execute(res);
+                            if(userCommand_.length == 2) {
+                                bufferMap.put("file_name", userCommand_[1].trim());
+                                countLessThanLocation.getTransporter().SetParams(bufferMap);
+                                countLessThanLocation.execute(res);
+                            }else {
+                                System.out.println("Неверный синтаксис команды. Используйте help.");
+                            }
                             break;
 
 
                         case ("filter_starts_with_name"):
-                            //try {
-                            bufferMap.put("name", userCommand_[1].trim());
-                            filterStartsWithName.getTransporter().SetParams(bufferMap);
-
-                            filterStartsWithName.execute(res);
+                            if(userCommand_.length == 2) {
+                                bufferMap.put("file_name", userCommand_[1].trim());
+                                filterStartsWithName.getTransporter().SetParams(bufferMap);
+                                filterStartsWithName.execute(res);
+                            }else {
+                                System.out.println("Неверный синтаксис команды. Используйте help.");
+                            }
                             break;
 
 
                         case ("save"):
-                            save.execute(res);
+                            if (userCommand_.length==1) {
+                                save.execute(res);
+                            }else {
+                                System.out.println("Неверный синтаксис команды. Используйте help.");
+                            }
                             break;
+
+
                         case ("execute_script"):
+                            if(userCommand_.length == 2) {
                                 bufferMap.put("file_name", userCommand_[1].trim());
                                 executeScript.getTransporter().SetParams(bufferMap);
                                 executeScript.execute(res);
+                            }else {
+                                System.out.println("Неверный синтаксис команды. Используйте help.");
+                            }
                             break;
 
                         case ("exit"):
-                            exit.execute(res);
+                            if (userCommand_.length==1) {
+                                exit.execute(res);
+                            }else {
+                                System.out.println("Неверный синтаксис команды. Используйте help.");
+                            }
                         case ("history"):
-                            history.execute(res);
+                            if (userCommand_.length==1) {
+                                history.execute(res);
+                            }else {
+                                System.out.println("Неверный синтаксис команды. Используйте help.");
+                            }
                             break;
+
+
                         case ("add_if_min"):
-                            addIfMin.execute(res);
+                            if (userCommand_.length==1) {
+                                addIfMin.execute(res);
+                            }else {
+                                System.out.println("Неверный синтаксис команды. Используйте help.");
+                            }
                             break;
+
+
                         case ("help"):
-                            help.execute(res);
+                            if (userCommand_.length==1) {
+                                help.execute(res);
+                            }else {
+                                System.out.println("Неверный синтаксис команды. Используйте help.");
+                            }
                             break;
+
+
                         default:
                             if (!userCommand_[0].equals("")) {
                                 System.out.println("Кажется, что-то пошло не так. Чтобы посмотреть доступные команды, используйте 'help'");
