@@ -337,19 +337,20 @@ public class CollectionUnit implements receiver {
         System.out.println("help: Вывести информацию по доступным командам");
         System.out.println("info: Вывести информацию о коллекции");
         System.out.println("show: Вывести все элементы коллекции");
-        System.out.println("add: Добавить элемент в коллекцию. Синтаксис: add {name height}");
-        System.out.println("update: Обновить данные элемента с заданным id коллекции. Синтаксис: update id {name height}");
+        System.out.println("add: Добавить элемент в коллекцию.");
+        System.out.println("update: Обновить данные элемента с заданным id коллекции. Синтаксис: update id");
         System.out.println("remove_by_id: Удалить элемент с заданным id из коллекции. Синтаксис: remove_by_id id");
         System.out.println("clear: Очистить коллекцию");
         System.out.println("save: Сохранить коллекцию в файл");
         System.out.println("execute_script: Выполнить скрипт, записанный в файл. Синтаксис: execute_script filename");
         System.out.println("exit: Завершить программу");
         System.out.println("remove_head: Удалить первый элемент коллекции");
-        System.out.println("add_if_min: Добавлить элемент в коллекцию, если он меньше, чем все имеющиеся элементы коллекции. Синтаксис: add_if_min {name height}");
+        System.out.println("add_if_min: Добавлить элемент в коллекцию, если он меньше, чем все имеющиеся элементы коллекции.");
         System.out.println("history: Вывести последние 8 команд (если их было меньше 8, то выведет меньше 8)");
         System.out.println("remove_any_by_nationality: Удалить один элемент коллекции, с заданной национальностью. Синтаксис: remove_any_by_nationality nationality");
         System.out.println("count_less_than_location: Вывести количество элементов коллекции, значения поля location которых меньше заданного. Синтаксис: count_less_than_location location");
         System.out.println("filter_starts_with_name: Вывести элементы коллекции, имя которых начинается с заданной подстроки. Синтаксис: filter_starts_with_name string");
+        System.out.println("Все команды, синтаксис которых не обозначен в описании команды вводятся просто вводом названия команды без каких-либо символов после них.");
     }
 
     @Override

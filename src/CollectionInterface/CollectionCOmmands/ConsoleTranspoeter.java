@@ -1,5 +1,6 @@
 package CollectionInterface.CollectionCOmmands;
 
+import ClassCollection.FieldPolice;
 import ColClass.Color;
 import ColClass.Country;
 
@@ -14,6 +15,7 @@ import java.util.Scanner;
  */
 public class ConsoleTranspoeter extends Transporter {
     private Integer i=0;
+    String sb;
 
     /**
      * установка значений составных полей
@@ -31,20 +33,17 @@ public class ConsoleTranspoeter extends Transporter {
             //catchN = scan.nextLine();
         }
 
+        System.out.println("Введите рост. Для отделения дробной части используйте запятую.");
         while (true) {
             try {
-                System.out.println("Введите рост.");
                 System.out.print("$");
-                if (scan.hasNextDouble()) {
-                    height = scan.nextDouble();
-                    catchN=scan.nextLine();
+                sb = scan.nextLine();
+                if (!sb.equals("")){
+                    height = Double.parseDouble(sb);
                     break;
-                }else {
-                    catchN = scan.next();
-                    System.err.println("Некорректное поле, try again");
                 }
             } catch (Exception ex) {
-                System.err.println("Некорректное поле, try again");
+                System.out.println("Некорректное поле, try again");
             }
         }
 
@@ -83,37 +82,32 @@ public class ConsoleTranspoeter extends Transporter {
                 System.err.println("Некорректное поле.");
             }
         }
+
+        System.out.println("Введите кооридинаты X для точного описания объекта точки. Для отделения дробной части используйте запятую. ");
         while (true) {
             try {
-                    System.out.println("Введите кооридинаты X для точного описания объекта точки ");
                 System.out.print("$");
-                if (scan.hasNextFloat()) {
-                        x = scan.nextFloat();
-                        break;
-                    }else {
-                        catchN = scan.next();
-                        System.err.println("Некорректное поле, try again");
-                    }
-
-
-            } catch (Exception ex) {
-                System.err.println("Некорректное поле, try again");
-            }
-        }
-        while (true) {
-            try {
-                System.out.println("Введите кооридинаты Y для точного описания объекта точки ");
-                System.out.print("$");
-                if (scan.hasNextDouble()) {
-                    y = scan.nextDouble();
-                    catchN=scan.nextLine();
+                sb = scan.nextLine();
+                if (!sb.equals("")){
+                    x = Float.parseFloat(sb);
                     break;
-                }else {
-                    catchN = scan.next();
-                    System.err.println("Некорректное поле, try again");
                 }
             } catch (Exception ex) {
-                System.err.println("Некорректное поле, try again");
+                System.out.println("Некорректное поле, try again");
+            }
+        }
+
+        System.out.println("Введите кооридинаты Y для точного описания объекта точки. Для отделения дробной части используйте запятую.");
+        while (true) {
+            try {
+                System.out.print("$");
+                sb = scan.nextLine();
+                if (!sb.equals("")){
+                    y = Double.parseDouble(sb);
+                    break;
+                }
+            } catch (Exception ex) {
+                System.out.println("Некорректное поле, try again");
             }
         }
 
@@ -123,34 +117,31 @@ public class ConsoleTranspoeter extends Transporter {
                     name1 = scan.nextLine();
                     //catchN = scan.nextLine();
                 }
+        System.out.println("Введите кооридинаты X для точного описания точки локации. Для отделения дробной части используйте запятую. ");
         while (true) {
             try {
-                System.out.println("Введите кооридинаты X для точного описания точки локации ");
                 System.out.print("$");
-                if (scan.hasNextFloat()) {
-                    x1 = scan.nextFloat();
+                sb = scan.nextLine();
+                if (!sb.equals("")){
+                    x1 = Float.parseFloat(sb);
                     break;
-                }else {
-                    catchN = scan.next();
-                    System.err.println("Некорректное поле, try again");
                 }
             } catch (Exception ex) {
-                System.err.println("Некорректное поле, try again");
+                System.out.println("Некорректное поле, try again");
             }
         }
+
+        System.out.println("Введите кооридинаты Y для точного описания точки локации. Для отделения дробной части используйте запятую.");
         while (true) {
             try {
-                System.out.println("Введите кооридинаты Y для точного описания точки локации ");
                 System.out.print("$");
-                if (scan.hasNextFloat()) {
-                    y1 = scan.nextFloat();
+                sb = scan.nextLine();
+                if (!sb.equals("")){
+                    y1 = Double.parseDouble(sb);
                     break;
-                }else {
-                    catchN = scan.next();
-                    System.err.println("Некорректное поле, try again");
                 }
             } catch (Exception ex) {
-                System.err.println("Некорректное поле, try again");
+                System.out.println("Некорректное поле, try again");
             }
         }
     }
