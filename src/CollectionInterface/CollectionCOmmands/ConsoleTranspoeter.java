@@ -33,7 +33,7 @@ public class ConsoleTranspoeter extends Transporter {
             //catchN = scan.nextLine();
         }
 
-        System.out.println("Введите рост. Для отделения дробной части используйте запятую.");
+        System.out.println("Введите рост. Для отделения дробной части используйте точку.");
         while (true) {
             try {
                 System.out.print("$");
@@ -83,7 +83,7 @@ public class ConsoleTranspoeter extends Transporter {
             }
         }
 
-        System.out.println("Введите кооридинаты X для точного описания объекта точки. Для отделения дробной части используйте запятую. ");
+        System.out.println("Введите кооридинаты X для точного описания объекта точки. Для отделения дробной части используйте точку. ");
         while (true) {
             try {
                 System.out.print("$");
@@ -97,7 +97,7 @@ public class ConsoleTranspoeter extends Transporter {
             }
         }
 
-        System.out.println("Введите кооридинаты Y для точного описания объекта точки. Для отделения дробной части используйте запятую.");
+        System.out.println("Введите кооридинаты Y для точного описания объекта точки. Для отделения дробной части используйте точку.");
         while (true) {
             try {
                 System.out.print("$");
@@ -117,7 +117,7 @@ public class ConsoleTranspoeter extends Transporter {
                     name1 = scan.nextLine();
                     //catchN = scan.nextLine();
                 }
-        System.out.println("Введите кооридинаты X для точного описания точки локации. Для отделения дробной части используйте запятую. ");
+        System.out.println("Введите кооридинаты X для точного описания точки локации. Для отделения дробной части используйте точку. ");
         while (true) {
             try {
                 System.out.print("$");
@@ -131,7 +131,7 @@ public class ConsoleTranspoeter extends Transporter {
             }
         }
 
-        System.out.println("Введите кооридинаты Y для точного описания точки локации. Для отделения дробной части используйте запятую.");
+        System.out.println("Введите кооридинаты Y для точного описания точки локации. Для отделения дробной части используйте точку.");
         while (true) {
             try {
                 System.out.print("$");

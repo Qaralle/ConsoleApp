@@ -1,3 +1,3 @@
 info
-execute_script C:\Users\proge\IdeaProjects\ConsoleApp2\src\d1.txt
+execute_script d1.txt
 exit

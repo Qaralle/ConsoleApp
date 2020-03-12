@@ -20,10 +20,6 @@ public class Main {
             l1.interactiveMod("$");
         }catch (Exception ex){
             System.err.print("Файл не найден");
-            CT.load("C:\\Users\\user\\Documents\\ConsoleApp\\src\\PersonClassTest.json");
-            receiver CU = new CollectionUnit(CT,"C:\\Users\\user\\Documents\\ConsoleApp\\src\\PersonClassTest.json");
-            Terminal l1 = new ConsoleTerminal(CU);
-            l1.interactiveMod("$");
         }
 
 

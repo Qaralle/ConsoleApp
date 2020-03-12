@@ -9,4 +9,4 @@ CHINA
 DASFSDF
 12,1
 12,1
-execute_script C:\Users\proge\IdeaProjects\ConsoleApp2\src\d2.txt
+execute_script d2.txt

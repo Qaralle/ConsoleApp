@@ -106,16 +106,20 @@ public abstract class Terminal implements invoker {
 
                         case ("update"):
                             if (userCommand_.length == 2) {
-                            bufferMap.put("id", userCommand_[1].trim());
-                                for (int i = 0; i < res.getCT().GetCollection().size(); ++i) {
-                                    if (Long.parseLong(bufferMap.get("id")) == res.getCT().GetCollection().get(i).getId()) {
-                                        bufferMap.put("index", String.valueOf(i));
-                                        update.getTransporter().SetParams(bufferMap);
-                                        update.execute(res);
-                                        break;
-                                    }
-                                    if (i == res.getCT().GetCollection().size() - 1) {
-                                        System.out.println("Объекта с таким id нет");
+                                if (res.getCT().GetCollection().size()==0){
+                                    System.out.println("Коллекция пуста!");
+                                }else {
+                                    bufferMap.put("id", userCommand_[1].trim());
+                                    for (int i = 0; i < res.getCT().GetCollection().size(); ++i) {
+                                        if (Long.parseLong(bufferMap.get("id")) == res.getCT().GetCollection().get(i).getId()) {
+                                            bufferMap.put("index", String.valueOf(i));
+                                            update.getTransporter().SetParams(bufferMap);
+                                            update.execute(res);
+                                            break;
+                                        }
+                                        if (i == res.getCT().GetCollection().size() - 1) {
+                                            System.out.println("Объекта с таким id нет");
+                                        }
                                     }
                                 }
                             }else {
