@@ -56,7 +56,7 @@ public class FileTerminal extends Terminal  {
             for (int j=0; j<files_names.size();j++) {
 
                 if (file_name.equals(files_names.get(j))) {
-                    System.out.println("sdfsdfsdfs");
+                    System.out.println("Упс! Не балуй!!!!");
                     i = false;
                     while (it.hasNext()){
                         String st= it.next();

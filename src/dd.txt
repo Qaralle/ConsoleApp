@@ -1,12 +1,2 @@
-add
-SADASDASD
-1,1
-GREEN
-GREEN
-CHINA
-1,1
-1,1
-SDFSDF
-1,1
-1,1
-show
+
+info

@@ -1,2 +1,12 @@
-show
+add
+valera
+12,1
+GREEN
+GREEN
+CHINA
+12,1
+12,1
+DASFSDF
+12,1
+12,1
 execute_script C:\Users\proge\IdeaProjects\ConsoleApp2\src\dd.txt
